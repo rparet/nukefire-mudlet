@@ -1,0 +1,32 @@
+[
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "Miniconsole",
+    "script": ""
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "initialize",
+    "script": ""
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "directions",
+    "script": ""
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "compressDirs",
+    "script": ""
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "combatSkill",
+    "script": ""
+  }
+]

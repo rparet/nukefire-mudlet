@@ -1,0 +1,88 @@
+[
+  {
+    "name": "levelUp",
+    "isActive": "yes",
+    "isFolder": "no",
+    "command": "gt level!",
+    "multiline": "no",
+    "multielineDelta": "0",
+    "matchall": "",
+    "filter": "",
+    "fireLength": "0",
+    "highlight": "",
+    "patterns": [
+      {
+        "pattern": "You rise a level!",
+        "type": "startOfLine"
+      }
+    ],
+    "script": ""
+  },
+  {
+    "name": "YouDied",
+    "isActive": "yes",
+    "isFolder": "no",
+    "multiline": "no",
+    "multielineDelta": "0",
+    "matchall": "",
+    "filter": "",
+    "fireLength": "0",
+    "soundFile": "/Users/rparet/.config/mudlet/profiles/Straylight/media/ouch.wav",
+    "highlight": "",
+    "patterns": [
+      {
+        "pattern": "You are dead!  Sorry...",
+        "type": "startOfLine"
+      }
+    ],
+    "script": ""
+  },
+  {
+    "name": "GrabCredits",
+    "isActive": "yes",
+    "isFolder": "no",
+    "multiline": "yes",
+    "multielineDelta": "1",
+    "matchall": "",
+    "filter": "",
+    "fireLength": "0",
+    "highlight": "",
+    "patterns": [
+      {
+        "pattern": "You get a",
+        "type": "substring"
+      },
+      {
+        "pattern": "You get (?\u003citem\u003e.*) from the",
+        "type": "regex"
+      },
+      {
+        "pattern": "There were (?\u003ccredits\u003e.*) credits",
+        "type": "regex"
+      }
+    ],
+    "script": ""
+  },
+  {
+    "name": "SortItems",
+    "isActive": "no",
+    "isFolder": "no",
+    "multiline": "yes",
+    "multielineDelta": "1",
+    "matchall": "",
+    "filter": "",
+    "fireLength": "0",
+    "highlight": "",
+    "patterns": [
+      {
+        "pattern": "You get",
+        "type": "startOfLine"
+      },
+      {
+        "pattern": "You get (?\u003citem\u003e.*) from the",
+        "type": "regex"
+      }
+    ],
+    "script": ""
+  }
+]

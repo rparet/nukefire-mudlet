@@ -1,0 +1,1 @@
+expandAlias(':lua send("retrieve "..getProfileName())')

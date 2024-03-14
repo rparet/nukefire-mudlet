@@ -1,0 +1,26 @@
+[
+       {
+              "isActive": "yes",
+              "isFolder": "no",
+              "name": "InitDatabase",
+              "script": ""
+       },
+       {
+              "isActive": "yes",
+              "isFolder": "no",
+              "name": "IdentifyFromDb",
+              "script": ""
+       },
+       {
+              "isActive": "yes",
+              "isFolder": "no",
+              "name": "eq2table",
+              "script": ""
+       },
+       {
+              "isActive": "yes",
+              "isFolder": "no",
+              "name": "isInEqTable",
+              "script": ""
+       }
+]

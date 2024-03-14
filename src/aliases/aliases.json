@@ -1,0 +1,117 @@
+[
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "retrieveall",
+    "regex": "retrieveall",
+    "script": ""
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "fgac",
+    "regex": "fgac",
+    "script": "",
+    "command": "\u003eFrontline gac"
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "heal1",
+    "regex": "heal1",
+    "script": "",
+    "command": "\u003eArmitage sling 'rejuv' Straylight"
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "heal",
+    "regex": "^heal$",
+    "script": "",
+    "command": "\u003eArmitage sling 'restoration' Straylight"
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "heal2",
+    "regex": "heal2",
+    "script": "",
+    "command": "\u003eArmitage sling 'rejuv'"
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "heal3",
+    "regex": "heal3",
+    "script": "",
+    "command": "\u003eArmitage sling 'rejuv' Frontline"
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "getMoney",
+    "regex": "getmoney",
+    "script": ""
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "storeMoney",
+    "regex": "storemoney",
+    "script": ""
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "flurry",
+    "regex": "^flurry$",
+    "script": "",
+    "command": "\u003eFrontline flurry"
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "preciseStrike",
+    "regex": "^ps$",
+    "script": "",
+    "command": "\u003eFrontline precisestrike arm"
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "InitMSDP",
+    "regex": "^msdp$",
+    "script": ""
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "GroupUp",
+    "regex": "^groupup$",
+    "script": "",
+    "command": ": fol Straylight ; group new"
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "navigate",
+    "regex": "^nav (?\u003clocation\u003e.*)$",
+    "script": ""
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "disrupt",
+    "regex": "^disrupt$",
+    "script": "",
+    "command": "\u003ePrismal sling 'disruption'"
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "circle",
+    "regex": "^circle$",
+    "script": "",
+    "command": "\u003eThought circle"
+  }
+]

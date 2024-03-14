@@ -1,0 +1,1 @@
+setTriggerStayOpen("OthersEquipment", 0)

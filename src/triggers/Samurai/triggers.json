@@ -1,0 +1,21 @@
+[
+  {
+    "name": "battlerites",
+    "isActive": "yes",
+    "isFolder": "no",
+    "command": "sling 'battle rites'",
+    "multiline": "no",
+    "multielineDelta": "0",
+    "matchall": "",
+    "filter": "",
+    "fireLength": "0",
+    "highlight": "",
+    "patterns": [
+      {
+        "pattern": "You feel less prepared for battle.",
+        "type": "startOfLine"
+      }
+    ],
+    "script": ""
+  }
+]

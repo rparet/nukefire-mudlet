@@ -1,0 +1,29 @@
+[
+       {
+              "isActive": "yes",
+              "isFolder": "no",
+              "name": "HealthHandler",
+              "eventHandlerList": [
+                     "msdp.HEALTH"
+              ],
+              "script": ""
+       },
+       {
+              "isActive": "yes",
+              "isFolder": "no",
+              "name": "ManaHandler",
+              "eventHandlerList": [
+                     "msdp.MANA"
+              ],
+              "script": ""
+       },
+       {
+              "isActive": "yes",
+              "isFolder": "no",
+              "name": "MoveHandler",
+              "eventHandlerList": [
+                     "msdp.MOVEMENT"
+              ],
+              "script": ""
+       }
+]

@@ -1,0 +1,173 @@
+[
+       {
+              "name": "claws",
+              "isActive": "yes",
+              "isFolder": "no",
+              "command": "grow claws",
+              "multiline": "no",
+              "multielineDelta": "0",
+              "matchall": "",
+              "filter": "",
+              "fireLength": "0",
+              "highlight": "",
+              "patterns": [
+                     {
+                            "pattern": "You no longer have sharp claws!",
+                            "type": "exactMatch"
+                     }
+              ],
+              "script": ""
+       },
+       {
+              "name": "muscles",
+              "isActive": "yes",
+              "isFolder": "no",
+              "command": "grow muscle",
+              "multiline": "no",
+              "multielineDelta": "0",
+              "matchall": "",
+              "filter": "",
+              "fireLength": "0",
+              "highlight": "",
+              "patterns": [
+                     {
+                            "pattern": "Your muscles are no longer quite so impressive!",
+                            "type": "exactMatch"
+                     }
+              ],
+              "script": ""
+       },
+       {
+              "name": "arms",
+              "isActive": "yes",
+              "isFolder": "no",
+              "command": "grow arms",
+              "multiline": "no",
+              "multielineDelta": "0",
+              "matchall": "",
+              "filter": "",
+              "fireLength": "0",
+              "highlight": "",
+              "patterns": [
+                     {
+                            "pattern": "Your extra arms suck back into your body!",
+                            "type": "exactMatch"
+                     }
+              ],
+              "script": ""
+       },
+       {
+              "name": "shell",
+              "isActive": "yes",
+              "isFolder": "no",
+              "command": "grow shell",
+              "multiline": "no",
+              "multielineDelta": "0",
+              "matchall": "",
+              "filter": "",
+              "fireLength": "0",
+              "highlight": "",
+              "patterns": [
+                     {
+                            "pattern": "Your scaly shell slowly shrinks back into your skin.",
+                            "type": "exactMatch"
+                     }
+              ],
+              "script": ""
+       },
+       {
+              "name": "body",
+              "isActive": "yes",
+              "isFolder": "no",
+              "command": "grow body",
+              "multiline": "no",
+              "multielineDelta": "0",
+              "matchall": "",
+              "filter": "",
+              "fireLength": "0",
+              "highlight": "",
+              "patterns": [
+                     {
+                            "pattern": "Your limbs are no longer quite so long.",
+                            "type": "exactMatch"
+                     }
+              ],
+              "script": ""
+       },
+       {
+              "name": "brain",
+              "isActive": "yes",
+              "isFolder": "no",
+              "command": "grow brain",
+              "multiline": "no",
+              "multielineDelta": "0",
+              "matchall": "",
+              "filter": "",
+              "fireLength": "0",
+              "highlight": "",
+              "patterns": [
+                     {
+                            "pattern": "Your brain contracts back to its original size.",
+                            "type": "exactMatch"
+                     }
+              ],
+              "script": ""
+       },
+       {
+              "name": "eyes",
+              "isActive": "yes",
+              "isFolder": "no",
+              "command": "grow eyes",
+              "multiline": "no",
+              "multielineDelta": "0",
+              "matchall": "",
+              "filter": "",
+              "fireLength": "0",
+              "highlight": "",
+              "patterns": [
+                     {
+                            "pattern": "Your eyes sink back into your face!",
+                            "type": "exactMatch"
+                     }
+              ],
+              "script": ""
+       },
+       {
+              "name": "fingers",
+              "isActive": "yes",
+              "isFolder": "no",
+              "command": "grow fingers",
+              "multiline": "no",
+              "multielineDelta": "0",
+              "matchall": "",
+              "filter": "",
+              "fireLength": "0",
+              "highlight": "",
+              "patterns": [
+                     {
+                            "pattern": "Your fingers droop back to their stubby selves.",
+                            "type": "exactMatch"
+                     }
+              ],
+              "script": ""
+       },
+       {
+              "name": "fins",
+              "isActive": "yes",
+              "isFolder": "no",
+              "command": "grow fins",
+              "multiline": "no",
+              "multielineDelta": "0",
+              "matchall": "",
+              "filter": "",
+              "fireLength": "0",
+              "highlight": "",
+              "patterns": [
+                     {
+                            "pattern": "Your slimy fins are absorbed back into your flesh.",
+                            "type": "exactMatch"
+                     }
+              ],
+              "script": ""
+       }
+]

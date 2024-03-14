@@ -1,0 +1,10 @@
+{
+  "package": "nukefire",
+  "title": "scripts for nukefire: beyond thunderdome",
+  "description": "",
+  "version": "1.0.0",
+  "author": "Frontline",
+  "icon": "",
+  "dependencies": "",
+  "outputFile": true
+}

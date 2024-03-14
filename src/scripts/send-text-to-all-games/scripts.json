@@ -1,0 +1,11 @@
+[
+       {
+              "isActive": "yes",
+              "isFolder": "no",
+              "name": "sysSendAllProfiles",
+              "eventHandlerList": [
+                     "sysSendAllProfiles"
+              ],
+              "script": ""
+       }
+]

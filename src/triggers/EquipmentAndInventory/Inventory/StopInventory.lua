@@ -1,0 +1,1 @@
+setTriggerStayOpen("Inventory", 0)

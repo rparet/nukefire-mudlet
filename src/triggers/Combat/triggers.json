@@ -1,0 +1,20 @@
+[
+  {
+    "name": "JoinFight",
+    "isActive": "yes",
+    "isFolder": "no",
+    "multiline": "no",
+    "multielineDelta": "0",
+    "matchall": "",
+    "filter": "",
+    "fireLength": "0",
+    "highlight": "",
+    "patterns": [
+      {
+        "pattern": "You join the fight!",
+        "type": "startOfLine"
+      }
+    ],
+    "script": ""
+  }
+]

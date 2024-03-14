@@ -1,0 +1,16 @@
+[
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "Send text to all profiles",
+    "regex": "^:(.*)$",
+    "script": "-- prefix with : to send text or run an alias in all open profiles that have this script installed\n-- for example - :hi or :follow bob\nlocal matchedText = matches[2]\nexpandAlias(matchedText)\nraiseGlobalEvent(\"sysSendAllProfiles\", matchedText)\n"
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "Send text to one profile",
+    "regex": "^\u003e(.*)$",
+    "script": "-- prefix with > to send text or run an alias in all open profiles that have this script installed\n-- for example - >Frontline hi \nlocal matchedText = matches[2]\nraiseGlobalEvent(\"sysSendOneProfile\", matchedText)"
+  }
+]

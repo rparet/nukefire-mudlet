@@ -1,0 +1,38 @@
+[
+       {
+              "name": "LookupInventory",
+              "isActive": "yes",
+              "isFolder": "no",
+              "multiline": "no",
+              "multielineDelta": "0",
+              "matchall": "",
+              "filter": "",
+              "fireLength": "0",
+              "highlight": "",
+              "patterns": [
+                     {
+                            "pattern": "(?\u003cobj\u003e^[^()\\n]*)[^()]",
+                            "type": "regex"
+                     }
+              ],
+              "script": ""
+       },
+       {
+              "name": "StopInventory",
+              "isActive": "yes",
+              "isFolder": "no",
+              "multiline": "no",
+              "multielineDelta": "0",
+              "matchall": "",
+              "filter": "",
+              "fireLength": "0",
+              "highlight": "",
+              "patterns": [
+                     {
+                            "pattern": "\u003c",
+                            "type": "startOfLine"
+                     }
+              ],
+              "script": ""
+       }
+]

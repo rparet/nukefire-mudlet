@@ -1,0 +1,21 @@
+[
+  {
+    "name": "Holyfist",
+    "isActive": "yes",
+    "isFolder": "no",
+    "command": "sling 'holyfist'",
+    "multiline": "no",
+    "multielineDelta": "0",
+    "matchall": "",
+    "filter": "",
+    "fireLength": "0",
+    "highlight": "",
+    "patterns": [
+      {
+        "pattern": "Your fists no longer glow with a holy aura.",
+        "type": "startOfLine"
+      }
+    ],
+    "script": ""
+  }
+]

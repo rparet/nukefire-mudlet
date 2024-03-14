@@ -1,0 +1,22 @@
+[
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "eventHeal",
+    "eventHandlerList": ["heal"],
+    "script": ""
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "eventInvig",
+    "eventHandlerList": ["invig"],
+    "script": ""
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "heal",
+    "script": ""
+  }
+]

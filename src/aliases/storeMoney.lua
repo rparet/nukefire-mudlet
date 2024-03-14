@@ -3,6 +3,6 @@ if msdp.MONEY == nil then
     return
 end
 send("get card blast")
-send("deposit " .. credits)
+send("deposit " .. msdp.MONEY)
 send("balance")
 send("put card blast")

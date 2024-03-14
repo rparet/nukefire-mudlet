@@ -11,7 +11,7 @@ healer = healer or "Armitage"
 dps = dps or "Frontline"
 
 
-local function initMSDP(_, protocol)
+function initMSDP(_, protocol)
     if protocol == "MSDP" then
         sendMSDP("REPORT", "AFFECTS", "ALIGNMENT", "EXPERIENCE", "EXPERIENCE_MAX", "EXPERIENCE_TNL", "HEALTH",
             "HEALTH_MAX", "LEVEL", "RACE", "CLASS", "MANA", "MANA_MAX", "WIMPY", "PRACTICE", "MONEY", "MOVEMENT",

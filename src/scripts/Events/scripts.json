@@ -2,27 +2,6 @@
   {
     "isActive": "yes",
     "isFolder": "no",
-    "name": "eventDamage",
-    "eventHandlerList": ["damage"],
-    "script": ""
-  },
-  {
-    "isActive": "yes",
-    "isFolder": "no",
-    "name": "eventLowMana",
-    "eventHandlerList": ["mana"],
-    "script": ""
-  },
-  {
-    "isActive": "yes",
-    "isFolder": "no",
-    "name": "eventLowMove",
-    "eventHandlerList": ["move"],
-    "script": ""
-  },
-  {
-    "isActive": "yes",
-    "isFolder": "no",
     "name": "eventSendMoney",
     "eventHandlerList": ["sendmoney"],
     "script": ""

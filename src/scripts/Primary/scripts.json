@@ -2,29 +2,28 @@
   {
     "isActive": "yes",
     "isFolder": "no",
-    "name": "HealthHandler",
-    "eventHandlerList": ["msdp.HEALTH"],
+    "name": "eventDamage",
+    "eventHandlerList": ["damage"],
     "script": ""
   },
   {
     "isActive": "yes",
     "isFolder": "no",
-    "name": "ManaHandler",
-    "eventHandlerList": ["msdp.MANA"],
+    "name": "eventLowMana",
+    "eventHandlerList": ["mana"],
     "script": ""
   },
   {
     "isActive": "yes",
     "isFolder": "no",
-    "name": "MoveHandler",
-    "eventHandlerList": ["msdp.MOVEMENT"],
+    "name": "eventLowMove",
+    "eventHandlerList": ["move"],
     "script": ""
   },
   {
     "isActive": "yes",
     "isFolder": "no",
-    "name": "ClassHandler",
-    "eventHandlerList": ["msdp.CLASS"],
+    "name": "Miniconsole",
     "script": ""
   }
 ]

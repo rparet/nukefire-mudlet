@@ -1,0 +1,58 @@
+[
+  {
+    "name": "Inventory",
+    "isActive": "yes",
+    "isFolder": "yes",
+    "multiline": "no",
+    "multielineDelta": "0",
+    "matchall": "",
+    "filter": "",
+    "fireLength": "45",
+    "highlight": "",
+    "patterns": [
+      {
+        "pattern": "You are carrying:",
+        "type": "exactMatch"
+      },
+      { "pattern": "storage (here):", "type": "startOfLine" }
+    ],
+    "script": ""
+  },
+  {
+    "name": "Equipment",
+    "isActive": "yes",
+    "isFolder": "yes",
+    "multiline": "no",
+    "multielineDelta": "0",
+    "matchall": "",
+    "filter": "",
+    "fireLength": "45",
+    "highlight": "",
+    "patterns": [
+      {
+        "pattern": "You are using:",
+        "type": "exactMatch"
+      }
+    ],
+    "script": ""
+  },
+  {
+    "name": "OthersEquipment",
+    "isActive": "yes",
+    "isFolder": "yes",
+    "multiline": "no",
+    "multielineDelta": "0",
+    "matchall": "",
+    "filter": "",
+    "fireLength": "45",
+    "highlight": "",
+    "patterns": [
+      {
+        "pattern": "You see nothing special about",
+        "type": "startOfLine"
+      },
+      { "pattern": "3", "type": "spacer" }
+    ],
+    "script": ""
+  }
+]

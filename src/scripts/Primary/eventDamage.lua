@@ -1,3 +1,3 @@
-function eventDamage(_, healthPercent, profileName)
-  display(profileName.." is taking damage!!!")
+function eventDamage(_, profileName)
+  display(profileName .. " is taking damage!!!")
 end

@@ -1,3 +1,3 @@
-function eventLowMove(_, unused, profileName)
-  display(profileName.." low move!")
+function eventLowMove(_, profileName)
+  display(profileName .. " low move!")
 end

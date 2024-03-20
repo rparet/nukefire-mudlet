@@ -30,6 +30,7 @@ eqPositionTable = {
     ["<pierced lower lip>"] = "PIERCING",
     ["<pierced nose>"] = "PIERCING",
     ["<pierced septum>"] = "PIERCING",
+    ["<pierced right nostril>"] = "PIERCING",
     ["<adorned to headwear>"] = "ADORNED",
     ["<strapped to right shoulder>"] = "SHOULDER",
     ["<strapped to left shoulder>"] = "SHOULDER",

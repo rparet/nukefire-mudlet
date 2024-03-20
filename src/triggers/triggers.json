@@ -19,6 +19,25 @@
     "script": ""
   },
   {
+    "name": "Tunnel",
+    "isActive": "yes",
+    "isFolder": "no",
+    "command": "gt Got stuck in a tunnel!",
+    "multiline": "no",
+    "multielineDelta": "0",
+    "matchall": "",
+    "filter": "",
+    "fireLength": "0",
+    "highlight": "",
+    "patterns": [
+      {
+        "pattern": "There isn’t enough room for you to go there!",
+        "type": "startOfLine"
+      }
+    ],
+    "script": ""
+  },
+  {
     "name": "YouDied",
     "isActive": "yes",
     "isFolder": "no",
@@ -82,6 +101,21 @@
         "pattern": "You get (?\u003citem\u003e.*) from the",
         "type": "regex"
       }
+    ],
+    "script": ""
+  },
+  {
+    "name": "Groups",
+    "isActive": "yes",
+    "isFolder": "yes",
+    "multiline": "no",
+    "multielineDelta": "0",
+    "matchall": "",
+    "filter": "",
+    "fireLength": "5",
+    "highlight": "",
+    "patterns": [
+      { "pattern": "Your group consists of:", "type": "startOfLine" }
     ],
     "script": ""
   }

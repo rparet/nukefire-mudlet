@@ -1,14 +1,6 @@
 -- Baseline setup functions
 
 msdp = msdp or {}
-gaugesTable = gaugesTable or {}
-
-
--- setup roles to avoid hardcoding profile names
--- change these to match your characters
-tank = tank or "Straylight"
-healer = healer or "Armitage"
-dps = dps or "Frontline"
 
 
 function initMSDP(_, protocol)
@@ -23,12 +15,78 @@ end
 
 registerAnonymousEventHandler("sysProtocolEnabled", initMSDP)
 
-if not gaugesTable.healthBar then
-    createGauge("healthBar", 400, 20, 1150, 875, nil, "green")
-end
-if not gaugesTable.manaBar then
-    createGauge("manaBar", 400, 20, 1150, 855, nil, "blue")
-end
-if not gaugesTable.moveBar then
-    createGauge("moveBar", 400, 20, 1150, 835, nil, "light_sky_blue")
-end
+
+hpBar = Geyser.Gauge:new({
+    name = "hpbar",
+    x = "50%",
+    y = "85%",
+    width = "25%",
+    height = "2.5%",
+})
+
+hpBar.front:setStyleSheet(
+    [[background-color: chartreuse;
+    border-top: 1px black solid;
+    border-left: 1px black solid;
+    border-bottom: 1px black solid;
+    border-radius: 7;
+    padding: 3px;
+]])
+hpBar.back:setStyleSheet(
+    [[background-color: black;
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+    border-radius: 7;
+    padding: 3px;
+]])
+
+manaBar = Geyser.Gauge:new({
+    name = "manabar",
+    x = "50%",
+    y = "82.5%",
+    width = "25%",
+    height = "2.5%",
+})
+manaBar.front:setStyleSheet(
+    [[background-color: blue;
+    border-top: 1px black solid;
+    border-left: 1px black solid;
+    border-bottom: 1px black solid;
+    border-radius: 7;
+    padding: 3px;
+]])
+manaBar.back:setStyleSheet(
+    [[background-color: black;
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+    border-radius: 7;
+    padding: 3px;
+]])
+
+
+
+moveBar = Geyser.Gauge:new({
+    name = "movebar",
+    x = "50%",
+    y = "80%",
+    width = "25%",
+    height = "2.5%",
+})
+moveBar.front:setStyleSheet(
+    [[background-color: lightskyblue;
+    border-top: 1px black solid;
+    border-left: 1px black solid;
+    border-bottom: 1px black solid;
+    border-radius: 7;
+    padding: 3px;
+]])
+moveBar.back:setStyleSheet(
+    [[background-color: black;
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+    border-radius: 7;
+    padding: 3px;
+]])

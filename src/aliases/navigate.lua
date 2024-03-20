@@ -3,4 +3,4 @@ if not directions[matches[2]] then
     return
 end
 
-send(matches[2])
+send(directions[matches[2]])

@@ -1,3 +1,3 @@
-function eventLowMana(_, unused, profileName)
-  display(profileName.." low mana!")
+function eventLowMana(_, profileName)
+  display(profileName .. " low mana!")
 end

@@ -1,4 +1,4 @@
-function eventSendMoney(_, unused, profileName)
+function eventSendMoney(_, profileName)
   if msdp.MONEY == nil then
     display("No credits set!")
   else

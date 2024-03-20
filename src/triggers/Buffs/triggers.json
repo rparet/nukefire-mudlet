@@ -1,40 +1,38 @@
 [
-       {
-              "name": "sanct",
-              "isActive": "yes",
-              "isFolder": "no",
-              "command": "\u003eArmitage sanct",
-              "multiline": "no",
-              "multielineDelta": "0",
-              "matchall": "",
-              "filter": "",
-              "fireLength": "0",
-              "highlight": "",
-              "patterns": [
-                     {
-                            "pattern": "The white aura around your body fades.",
-                            "type": "exactMatch"
-                     }
-              ],
-              "script": ""
-       },
-       {
-              "name": "bless",
-              "isActive": "yes",
-              "isFolder": "no",
-              "command": "\u003eArmitage bless",
-              "multiline": "no",
-              "multielineDelta": "0",
-              "matchall": "",
-              "filter": "",
-              "fireLength": "0",
-              "highlight": "",
-              "patterns": [
-                     {
-                            "pattern": "You feel less righteous.",
-                            "type": "exactMatch"
-                     }
-              ],
-              "script": ""
-       }
+  {
+    "name": "sanct",
+    "isActive": "yes",
+    "isFolder": "no",
+    "multiline": "no",
+    "multielineDelta": "0",
+    "matchall": "",
+    "filter": "",
+    "fireLength": "0",
+    "highlight": "",
+    "patterns": [
+      {
+        "pattern": "The white aura around your body fades.",
+        "type": "exactMatch"
+      }
+    ],
+    "script": ""
+  },
+  {
+    "name": "bless",
+    "isActive": "yes",
+    "isFolder": "no",
+    "multiline": "no",
+    "multielineDelta": "0",
+    "matchall": "",
+    "filter": "",
+    "fireLength": "0",
+    "highlight": "",
+    "patterns": [
+      {
+        "pattern": "You feel less righteous.",
+        "type": "exactMatch"
+      }
+    ],
+    "script": ""
+  }
 ]

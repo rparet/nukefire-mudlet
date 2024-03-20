@@ -2,25 +2,29 @@
   {
     "isActive": "yes",
     "isFolder": "no",
-    "name": "initialize",
+    "name": "sanct",
+    "regex": "^sanct$",
     "script": ""
   },
   {
     "isActive": "yes",
     "isFolder": "no",
-    "name": "directions",
+    "name": "armor",
+    "regex": "^armor$",
     "script": ""
   },
   {
     "isActive": "yes",
     "isFolder": "no",
-    "name": "compressDirs",
+    "name": "bless",
+    "regex": "^bless$",
     "script": ""
   },
   {
     "isActive": "yes",
     "isFolder": "no",
-    "name": "turboInscribe",
+    "name": "escape",
+    "regex": "^escape$",
     "script": ""
   }
 ]

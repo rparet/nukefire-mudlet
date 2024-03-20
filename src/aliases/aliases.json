@@ -94,6 +94,14 @@
   {
     "isActive": "yes",
     "isFolder": "no",
+    "name": "unGroup",
+    "regex": "^ungroup$",
+    "script": "",
+    "command": ": fol self ; group leave"
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
     "name": "navigate",
     "regex": "^nav (?\u003clocation\u003e.*)$",
     "script": ""
@@ -109,9 +117,38 @@
   {
     "isActive": "yes",
     "isFolder": "no",
+    "name": "disint",
+    "regex": "^disint$",
+    "script": "",
+    "command": "\u003ePrismal sling 'disintegrate'"
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
     "name": "circle",
     "regex": "^circle$",
     "script": "",
     "command": "\u003eThought circle"
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "buff",
+    "regex": "^buff$",
+    "script": ""
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "getAll",
+    "regex": "^ga[cpr]$",
+    "script": ""
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "recall",
+    "regex": "^recall$",
+    "script": ""
   }
 ]

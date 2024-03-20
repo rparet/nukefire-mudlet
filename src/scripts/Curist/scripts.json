@@ -16,6 +16,20 @@
   {
     "isActive": "yes",
     "isFolder": "no",
+    "name": "eventSanct",
+    "eventHandlerList": ["sanct"],
+    "script": ""
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "eventBless",
+    "eventHandlerList": ["bless"],
+    "script": ""
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
     "name": "heal",
     "script": ""
   }

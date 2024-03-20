@@ -23,13 +23,13 @@ directions = {
     ["ktree"] = "run 6ws2wnws2wn3w2n6wu",
     ["greendragon"] = "run 46esdss",
     ["nv"] = "run 6ws2wnws2wn3w2n6wu",
-    ["civic"] = "run 13s4enen38enen3eu",
+    ["civic"] = "run 2dsw6s22e13ne2u2n6wu",
     ["paleman"] = "run 8s4e5w4s3e2se4s7d",
     ["alcatraz"] = "run 9nw8n2wn4wu",
     ["montaire"] = "run 22e15s9w5s7w7su4e2s2w3u9e3u2nes5e",
     ["cyboria"] = "run 2dsw6s22e30n2u",
     ["silicia"] = "run 6ws2wnws2wn3ws5wn8w",
-    ["lw"] = "run 2dsw6s23e2ne2uw3se",
+    ["lw"] = "run 2dsw6s22e2ne2uw3se",
     -- from ocp
     ["skyruin"] = "run 5s2e3s3w2se",
     -- from silicia well
@@ -46,5 +46,9 @@ directions = {
     ["tdome"] = "run wse2s5w2s2w2s2w19s",
     -- from canyonrim
     ["reddragon"] = "run 2d2edwdwsd2ene3nen4enen2e2ne3nw2nenen3es",
-
+    -- from civic center, casablanca
+    ["nyc"] = "run d24ene15n",
+    ["racity"] = "run dw9s7ws2w3se",
+    ["rastatue"] = "run 5e2sene3nwsw ; open cistern; run d10w2s2w4s",
+    ["scorch"] = "run dw9n12e13sw2s"
 }

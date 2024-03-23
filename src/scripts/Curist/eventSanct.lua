@@ -1,4 +1,8 @@
-function eventInvig(_, profileName)
-    display("Caught event invig from " .. profileName)
-    send("sling 'bless' " .. profileName)
+function eventSanct(_, profileName)
+    if profileName then
+        display("Caught event sanct from " .. profileName)
+        send("sling 'sanct' " .. profileName)
+    else
+        send("sling 'sanct' self")
+    end
 end

@@ -1,0 +1,16 @@
+[
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "flurry",
+    "regex": "^flu ?(?<target>.*)$",
+    "script": ""
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "preciseStrike",
+    "regex": "^ps ?(?<target>.*)$",
+    "script": ""
+  }
+]

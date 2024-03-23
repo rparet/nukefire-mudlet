@@ -1,1 +1,1 @@
-initMSDP()
+initMSDP(_, "MSDP")

@@ -2,14 +2,14 @@
   {
     "isActive": "yes",
     "isFolder": "no",
-    "name": "combatSkill",
+    "name": "combatMagic",
     "script": ""
   },
   {
     "isActive": "yes",
     "isFolder": "no",
-    "name": "samurai",
+    "name": "slingerSling",
     "script": "",
-    "eventHandlerList": ["samurai"]
+    "eventHandlerList": ["slinger"]
   }
 ]

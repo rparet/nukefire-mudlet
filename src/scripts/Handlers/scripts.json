@@ -26,5 +26,17 @@
     "name": "ClassHandler",
     "eventHandlerList": ["msdp.CLASS"],
     "script": ""
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "OpponentHandler",
+    "eventHandlerList": [
+      "msdp.OPPONENT_HEALTH",
+      "msdp.OPPONENT_HEALTH_MAX",
+      "msdp.OPPONENT_LEVEL",
+      "msdp.OPPONENT_NAME"
+    ],
+    "script": ""
   }
 ]

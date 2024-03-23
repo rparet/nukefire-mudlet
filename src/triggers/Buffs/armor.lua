@@ -1,5 +1,5 @@
 if msdp.CLASS == "Curist" then
-    send("sling 'aura of protection'")
+    raiseEvent("armor")
 else
     raiseGlobalEvent("armor")
 end

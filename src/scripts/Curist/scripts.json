@@ -30,7 +30,42 @@
   {
     "isActive": "yes",
     "isFolder": "no",
+    "name": "groupBless",
+    "eventHandlerList": ["groupbless"],
+    "script": ""
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
     "name": "heal",
+    "script": ""
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "groupSanct",
+    "eventHandlerList": ["groupsanct"],
+    "script": ""
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "eventEscape",
+    "eventHandlerList": ["escape"],
+    "script": ""
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "eventArmor",
+    "eventHandlerList": ["armor"],
+    "script": ""
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "eventRemovePoison",
+    "eventHandlerList": ["removepoison"],
     "script": ""
   }
 ]

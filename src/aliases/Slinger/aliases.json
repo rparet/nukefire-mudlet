@@ -1,0 +1,23 @@
+[
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "disrupt",
+    "regex": "^disrupt ?(?<target>.*)$",
+    "script": ""
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "disint",
+    "regex": "^disint ?(?<target>.*)$",
+    "script": ""
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "nova",
+    "regex": "^nova ?(?<target>.*)$",
+    "script": ""
+  }
+]

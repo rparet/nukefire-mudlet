@@ -9,7 +9,7 @@
   {
     "isActive": "yes",
     "isFolder": "no",
-    "name": "sysSendAllProfiles",
+    "name": "sysSendOneProfile",
     "eventHandlerList": ["sysSendOneProfile"],
     "script": ""
   }

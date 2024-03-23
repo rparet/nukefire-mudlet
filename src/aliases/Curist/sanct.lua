@@ -1,3 +1,5 @@
-for _, profileName in Group do
-    send("sling 'sanct' " .. profileName)
+if msdp.CLASS == "Curist" then
+    groupSanct()
+else
+    raiseGlobalEvent("groupsanct")
 end

@@ -1,0 +1,5 @@
+send("run eswds")
+send("retrieve " .. getProfileName())
+send("get all from corpse")
+send("wear all." .. getProfileName())
+send("wear all")

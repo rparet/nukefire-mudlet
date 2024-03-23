@@ -1,3 +1,5 @@
-for _, profileName in Group do
-    send("sling 'armor' " .. profileName)
+if msdp.CLASS == "Curist" then
+    groupBless()
+else
+    raiseGlobalEvent("groupbless")
 end

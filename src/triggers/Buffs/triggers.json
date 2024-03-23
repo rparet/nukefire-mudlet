@@ -34,5 +34,41 @@
       }
     ],
     "script": ""
+  },
+  {
+    "name": "armor",
+    "isActive": "yes",
+    "isFolder": "no",
+    "multiline": "no",
+    "multielineDelta": "0",
+    "matchall": "",
+    "filter": "",
+    "fireLength": "0",
+    "highlight": "",
+    "patterns": [
+      {
+        "pattern": "You feel less protected.",
+        "type": "exactMatch"
+      }
+    ],
+    "script": ""
+  },
+  {
+    "name": "armor",
+    "isActive": "yes",
+    "isFolder": "no",
+    "multiline": "no",
+    "multielineDelta": "0",
+    "matchall": "",
+    "filter": "",
+    "fireLength": "0",
+    "highlight": "",
+    "patterns": [
+      {
+        "pattern": "You feel burning poison in your blood, and suffer.",
+        "type": "exactMatch"
+      }
+    ],
+    "script": ""
   }
 ]

@@ -1,2 +1,2 @@
 -- reinitialize MDSP after soft reload
-initMSDP()
+initMSDP(_, "MSDP")

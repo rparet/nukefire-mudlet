@@ -1,38 +1,38 @@
 [
-       {
-              "name": "LookupEq",
-              "isActive": "yes",
-              "isFolder": "no",
-              "multiline": "no",
-              "multielineDelta": "0",
-              "matchall": "",
-              "filter": "",
-              "fireLength": "0",
-              "highlight": "",
-              "patterns": [
-                     {
-                            "pattern": "(?\u003clocation\u003e.*\u003e) *(?\u003cobj\u003e[^(\\n]*)[^()]",
-                            "type": "regex"
-                     }
-              ],
-              "script": ""
-       },
-       {
-              "name": "StopEq",
-              "isActive": "yes",
-              "isFolder": "no",
-              "multiline": "no",
-              "multielineDelta": "0",
-              "matchall": "",
-              "filter": "",
-              "fireLength": "0",
-              "highlight": "",
-              "patterns": [
-                     {
-                            "pattern": "^\\s*$",
-                            "type": "regex"
-                     }
-              ],
-              "script": ""
-       }
+  {
+    "name": "LookupEq",
+    "isActive": "yes",
+    "isFolder": "no",
+    "multiline": "no",
+    "multielineDelta": "0",
+    "matchall": "",
+    "filter": "",
+    "fireLength": "0",
+    "highlight": "",
+    "patterns": [
+      {
+        "pattern": "<(?<location>.+?)>s+(?<obj>.+?)(?: ((?<first>.?)))?(?: ((?<second>.?)))? (?<inscribe>[-<.+?>-])",
+        "type": "regex"
+      }
+    ],
+    "script": ""
+  },
+  {
+    "name": "StopEq",
+    "isActive": "yes",
+    "isFolder": "no",
+    "multiline": "no",
+    "multielineDelta": "0",
+    "matchall": "",
+    "filter": "",
+    "fireLength": "0",
+    "highlight": "",
+    "patterns": [
+      {
+        "pattern": "< (?<hit>d+)H (?<mana>d+)M (?<move>d+)V",
+        "type": "regex"
+      }
+    ],
+    "script": ""
+  }
 ]

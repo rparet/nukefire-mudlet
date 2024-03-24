@@ -1,1 +1,1 @@
-raiseGlobalEvent("slinger", "disinitegrate", matches[2])
+raiseGlobalEvent("slinger", "disintegrate", matches[2])

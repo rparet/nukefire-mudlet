@@ -8,6 +8,7 @@ eqPositionTable = {
     ["<pierced labret>"] = "PIERCING",
     ["<pierced right eyebrow>"] = "PIERCING",
     ["<pierced left brow>"] = "PIERCING",
+    ["<pierced left earlobe>"] = "PIERCING",
     ["<wielded>"] = "WIELD",
     ["<worn about body>"] = "ABOUT",
     ["<worn about waist>"] = "WAIST",

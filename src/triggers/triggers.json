@@ -38,6 +38,25 @@
     "script": ""
   },
   {
+    "name": "Login",
+    "isActive": "yes",
+    "isFolder": "no",
+    "command": "",
+    "multiline": "no",
+    "multielineDelta": "0",
+    "matchall": "",
+    "filter": "",
+    "fireLength": "0",
+    "highlight": "",
+    "patterns": [
+      {
+        "pattern": "*** PRESS RETURN:",
+        "type": "startOfLine"
+      }
+    ],
+    "script": ""
+  },
+  {
     "name": "GrabCredits",
     "isActive": "yes",
     "isFolder": "no",

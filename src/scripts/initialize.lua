@@ -2,6 +2,11 @@
 
 msdp = msdp or {}
 
+-- namespace everything global (eventually) into a Nukefire (Nf) table
+Nf = Nf or {}
+
+Nf.inCombat = Nf.inCombat or false
+
 
 function initMSDP(_, protocol)
     if protocol == "MSDP" then

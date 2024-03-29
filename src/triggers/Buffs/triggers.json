@@ -54,7 +54,7 @@
     "script": ""
   },
   {
-    "name": "armor",
+    "name": "removepoison",
     "isActive": "yes",
     "isFolder": "no",
     "multiline": "no",

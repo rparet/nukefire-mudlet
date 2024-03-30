@@ -3,14 +3,14 @@
     "isActive": "yes",
     "isFolder": "no",
     "name": "flurry",
-    "regex": "^flu ?(?<target>.*)$",
+    "regex": "^flu\\s+?(?<target>.*)$",
     "script": ""
   },
   {
     "isActive": "yes",
     "isFolder": "no",
     "name": "preciseStrike",
-    "regex": "^ps ?(?<target>.*)$",
+    "regex": "^ps\\s+?(?<target>.*)$",
     "script": ""
   }
 ]

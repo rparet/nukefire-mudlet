@@ -1,8 +1,9 @@
 if msdp.MONEY == nil then
-    display("No credits!")
+    Nf.msg("No credits!")
     return
 end
-send("get card blast")
+local bag = Nf.profile.bag.one or "bag"
+send("get card " .. bag)
 send("deposit " .. msdp.MONEY)
 send("balance")
-send("put card blast")
+send("put card " .. bag)

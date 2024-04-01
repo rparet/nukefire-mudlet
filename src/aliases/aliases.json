@@ -30,13 +30,6 @@
   {
     "isActive": "yes",
     "isFolder": "no",
-    "name": "InitMSDP",
-    "regex": "^msdp$",
-    "script": ""
-  },
-  {
-    "isActive": "yes",
-    "isFolder": "no",
     "name": "GroupUp",
     "regex": "^groupup$",
     "script": "",
@@ -76,6 +69,13 @@
     "isFolder": "no",
     "name": "recall",
     "regex": "^recall$",
+    "script": ""
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "bag",
+    "regex": "^bag\\s(\\w+)?\\s?(\\w+)?$",
     "script": ""
   }
 ]

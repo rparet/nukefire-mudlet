@@ -1,10 +1,11 @@
-local bag1 = "willy"
-local bag2 = "willy"
-local bag3 = "willy"
+Nf.profile.bag = Nf.profile.bag or {}
+local bag1 = Nf.profile.bag.one or "bag"
+local bag2 = Nf.profile.bag.two or "bag"
+local bag3 = Nf.profile.bag.three or "bag"
 
 
 
-function sortItems(item)
+function Nf.sortItems(item)
   if (isInEqTable(item)) then
     return
   end
@@ -35,5 +36,5 @@ end
 if (string.find(multimatches[2].item, "credits")) then
   return
 else
-  sortItems(getItem(multimatches[2].item))
+  Nf.sortItems(getItem(multimatches[2].item))
 end

@@ -1,12 +1,27 @@
 -- Baseline setup functions
 
-msdp = msdp or {}
+msdp        = msdp or {}
+map         = map or {}
 
 -- namespace everything global (eventually) into a Nukefire (Nf) table
-Nf = Nf or {}
+Nf          = Nf or {}
 
 Nf.inCombat = Nf.inCombat or false
+Nf.hunting  = Nf.hunting or false
+Nf.profile  = Nf.profile or {}
 
+-- save and load profile-configurable variables (bag names, etc.)
+function Nf.save()
+    local location = getMudletHomeDir() .. getProfileName() .. ".lua"
+    table.save(location, Nf.profile)
+end
+
+function Nf.load()
+    local location = getMudletHomeDir() .. getProfileName() .. ".lua"
+    table.load(location, Nf.profile)
+end
+
+registerAnonymousEventHandler("sysLoadEvent", Nf.load())
 
 function initMSDP(_, protocol)
     if protocol == "MSDP" then

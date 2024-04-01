@@ -1,7 +1,7 @@
 function eventSendMoney(_, profileName)
   if msdp.MONEY == nil then
-    display("No credits set!")
+    Nf.msg("No credits!")
   else
-    send("give " .. msdp.MONEY .. " credits " .. profileName)
+    send("pay " .. profileName)
   end
 end

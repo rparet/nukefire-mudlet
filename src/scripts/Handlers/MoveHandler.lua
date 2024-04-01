@@ -1,5 +1,5 @@
 function MoveHandler()
-    if not (msdp.MOVEMENT or msdp.MOVEMENT_MAX) then
+    if not msdp.MOVEMENT_MAX then
         return
     end
     local movePercent = 100 * (msdp.MOVEMENT / msdp.MOVEMENT_MAX)

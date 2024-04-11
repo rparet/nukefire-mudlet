@@ -1,6 +1,6 @@
 [
   {
-    "name": "LookupInventory",
+    "name": "exitLineTrigger",
     "isActive": "yes",
     "isFolder": "no",
     "multiline": "no",
@@ -11,14 +11,14 @@
     "highlight": "",
     "patterns": [
       {
-        "pattern": "(?\u003cobj\u003e^[^()\\n]*)[^()]",
+        "pattern": "^([\\w]+)(?=\\s)\\s+- ([[:print:]]+)$",
         "type": "regex"
       }
     ],
     "script": ""
   },
   {
-    "name": "StopInventory",
+    "name": "NfNewRoom",
     "isActive": "yes",
     "isFolder": "no",
     "multiline": "no",
@@ -29,8 +29,8 @@
     "highlight": "",
     "patterns": [
       {
-        "pattern": "\u003c",
-        "type": "startOfLine"
+        "pattern": "^$",
+        "type": "regex"
       }
     ],
     "script": ""

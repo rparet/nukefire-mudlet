@@ -77,5 +77,33 @@
     "name": "bag",
     "regex": "^bag\\s(\\w+)?\\s?(\\w+)?$",
     "script": ""
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "remort",
+    "regex": "^doremort$",
+    "script": ""
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "giveAll",
+    "regex": "^giveall\\s*?(?<target>.*)$",
+    "script": ""
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "console",
+    "regex": "^console$",
+    "script": ""
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "debug",
+    "regex": "^debug$",
+    "script": ""
   }
 ]

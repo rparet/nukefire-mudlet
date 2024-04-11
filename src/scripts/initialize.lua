@@ -1,27 +1,43 @@
 -- Baseline setup functions
 
-msdp        = msdp or {}
-map         = map or {}
+msdp             = msdp or {}
+map              = map or {}
 
 -- namespace everything global (eventually) into a Nukefire (Nf) table
-Nf          = Nf or {}
+Nf               = Nf or {}
 
-Nf.inCombat = Nf.inCombat or false
-Nf.hunting  = Nf.hunting or false
-Nf.profile  = Nf.profile or {}
+Nf.inCombat      = Nf.inCombat or false
+Nf.hunting       = Nf.hunting or false
+Nf.walking       = Nf.walking or false
+Nf.profile       = Nf.profile or {}
+Nf.rooms         = Nf.rooms or {}
+Nf.mission       = Nf.mission or {}
+Nf.mission.steps = Nf.mission.steps or {}
+Nf.timers        = Nf.timers or {}
+
+Nf.debug         = Nf.debug or function(message) end
+
+
+Nf.profiles = Nf.profiles or {}
 
 -- save and load profile-configurable variables (bag names, etc.)
 function Nf.save()
-    local location = getMudletHomeDir() .. getProfileName() .. ".lua"
+    local location = getMudletHomeDir() .. "/" .. getProfileName() .. ".lua"
     table.save(location, Nf.profile)
 end
 
 function Nf.load()
-    local location = getMudletHomeDir() .. getProfileName() .. ".lua"
-    table.load(location, Nf.profile)
+    local location = getMudletHomeDir() .. "/" .. getProfileName() .. ".lua"
+    if io.exists(location) then
+        table.load(location, Nf.profile)
+    end
 end
 
-registerAnonymousEventHandler("sysLoadEvent", Nf.load())
+--registerAnonymousEventHandler("sysLoadEvent", Nf.load)
+registerNamedEventHandler(getProfileName(), "loadEvent", "sysLoadEvent", Nf.load)
+-- need to do this so that class settings aren't reset on CI package rebuilds
+--registerAnonymousEventHandler("sysLoadEvent", ClassHandler)
+registerNamedEventHandler(getProfileName(), "loadClassHandler", "sysLoadEvent", ClassHandler)
 
 function initMSDP(_, protocol)
     if protocol == "MSDP" then

@@ -5,7 +5,7 @@
     "isFolder": "no",
     "command": "sling 'battle rites'",
     "multiline": "no",
-    "multielineDelta": "0",
+    "multilineDelta": "0",
     "matchall": "",
     "filter": "",
     "fireLength": "0",

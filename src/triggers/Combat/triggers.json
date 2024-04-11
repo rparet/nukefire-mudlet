@@ -4,7 +4,7 @@
     "isActive": "yes",
     "isFolder": "no",
     "multiline": "no",
-    "multielineDelta": "0",
+    "multilineDelta": "0",
     "matchall": "",
     "filter": "",
     "fireLength": "0",
@@ -13,6 +13,68 @@
       {
         "pattern": "You join the fight!",
         "type": "startOfLine"
+      }
+    ],
+    "script": ""
+  },
+  {
+    "name": "killExp",
+    "isActive": "yes",
+    "isFolder": "no",
+    "multiline": "no",
+    "multilineDelta": "0",
+    "matchall": "",
+    "filter": "",
+    "fireLength": "0",
+    "highlight": "",
+    "patterns": [
+      {
+        "pattern": "You receive (\\d+) experience points",
+        "type": "regex"
+      }
+    ],
+    "script": ""
+  },
+  {
+    "name": "cantKill",
+    "isActive": "yes",
+    "isFolder": "no",
+    "multiline": "no",
+    "multilineDelta": "0",
+    "matchall": "",
+    "filter": "",
+    "fireLength": "0",
+    "highlight": "",
+    "patterns": [
+      {
+        "pattern": "You can't kill what isn't here.",
+        "type": "startOfLine"
+      },
+      {
+        "pattern": "This mob is protected.",
+        "type": "startOfLine"
+      }
+    ],
+    "script": ""
+  },
+  {
+    "name": "fled",
+    "isActive": "yes",
+    "isFolder": "no",
+    "multiline": "yes",
+    "multilineDelta": "1",
+    "matchall": "",
+    "filter": "",
+    "fireLength": "0",
+    "highlight": "",
+    "patterns": [
+      {
+        "pattern": "(\\w+) panics and attempts to flee!",
+        "type": "regex"
+      },
+      {
+        "pattern": "(\\w+) leaves (east|west|north|south|up|down)",
+        "type": "regex"
       }
     ],
     "script": ""

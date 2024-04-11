@@ -1,5 +1,7 @@
 eqTable = {}
 eqPositionTable = {
+    ["<encircling body>"] = "ENCIRCLING",
+    ["<overshield>"] = "OVERSHIELD",
     ["<accessory>"] = "ACCESSORY",
     ["<affixed to armor>"] = "AFFIX",
     ["<buckled on left knee>"] = "KNEE",

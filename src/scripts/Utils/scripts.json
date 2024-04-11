@@ -2,15 +2,13 @@
   {
     "isActive": "yes",
     "isFolder": "no",
-    "name": "flurry",
-    "regex": "^flu\\s?(?<target>.*)$",
+    "name": "messages",
     "script": ""
   },
   {
     "isActive": "yes",
     "isFolder": "no",
-    "name": "preciseStrike",
-    "regex": "^ps\\s+?(?<target>.*)$",
+    "name": "hunting",
     "script": ""
   }
 ]

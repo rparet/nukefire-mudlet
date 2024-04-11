@@ -1,37 +1,38 @@
 [
   {
-    "name": "LookupInventory",
+    "name": "NfMultiLineExits",
     "isActive": "yes",
-    "isFolder": "no",
+    "isFolder": "yes",
     "multiline": "no",
     "multilineDelta": "0",
     "matchall": "",
     "filter": "",
-    "fireLength": "0",
+    "fireLength": "2",
     "highlight": "",
     "patterns": [
       {
-        "pattern": "(?\u003cobj\u003e^[^()\\n]*)[^()]",
+        "pattern": "^Obvious exits:",
         "type": "regex"
       }
     ],
     "script": ""
   },
   {
-    "name": "StopInventory",
+    "name": "NfRoomName",
     "isActive": "yes",
-    "isFolder": "no",
-    "multiline": "no",
+    "isFolder": "yes",
+    "multiline": "yes",
     "multilineDelta": "0",
     "matchall": "",
     "filter": "",
-    "fireLength": "0",
+    "fireLength": "5",
     "highlight": "",
     "patterns": [
       {
-        "pattern": "\u003c",
-        "type": "startOfLine"
-      }
+        "pattern": "6,0",
+        "type": "color"
+      },
+      { "pattern": "^([\\w\\s'-,:]+)(?=\\s) - (.+) (.+)", "type": "regex" }
     ],
     "script": ""
   }

@@ -1,0 +1,23 @@
+[
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "addDoorname",
+    "regex": "^add doorname (\\w+) (north|south|east|west|up|down|n|s|e|w|u|d)$",
+    "script": ""
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "hunting",
+    "regex": "^hunting$",
+    "script": ""
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "mission",
+    "regex": "^mission (\\w+)$",
+    "script": ""
+  }
+]

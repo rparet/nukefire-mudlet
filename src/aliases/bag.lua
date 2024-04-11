@@ -1,3 +1,4 @@
+Nf.profile.bag = Nf.profile.bag or {}
 if not matches[2] then
     Nf.msg("Bag status: one:" ..
         tostring(Nf.profile.bag.one) .. " two:" .. tostring(Nf.profile.bag.two) .. " three:" ..
@@ -13,4 +14,4 @@ if matches[2] and matches[3] then
     Nf.msg("Bag " .. matches[2] .. " set to " .. matches[3])
 end
 
-Nf.profile.save()
+Nf.save()

@@ -2,8 +2,17 @@
 
 function combatMagic()
     local level = tonumber(msdp.LEVEL)
+    local opponentLevel = tonumber(msdp.OPPONENT_LEVEL)
     local spell = ""
 
+    if not Nf.inCombat then
+        Nf.msg("combatMagic called but not in combat.")
+        return
+    end
+    -- don't bother casting. save your mana for bigger mobs
+    if opponentLevel < 20 then
+        return
+    end
     if level <= 2 then
         spell = "magic missle"
     elseif level <= 4 then
@@ -21,11 +30,12 @@ function combatMagic()
     elseif level <= 21 then
         spell = "calliope"
     elseif level <= 39 then
-        spell = "disruption"
+        spell = "calliope"
     elseif level >= 40 then
-        spell = "disintegrate"
+        spell = "calliope"
         -- handle phoenix nova separately
     end
 
     send("sling '" .. spell .. "'")
+    tempTimer(2, combatMagic)
 end

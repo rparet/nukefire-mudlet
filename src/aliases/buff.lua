@@ -18,6 +18,5 @@ elseif msdp.CLASS == "Curist" then
     send("sling 'holyfist'")
 elseif msdp.CLASS == "Slinger" then
     send("sling 'invis'")
-    send("sling 'blur'")
     send("sling 'shapeshift'")
 end

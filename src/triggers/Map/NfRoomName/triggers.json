@@ -1,19 +1,19 @@
 [
   {
-    "name": "Holyfist",
+    "name": "NfMobsInRoom",
     "isActive": "yes",
     "isFolder": "no",
-    "command": "sling 'holyfist'",
-    "multiline": "no",
+    "multiline": "yes",
     "multilineDelta": "0",
     "matchall": "",
     "filter": "",
     "fireLength": "0",
     "highlight": "",
     "patterns": [
+      { "pattern": "3,0", "type": "color" },
       {
-        "pattern": "Your fists no longer glow with a holy aura.",
-        "type": "startOfLine"
+        "pattern": "^[a-zA-Z(']",
+        "type": "regex"
       }
     ],
     "script": ""

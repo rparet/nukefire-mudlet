@@ -29,5 +29,11 @@
     "name": "giveAll",
     "eventHandlerList": ["giveall"],
     "script": ""
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "InventoryTable",
+    "script": ""
   }
 ]

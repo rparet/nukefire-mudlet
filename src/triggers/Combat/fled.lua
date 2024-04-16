@@ -4,11 +4,18 @@ if Nf.inCombat then
     if next(map.prompt.mobs) ~= nil then
         table.remove(map.prompt.mobs, 1)
     end
-    if (speedWalkDir and #speedWalkDir ~= 0) and not Nf.walking then
+
+    if next(map.prompt.mobs) ~= nil and Nf.hunting then
+        Nf.msg("Calling clearRoom from fled")
+        Nf.clearRoom()
+        return
+    end
+    if (speedWalkDir and #speedWalkDir ~= 0) and Nf.hunting then
         Nf.msg("mob fled, resuming speedWalk")
-        map.resumeSpeedwalk(1)
+        map.resumeSpeedwalk(2)
         Nf.walking = true
     elseif Nf.onMission() then
-        raiseEvent("advanceMission")
+        Nf.msg("Raising advanceMission from fled.")
+        tempTimer(2, function() raiseEvent("advanceMission") end)
     end
 end

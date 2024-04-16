@@ -8,6 +8,12 @@ function ManaHandler()
     if not hasFocus() then
         if manaPercent <= 40 then
             raiseGlobalEvent("mana")
+            Nf.flags.lowMana = true
+        end
+
+        if manaPercent >= 90 and Nf.flags.lowMana then
+            Nf.flags.lowMana = false
+            raiseGlobalEvent("manaReady")
         end
     end
 end

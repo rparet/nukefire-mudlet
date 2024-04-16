@@ -85,6 +85,10 @@ Nf.missions.montaire = {
     { step = gotoRoom,         args = { "350" } },
     { step = gotoRoom,         args = { "352" } },
     { step = gotoRoom,         args = { "802" } },
+    { step = gotoRoom,         args = { "795" } },
+    { step = gotoRoom,         args = { "912" } },
+    { step = gotoRoom,         args = { "792" } },
+    { step = gotoRoom,         args = { "913" } },
     { step = toggleHunting,    args = { false },                  advance = true },
     { step = raiseGlobalEvent, args = { "escape" },               advance = true }
 }
@@ -103,15 +107,16 @@ Nf.missions.ocp = {
     { step = raiseGlobalEvent, args = { "escape" },          advance = true }
 }
 Nf.missions.iog_jungle = {
-    { step = send,          args = { directions["iog"] }, advance = true },
-    { step = send,          args = { "look" },            advance = true },
-    { step = toggleHunting, args = { true },              advance = true },
-    { step = gotoRoom,      args = { "118" } },
-    { step = gotoRoom,      args = { "414" } },
-    { step = gotoRoom,      args = { "502" } },
-    { step = gotoRoom,      args = { "96" } },
-    { step = gotoRoom,      args = { "91" } },
-    { step = toggleHunting, args = { false },             advance = true },
+    { step = send,             args = { directions["iog"] }, advance = true },
+    { step = send,             args = { "look" },            advance = true },
+    { step = toggleHunting,    args = { true },              advance = true },
+    { step = gotoRoom,         args = { "118" } },
+    { step = gotoRoom,         args = { "414" } },
+    { step = gotoRoom,         args = { "502" } },
+    { step = gotoRoom,         args = { "96" } },
+    { step = gotoRoom,         args = { "91" } },
+    { step = toggleHunting,    args = { false },             advance = true },
+    { step = raiseGlobalEvent, args = { "escape" },          advance = true }
 }
 Nf.missions.azer = {
     { step = send,             args = { "run 6ws2wnws2wn3ws5wn8w6w18sws3wsu" }, advance = true },
@@ -157,14 +162,25 @@ function Nf.setMission(mission)
 end
 
 function Nf.startMission(mission)
+    if mission == "stop" then
+        Nf.mission.steps = {}
+        Nf.walking = false
+        map.stopSpeedwalk()
+        Nf.hunting = false
+        return
+    end
     if not Nf.missions[mission] then
         Nf.msg("No mission '" .. mission .. "' found.")
         return
     end
 
+    if not map.currentRoom == 294 then -- G0
+        gotoRoom(294)
+    end
+
     Nf.setMission(Nf.missions[mission])
     missionStopWatch = missionStopWatch or createStopWatch()
-    missionExp = missionExp or tonumber(msdp.EXPERIENCE)
+    missionExp = tonumber(msdp.EXPERIENCE)
     if next(Nf.mission.steps) ~= nil then
         startStopWatch(missionStopWatch)
         local advance = Nf.mission.steps[1].advance or false
@@ -267,7 +283,11 @@ function Nf.postSpeedwalk()
         -- tempTimer(2, function() Nf.postSpeedwalk() end)
         return
     else -- we can advance the mission
-        raiseEvent("advanceMission")
+        Nf.walking = false
+        if Nf.onMission() then
+            Nf.msg("Raising advanceMission from postSpeedwalk")
+            raiseEvent("advanceMission")
+        end
     end
 end
 
@@ -384,8 +404,8 @@ local function cont_walk(waited)
         end
         if string.match(map.getExitName(fragment[3]), "is closed") then
             send(map.walkDirs[1])
-        else
-            send(fragment[3])
+            -- else
+            --     send(fragment[3])
         end
         table.remove(map.walkDirs, 1)
     elseif string.starts(map.walkDirs[1], "open") then -- first time, need to wait
@@ -434,11 +454,20 @@ function map.speedwalk(roomID, walkPath, walkDirs)
         wu = 'westup',
     }
     roomID = roomID or speedWalkPath[#speedWalkPath]
+
+    if roomID == map.currentRoom then
+        map.echo("Already in room!", false, true)
+        map.walkDirs = {}
+        cont_walk()
+        return
+    end
+
     getPath(map.currentRoom, roomID)
     walkPath = speedWalkPath
     walkDirs = speedWalkDir
     if #speedWalkPath == 0 then
         map.echo("No path to chosen room found.", false, true)
+        cont_walk()
         return
     end
     table.insert(walkPath, 1, map.currentRoom)
@@ -506,6 +535,7 @@ function Nf.clearRoom()
     end
 
     if (next(map.prompt.mobs) == nil) and Nf.onMission and not Nf.inCombat then -- room is clear, time to advance mission
+        Nf.msg("Raising advanceMission from clearRoom")
         raiseEvent("advanceMission")
         return
     end

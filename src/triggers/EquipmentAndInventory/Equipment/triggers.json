@@ -29,8 +29,8 @@
     "highlight": "",
     "patterns": [
       {
-        "pattern": "You are wearing",
-        "type": "startOfLine"
+        "pattern": "$^",
+        "type": "regex"
       }
     ],
     "script": ""

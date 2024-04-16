@@ -1,4 +1,7 @@
+local obj = string.trim(matches.obj)
 selectCaptureGroup("obj")
 setUnderline(true)
-setLink([[fetchItem("]] .. matches.obj .. [[")]], matches.obj)
+setLink([[fetchItem("]] .. obj .. [[")]], obj)
 setUnderline(false)
+Nf.setInventory(obj)
+setTriggerStayOpen("Inventory", 1)

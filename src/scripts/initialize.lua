@@ -14,6 +14,9 @@ Nf.rooms         = Nf.rooms or {}
 Nf.mission       = Nf.mission or {}
 Nf.mission.steps = Nf.mission.steps or {}
 Nf.timers        = Nf.timers or {}
+Nf.flags         = Nf.flags or {}
+
+Nf.inventory     = Nf.inventory or {}
 
 Nf.debug         = Nf.debug or function(message) end
 

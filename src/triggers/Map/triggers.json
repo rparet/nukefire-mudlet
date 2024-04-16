@@ -32,7 +32,7 @@
         "pattern": "6,0",
         "type": "color"
       },
-      { "pattern": "^([\\w\\s'-,:]+)(?=\\s) - (.+) (.+)", "type": "regex" }
+      { "pattern": "^([\\w\\s\\W]+)(?=\\s) - (.+) (.+)", "type": "regex" }
     ],
     "script": ""
   }

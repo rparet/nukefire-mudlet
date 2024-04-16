@@ -23,6 +23,13 @@
   {
     "isActive": "yes",
     "isFolder": "no",
+    "name": "eventManaReady",
+    "eventHandlerList": ["manaReady"],
+    "script": ""
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
     "name": "Miniconsole",
     "script": ""
   }

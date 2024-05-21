@@ -1,19 +1,18 @@
 [
   {
-    "name": "NfMobsInRoom",
+    "name": "reNova",
     "isActive": "yes",
     "isFolder": "no",
-    "multiline": "yes",
+    "multiline": "no",
     "multilineDelta": "0",
     "matchall": "",
     "filter": "",
     "fireLength": "0",
     "highlight": "",
     "patterns": [
-      { "pattern": "3,0", "type": "color" },
       {
-        "pattern": "(?<grouped>\\(([^\\)]+)\\))?(?<mob>[^\\(]+)",
-        "type": "regex"
+        "pattern": "is no longer BURNING inside of the blazing PHOENIX NOVA!",
+        "type": "substring"
       }
     ],
     "script": ""

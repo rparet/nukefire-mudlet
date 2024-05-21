@@ -30,18 +30,16 @@
   {
     "isActive": "yes",
     "isFolder": "no",
-    "name": "GroupUp",
+    "name": "groupUp",
     "regex": "^groupup$",
-    "script": "",
-    "command": ": fol Straylight ; group new"
+    "script": ""
   },
   {
     "isActive": "yes",
     "isFolder": "no",
     "name": "unGroup",
     "regex": "^ungroup$",
-    "script": "",
-    "command": ": fol self ; group leave"
+    "script": ""
   },
   {
     "isActive": "yes",
@@ -104,6 +102,27 @@
     "isFolder": "no",
     "name": "debug",
     "regex": "^debug$",
+    "script": ""
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "sellInv",
+    "regex": "^sellinv$",
+    "script": ""
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "withdraw",
+    "regex": "^\\$\\s+?(?<target>.*)$",
+    "script": ""
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "attack",
+    "regex": "^attack\\s*?(?<target>.*)$",
     "script": ""
   }
 ]

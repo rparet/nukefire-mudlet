@@ -1,1 +1,1 @@
---setTriggerStayOpen("Inventory", 0)
+setTriggerStayOpen("Inventory", 0)

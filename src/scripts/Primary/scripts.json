@@ -10,14 +10,14 @@
     "isActive": "yes",
     "isFolder": "no",
     "name": "eventLowMana",
-    "eventHandlerList": ["mana"],
+    "eventHandlerList": ["lowMana"],
     "script": ""
   },
   {
     "isActive": "yes",
     "isFolder": "no",
     "name": "eventLowMove",
-    "eventHandlerList": ["move"],
+    "eventHandlerList": ["lowMove"],
     "script": ""
   },
   {

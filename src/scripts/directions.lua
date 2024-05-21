@@ -9,12 +9,13 @@ directions = {
     ["hoardmaze"] = "run es2enenen",
     -- from g0
     ["iog"] = "run 67w4sw10se2s5ese2se",
-    ["bgf"] = "run 2dsw6s3es2u5sw6se7s7esese8s2d2edwdwsd2enen4e2ue2u3s3w2d2edwdwsd2enen3e2ue2u",
+    ["evan"] = "run 8s5e5s9w2s6e3n1e1s1e2n1e1n1e1n2e1u1e",
     ["dkt"] = "run 9s14w13ssesswswsss",
     ["aa"] = "run 6ws2wnws2wn3w4nw5n2w7nw3n2w2swsdw14n",
     ["ocp"] = "run 2dsw6s22e30n2u18e",
     ["ooo"] = "run 9nw3nw3nw2nwsw3s3w10n3w3nuen2e2n",
     ["starhome"] = "run 8s5e5s9w2s4su4e2s2w3u4e2u1w2s1w2s7w3u",
+    ["orcs"] = "run 8s5e5s9w2s4su4e2s2w3u4e2uw2sw2s6w2u4eus2d3e4d2e3d2w2n",
     ["dktown"] = "run 9s14w13ssesswswsss",
     ["millyard"] = "run 13e3n3e3nen12e3n2e2n",
     ["oldvamps"] = "run 8e8sw4sw2sw3n",
@@ -26,11 +27,14 @@ directions = {
     ["civic"] = "run 2dsw6s22e13ne2u2n6wu",
     ["paleman"] = "run 8s4e5w4s3e2se4s7d",
     ["alcatraz"] = "run 9nw8n2wn4wu",
-    ["montaire"] = "run 22e15s9w5s7w7su4e2s2w3u9e3u2nes5e",
+    ["montaire"] = "run 22e15s9w5s7w7su4e2s2w3u9e3u2nes4e",
     ["cyboria"] = "run 2dsw6s22e30n2u",
     ["silicia"] = "run 6ws2wnws2wn3ws5wn8w",
     ["lw"] = "run 2dsw6s22e2ne2uw3se",
     ["claven"] = "run 43e4n2w3ne",
+    ["bgf"] = "run 2dsw6s3es2u5sw6se7s7esese4swnwe3s2d2edwdwsd2enen3e2ue2u",
+    -- from bgf
+    ["cern"] = "run 2dw3d2w2nen4enen2e2nen6e2sw3sw2s8ws6e9s",
     -- from ocp
     ["skyruin"] = "run 5s2e3s3w2se",
     -- from silicia well

@@ -58,7 +58,7 @@
   },
   {
     "name": "GrabCredits",
-    "isActive": "yes",
+    "isActive": "no",
     "isFolder": "no",
     "multiline": "yes",
     "multilineDelta": "1",
@@ -116,6 +116,36 @@
     "highlight": "",
     "patterns": [
       { "pattern": "Your group consists of:", "type": "startOfLine" }
+    ],
+    "script": ""
+  },
+  {
+    "name": "Logout",
+    "isActive": "yes",
+    "isFolder": "no",
+    "multiline": "no",
+    "multilineDelta": "0",
+    "matchall": "",
+    "filter": "",
+    "fireLength": "0",
+    "highlight": "",
+    "patterns": [
+      { "pattern": "Goodbye, friend.. Come back soon!", "type": "startOfLine" }
+    ],
+    "script": ""
+  },
+  {
+    "name": "YouDied",
+    "isActive": "yes",
+    "isFolder": "no",
+    "multiline": "no",
+    "multilineDelta": "0",
+    "matchall": "",
+    "filter": "",
+    "fireLength": "0",
+    "highlight": "",
+    "patterns": [
+      { "pattern": "You are dead!  Sorry...", "type": "startOfLine" }
     ],
     "script": ""
   }

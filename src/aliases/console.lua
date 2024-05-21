@@ -1,5 +1,5 @@
-if HelloWorld.hidden then
-    HelloWorld:show()
+if Nf.Console.hidden then
+    Nf.Console:show()
 else
-    HelloWorld:hide()
+    Nf.Console:hide()
 end

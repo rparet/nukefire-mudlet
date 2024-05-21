@@ -1,5 +1,1 @@
-send("run eswds")
-send("retrieve")
-send("get all from corpse")
-send("wear all." .. getProfileName())
-send("wear all")
+Nf.getCorpse()

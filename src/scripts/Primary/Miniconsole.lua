@@ -1,9 +1,11 @@
-HelloWorld = Geyser.MiniConsole:new({
-  name="HelloWorld",
-  x="50%", y="0%",
-  width="100%", height="50%",
-  
+Nf.console = Geyser.MiniConsole:new({
+  name = "NfConsole",
+  x = "50%",
+  y = "0%",
+  width = "100%",
+  height = "50%",
+
 })
 
-setMiniConsoleFontSize("HelloWorld", 14)
-setWindowWrap("HelloWorld", 160)
+setMiniConsoleFontSize("NfConsole", 14)
+setWindowWrap("NfConsole", 160)

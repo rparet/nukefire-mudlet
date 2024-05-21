@@ -53,6 +53,10 @@
       {
         "pattern": "This mob is protected.",
         "type": "startOfLine"
+      },
+      {
+        "pattern": "This room just has such a peaceful, easy feeling...",
+        "type": "startOfLine"
       }
     ],
     "script": ""
@@ -75,6 +79,28 @@
       {
         "pattern": "(\\w+) leaves (east|west|north|south|up|down)",
         "type": "regex"
+      }
+    ],
+    "script": ""
+  },
+  {
+    "name": "webbed",
+    "isActive": "yes",
+    "isFolder": "no",
+    "multiline": "no",
+    "multilineDelta": "0",
+    "matchall": "",
+    "filter": "",
+    "fireLength": "0",
+    "highlight": "",
+    "patterns": [
+      {
+        "pattern": "You try, but you can't, youre STUCK...",
+        "type": "startOfLine"
+      },
+      {
+        "pattern": "The web around you dissolves, and you can move again.",
+        "type": "startOfLine"
       }
     ],
     "script": ""

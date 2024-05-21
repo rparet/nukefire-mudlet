@@ -11,7 +11,7 @@
     "highlight": "",
     "patterns": [
       {
-        "pattern": "<(?<location>.+?)>s+(?<obj>.+?)(?: ((?<first>.?)))?(?: ((?<second>.?)))? (?<inscribe>[-<.+?>-])",
+        "pattern": "(?<location>\\<([^\\>]+)\\>)\\s+(?<obj>.+?)(?: (?<first>\\((.+)\\)))? (?<inscribe>\\[-<.+?>-])",
         "type": "regex"
       }
     ],

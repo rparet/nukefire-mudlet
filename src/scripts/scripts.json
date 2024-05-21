@@ -22,5 +22,11 @@
     "isFolder": "no",
     "name": "turboInscribe",
     "script": ""
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "watches",
+    "script": ""
   }
 ]

@@ -19,5 +19,12 @@
     "name": "nova",
     "regex": "^nova ?(?<target>.*)$",
     "script": ""
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "blur",
+    "regex": "^blur$",
+    "script": ""
   }
 ]

@@ -70,5 +70,23 @@
       }
     ],
     "script": ""
+  },
+  {
+    "name": "blur",
+    "isActive": "yes",
+    "isFolder": "no",
+    "multiline": "no",
+    "multilineDelta": "0",
+    "matchall": "",
+    "filter": "",
+    "fireLength": "0",
+    "highlight": "",
+    "patterns": [
+      {
+        "pattern": "You are no longer a blur.",
+        "type": "exactMatch"
+      }
+    ],
+    "script": ""
   }
 ]

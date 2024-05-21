@@ -1,5 +1,5 @@
 if msdp.CLASS == "Curist" then
-    groupSanct()
+    raiseEvent("sanct")
 else
-    raiseGlobalEvent("groupsanct")
+    raiseGlobalEvent("sanct")
 end

@@ -3,7 +3,10 @@ function OpponentHandler(event)
         local level = tonumber(msdp.OPPONENT_LEVEL)
         if level > 0 then
             Nf.inCombat = true
-        else
+            Nf.msg("Opponent level: " .. level)
+            raiseEvent("enteredCombat")
+        elseif Nf.inCombat then
+            raiseEvent("exitedCombat")
             -- if Nf.inCombat then
             --     Nf.inCombat = false
             --     if map.prompt.mobs == nil then return end -- for inital event on login.

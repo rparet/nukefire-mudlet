@@ -11,7 +11,7 @@
     "highlight": "",
     "patterns": [
       {
-        "pattern": "(?<count>^\\(.*\\))?(?<obj>[^()\n]*)[^()]",
+        "pattern": "(?<count>\\(([^\\)]+)\\))?(?<obj>[^()\\n]*)(?<flags>[^()])",
         "type": "regex"
       }
     ],

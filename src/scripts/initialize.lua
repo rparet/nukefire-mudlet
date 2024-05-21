@@ -1,24 +1,33 @@
 -- Baseline setup functions
 
-msdp             = msdp or {}
-map              = map or {}
+msdp                  = msdp or {}
+map                   = map or {}
 
 -- namespace everything global (eventually) into a Nukefire (Nf) table
-Nf               = Nf or {}
+Nf                    = Nf or {}
 
-Nf.inCombat      = Nf.inCombat or false
-Nf.hunting       = Nf.hunting or false
-Nf.walking       = Nf.walking or false
-Nf.profile       = Nf.profile or {}
-Nf.rooms         = Nf.rooms or {}
-Nf.mission       = Nf.mission or {}
-Nf.mission.steps = Nf.mission.steps or {}
-Nf.timers        = Nf.timers or {}
-Nf.flags         = Nf.flags or {}
+Nf.inCombat           = Nf.inCombat or false
+Nf.hunting            = Nf.hunting or false
+Nf.walking            = Nf.walking or false
 
-Nf.inventory     = Nf.inventory or {}
+Nf.profile            = Nf.profile or {}
+Nf.profile.customWear = Nf.profile.customWear or {}
 
-Nf.debug         = Nf.debug or function(message) end
+Nf.rooms              = Nf.rooms or {}
+Nf.mission            = Nf.mission or {}
+Nf.mission.steps      = Nf.mission.steps or {}
+Nf.timers             = Nf.timers or {}
+Nf.flags              = Nf.flags or {}
+
+Nf.inventory          = Nf.inventory or {}
+
+Nf.grinding           = Nf.grinding or false
+Nf.grindList          = Nf.grindList or {}
+Nf.waitForMana        = Nf.waitForMana or false
+
+Nf.logout             = Nf.logout or false
+
+Nf.debug              = Nf.debug or function(message) end
 
 
 Nf.profiles = Nf.profiles or {}
@@ -36,11 +45,8 @@ function Nf.load()
     end
 end
 
---registerAnonymousEventHandler("sysLoadEvent", Nf.load)
 registerNamedEventHandler(getProfileName(), "loadEvent", "sysLoadEvent", Nf.load)
--- need to do this so that class settings aren't reset on CI package rebuilds
---registerAnonymousEventHandler("sysLoadEvent", ClassHandler)
-registerNamedEventHandler(getProfileName(), "loadClassHandler", "sysLoadEvent", ClassHandler)
+registerNamedEventHandler(getProfileName(), "loadClassHandler", "sysInstall", ClassHandler)
 
 function initMSDP(_, protocol)
     if protocol == "MSDP" then
@@ -55,10 +61,12 @@ end
 registerAnonymousEventHandler("sysProtocolEnabled", initMSDP)
 
 
-hpBar = Geyser.Gauge:new({
+hpBar = hpBar or Geyser.Gauge:new({
     name = "hpbar",
-    x = "50%",
-    y = "85%",
+    --    x = "50%",
+    --    y = "85%",
+    x = "-30%",
+    y = "-5%",
     width = "25%",
     height = "2.5%",
 })
@@ -80,7 +88,10 @@ hpBar.back:setStyleSheet(
     padding: 3px;
 ]])
 
-manaBar = Geyser.Gauge:new({
+hpBar:setFgColor("black")
+hpBar:setFontSize(18)
+
+manaBar = manaBar or Geyser.Gauge:new({
     name = "manabar",
     x = "50%",
     y = "82.5%",
@@ -106,7 +117,7 @@ manaBar.back:setStyleSheet(
 
 
 
-moveBar = Geyser.Gauge:new({
+moveBar = moveBar or Geyser.Gauge:new({
     name = "movebar",
     x = "50%",
     y = "80%",

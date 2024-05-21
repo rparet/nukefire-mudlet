@@ -5,5 +5,19 @@
     "name": "eventSendMoney",
     "eventHandlerList": ["sendmoney"],
     "script": ""
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "eventSleep",
+    "eventHandlerList": ["missionComplete"],
+    "script": ""
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "eventReconnect",
+    "eventHandlerList": ["sysDisconnectionEvent"],
+    "script": ""
   }
 ]

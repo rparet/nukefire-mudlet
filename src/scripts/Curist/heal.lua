@@ -10,11 +10,15 @@ function heal(profileName, healthPercent)
   elseif level <= 24 then
     spell = "heal"
   else --rejuv or restore if we're in real trouble
-    if level == 40 and healthPercent <= 40 then
+    if level >= 40 and healthPercent <= 70 then
       spell = "restoration"
     else
       spell = "rejuvinate"
     end
+  end
+
+  if profileName == "self" and level >= 26 and healthPercent <= 60 then
+    spell = "augury"
   end
 
   send("sling '" .. spell .. "' " .. profileName)

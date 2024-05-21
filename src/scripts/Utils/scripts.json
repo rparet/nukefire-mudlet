@@ -10,5 +10,11 @@
     "isFolder": "no",
     "name": "hunting",
     "script": ""
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "getCorpse",
+    "script": ""
   }
 ]

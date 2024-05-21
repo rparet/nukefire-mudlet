@@ -6,7 +6,6 @@ function combatMagic()
     local spell = ""
 
     if not Nf.inCombat then
-        Nf.msg("combatMagic called but not in combat.")
         return
     end
     -- don't bother casting. save your mana for bigger mobs
@@ -14,7 +13,7 @@ function combatMagic()
         return
     end
     if level <= 2 then
-        spell = "magic missle"
+        spell = "magic missile"
     elseif level <= 4 then
         spell = "chill touch"
     elseif level <= 6 then
@@ -37,5 +36,6 @@ function combatMagic()
     end
 
     send("sling '" .. spell .. "'")
-    tempTimer(2, combatMagic)
+    if Nf.timers.combatMagic then killTimer(Nf.timers.combatMagic) end
+    Nf.timers.combatMagic = tempTimer(2, combatMagic)
 end

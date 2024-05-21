@@ -19,4 +19,12 @@ elseif msdp.CLASS == "Curist" then
 elseif msdp.CLASS == "Slinger" then
     send("sling 'invis'")
     send("sling 'shapeshift'")
+    send("sling 'blur")
+elseif msdp.CLASS == "Assassin" then
+    send("shadowform")
+elseif msdp.CLASS == "Ninja" then
+    send("ghost")
+    if tonumber(msdp.LEVEL) >= 20 then
+        send("utsusemi")
+    end
 end

@@ -38,5 +38,19 @@
       "msdp.OPPONENT_NAME"
     ],
     "script": ""
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "CombatHandler",
+    "eventHandlerList": ["enteredCombat", "exitedCombat"],
+    "script": ""
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "GroupHandler",
+    "eventHandlerList": ["unGroup", "groupUp"],
+    "script": ""
   }
 ]

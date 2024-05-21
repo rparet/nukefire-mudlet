@@ -4,8 +4,9 @@ function HealthHandler()
   end
 
   local healthPercent = 100 * (msdp.HEALTH / msdp.HEALTH_MAX)
-  hpBar:setValue(healthPercent, 100)
-  if healthPercent <= 80 then
+  hpBar:setValue(healthPercent, 100, "<b>" .. getProfileName() .. "</b>")
+  raiseGlobalEvent("hp", healthPercent)
+  if healthPercent <= 85 then
     if msdp.CLASS == "Curist" then
       raiseEvent("heal", healthPercent)
     else

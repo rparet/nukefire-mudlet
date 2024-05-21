@@ -8,6 +8,13 @@
   {
     "isActive": "yes",
     "isFolder": "no",
+    "name": "eventBlur",
+    "script": "",
+    "eventHandlerList": ["blur"]
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
     "name": "slingerSling",
     "script": "",
     "eventHandlerList": ["slinger"]

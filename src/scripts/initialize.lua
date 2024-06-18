@@ -25,7 +25,7 @@ Nf.grinding           = Nf.grinding or false
 Nf.grindList          = Nf.grindList or {}
 Nf.waitForMana        = Nf.waitForMana or false
 
-Nf.logout             = Nf.logout or false
+Nf.logOut             = Nf.logOut or false
 
 Nf.debug              = Nf.debug or function(message) end
 

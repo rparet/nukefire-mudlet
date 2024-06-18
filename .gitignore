@@ -1,3 +1,4 @@
 .output
 .vscode
 build/**
+.DS_Store

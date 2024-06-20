@@ -71,10 +71,9 @@ end
 
 Nf.missions = Nf.missions or {}
 Nf.missions.montaire = {
-    { step = send,             args = { directions["montaire"] }, advance = true },
-    --{ step = map.find_me,      args = { nil, nil, nil, true },    advance = true },
-    { step = send,             args = { "look" },                 advance = true },
-    { step = toggleHunting,    args = { true },                   advance = true },
+    { step = send,             args = { directions["montaire"] },             advance = true },
+    { step = send,             args = { "look" },                             advance = true },
+    { step = toggleHunting,    args = { true },                               advance = true },
     { step = gotoRoom,         args = { "787" } },
     { step = gotoRoom,         args = { "371" } },
     { step = gotoRoom,         args = { "368" } },
@@ -89,35 +88,87 @@ Nf.missions.montaire = {
     { step = gotoRoom,         args = { "912" } },
     { step = gotoRoom,         args = { "792" } },
     { step = gotoRoom,         args = { "913" } },
-    { step = toggleHunting,    args = { false },                  advance = true },
-    { step = raiseGlobalEvent, args = { "escape" },               advance = true }
+    { step = toggleHunting,    args = { false },                              advance = true },
+    { step = raiseGlobalEvent, args = { "escape" },                           advance = true },
+    { step = raiseEvent,       args = { "sysManualLocationSetEvent", "281" }, advance = true }
 }
 Nf.missions.ocp = {
-    { step = send,             args = { directions["ocp"] }, advance = true },
-    { step = send,             args = { "look" },            advance = true },
-    { step = toggleHunting,    args = { true },              advance = true },
-    { step = gotoRoom,         args = { "187" } },
-    { step = gotoRoom,         args = { "191" } },
-    { step = gotoRoom,         args = { "208" } },
-    { step = gotoRoom,         args = { "204" } },
-    { step = gotoRoom,         args = { "235" } },
-    { step = gotoRoom,         args = { "231" } },
-    { step = gotoRoom,         args = { "247" } },
-    { step = toggleHunting,    args = { false },             advance = true },
-    { step = raiseGlobalEvent, args = { "escape" },          advance = true }
+    { step = send,             args = { directions["ocp"] },                  advance = true },
+    { step = send,             args = { "look" },                             advance = true },
+    { step = toggleHunting,    args = { true },                               advance = true },
+    { step = gotoRoom,         args = { "218" },                              name = "goto 218" },
+    { step = gotoRoom,         args = { "214" },                              name = "goto 191" },
+    { step = gotoRoom,         args = { "208" },                              name = "goto 208" },
+    { step = gotoRoom,         args = { "204" },                              name = "goto 204" },
+    { step = gotoRoom,         args = { "235" },                              name = "goto 235" },
+    { step = gotoRoom,         args = { "231" },                              name = "goto 231" },
+    { step = gotoRoom,         args = { "247" },                              name = "goto 247" },
+    { step = gotoRoom,         args = { "252" },                              name = "goto 252" },
+    { step = gotoRoom,         args = { "186" },                              name = "goto 186" },
+    { step = gotoRoom,         args = { "265" },                              name = "goto 265" },
+    { step = gotoRoom,         args = { "261" },                              name = "goto 261" },
+    { step = gotoRoom,         args = { "278" },                              name = "goto 278" },
+    { step = gotoRoom,         args = { "261" },                              name = "goto 261" },
+    { step = gotoRoom,         args = { "271" },                              name = "goto 271" },
+    { step = toggleHunting,    args = { false },                              advance = true },
+    { step = raiseGlobalEvent, args = { "escape" },                           advance = true },
+    { step = raiseEvent,       args = { "sysManualLocationSetEvent", "281" }, advance = true }
 }
 Nf.missions.iog_jungle = {
-    { step = send,             args = { directions["iog"] }, advance = true },
-    { step = send,             args = { "look" },            advance = true },
-    { step = toggleHunting,    args = { true },              advance = true },
+    { step = send,             args = { directions["iog"] },                  advance = true },
+    { step = send,             args = { "look" },                             advance = true },
+    { step = toggleHunting,    args = { true },                               advance = true },
     { step = gotoRoom,         args = { "118" } },
     { step = gotoRoom,         args = { "414" } },
     { step = gotoRoom,         args = { "502" } },
     { step = gotoRoom,         args = { "96" } },
     { step = gotoRoom,         args = { "91" } },
-    { step = toggleHunting,    args = { false },             advance = true },
-    { step = raiseGlobalEvent, args = { "escape" },          advance = true }
+    { step = toggleHunting,    args = { false },                              advance = true },
+    { step = raiseGlobalEvent, args = { "escape" },                           advance = true },
+    { step = raiseEvent,       args = { "sysManualLocationSetEvent", "281" }, advance = true }
 }
+Nf.missions.iog_gems = {
+    { step = send,             args = { directions["iog"] },                  advance = true },
+    { step = send,             args = { "look" },                             advance = true },
+    { step = toggleHunting,    args = { true },                               advance = true },
+    { step = gotoRoom,         args = { "130" } },
+    { step = gotoRoom,         args = { "132" } },
+    { step = gotoRoom,         args = { "135" } },
+    { step = gotoRoom,         args = { "129" } },
+    { step = gotoRoom,         args = { "158" } },
+    { step = toggleHunting,    args = { false },                              advance = true }, -- skip diamond
+    { step = gotoRoom,         args = { "164" } },
+    { step = toggleHunting,    args = { true },                               advance = true },
+    { step = gotoRoom,         args = { "182" } },
+    { step = gotoRoom,         args = { "183" } },
+    { step = toggleHunting,    args = { false },                              advance = true },
+    { step = raiseGlobalEvent, args = { "escape" },                           advance = true },
+    { step = raiseEvent,       args = { "sysManualLocationSetEvent", "281" }, advance = true }
+}
+
+Nf.missions.orcs = {
+    { step = send,             args = { directions["orcs"] },                 advance = true },
+    { step = send,             args = { "look" },                             advance = true },
+    { step = toggleHunting,    args = { true },                               advance = true },
+    { step = gotoRoom,         args = { "1576" } },
+    { step = gotoRoom,         args = { "1577" } },
+    { step = gotoRoom,         args = { "1621" } },
+    { step = gotoRoom,         args = { "1614" } },
+    { step = gotoRoom,         args = { "1587" } },
+    { step = gotoRoom,         args = { "1603" } },
+    { step = gotoRoom,         args = { "1601" } },
+    { step = gotoRoom,         args = { "1609" } },
+    { step = gotoRoom,         args = { "1608" } },
+    { step = gotoRoom,         args = { "1610" } },
+    { step = gotoRoom,         args = { "1681" } },
+    { step = gotoRoom,         args = { "1684" } },
+    { step = gotoRoom,         args = { "1685" } },
+    { step = toggleHunting,    args = { false },                              advance = true },
+    { step = raiseGlobalEvent, args = { "escape" },                           advance = true },
+    { step = raiseEvent,       args = { "sysManualLocationSetEvent", "281" }, advance = true }
+}
+
+
 Nf.missions.azer = {
     { step = send,             args = { "run 6ws2wnws2wn3ws5wn8w6w18sws3wsu" }, advance = true },
     { step = send,             args = { "look" },                               advance = true },
@@ -147,9 +198,49 @@ Nf.missions.azer = {
     { step = gotoRoom,         args = { "78" } },
     { step = gotoRoom,         args = { "86" } },
     { step = toggleHunting,    args = { false },                                advance = true },
-    { step = raiseGlobalEvent, args = { "escape" },                             advance = true }
+    { step = raiseGlobalEvent, args = { "escape" },                             advance = true },
+    { step = raiseEvent,       args = { "sysManualLocationSetEvent", "281" },   advance = true }
 }
 
+Nf.missions.bgf = {
+    { step = send,             args = { directions["bgf"] },                  advance = true },
+    { step = send,             args = { "look" },                             advance = true },
+    { step = toggleHunting,    args = { true },                               advance = true },
+    { step = gotoRoom,         args = { "1463" } },
+    { step = gotoRoom,         args = { "1470" } },
+    { step = gotoRoom,         args = { "1476" } },
+    { step = gotoRoom,         args = { "1478" } },
+    { step = gotoRoom,         args = { "1442" } },
+    { step = gotoRoom,         args = { "1488" } },
+    { step = toggleHunting,    args = { false },                              advance = true },
+    { step = raiseGlobalEvent, args = { "escape" },                           advance = true },
+    { step = raiseEvent,       args = { "sysManualLocationSetEvent", "281" }, advance = true }
+}
+
+Nf.missions.dktown = {
+    { step = send,             args = { directions["dktown"] },               advance = true },
+    { step = send,             args = { "look" },                             advance = true },
+    { step = gotoRoom,         args = { "664" } },
+    { step = send,             args = { "inv" },                              advance = true },
+    { step = expandAlias,      args = { "sellinv" },                          advance = true },
+    { step = send,             args = { "get all from aero" },                advance = true },
+    { step = send,             args = { "inv" },                              advance = true },
+    { step = expandAlias,      args = { "sellinv" },                          advance = true },
+    { step = gotoRoom,         args = { "668" } },
+    { step = send,             args = { "inv" },                              advance = true },
+    { step = expandAlias,      args = { "sellinv" },                          advance = true },
+    { step = send,             args = { "get all from aero" },                advance = true },
+    { step = send,             args = { "inv" },                              advance = true },
+    { step = expandAlias,      args = { "sellinv" },                          advance = true },
+    { step = gotoRoom,         args = { "667" } },
+    { step = send,             args = { "inv" },                              advance = true },
+    { step = expandAlias,      args = { "sellinv" },                          advance = true },
+    { step = send,             args = { "get all from aero" },                advance = true },
+    { step = send,             args = { "inv" },                              advance = true },
+    { step = expandAlias,      args = { "sellinv" },                          advance = true },
+    { step = raiseGlobalEvent, args = { "escape" },                           advance = true },
+    { step = raiseEvent,       args = { "sysManualLocationSetEvent", "281" }, advance = true },
+}
 
 function Nf.setMission(mission)
     if not mission then
@@ -174,8 +265,10 @@ function Nf.startMission(mission)
         return
     end
 
-    if not map.currentRoom == 294 then -- G0
+    if map.currentRoom ~= 294 then -- G0
         gotoRoom(294)
+        tempTimer(2, function() Nf.startMission(mission) end)
+        return
     end
 
     Nf.setMission(Nf.missions[mission])
@@ -185,8 +278,11 @@ function Nf.startMission(mission)
         startStopWatch(missionStopWatch)
         local advance = Nf.mission.steps[1].advance or false
         if Nf.mission.steps[1].args then
-            local args = Nf.mission.steps[1].args
-            Nf.mission.steps[1].step(unpack(args))
+            if Nf.mission.steps[1].name then
+                Nf.msg("Mission step: " .. Nf.mission.steps[1].name)
+            end
+
+            Nf.mission.steps[1].step(unpack(Nf.mission.steps[1].args))
             table.remove(Nf.mission.steps, 1)
         else
             Nf.mission.steps[1].step()
@@ -238,10 +334,16 @@ function Nf.advanceMission() -- move the mission up a step, or complete.
     if next(Nf.mission.steps) ~= nil then
         local advance = Nf.mission.steps[1].advance or false
         if Nf.mission.steps[1].args then
-            local args = unpack(Nf.mission.steps[1].args)
-            Nf.mission.steps[1].step(args)
+            if Nf.mission.steps[1].name then
+                Nf.msg("Mission step: " .. Nf.mission.steps[1].name)
+            end
+
+            Nf.mission.steps[1].step(unpack(Nf.mission.steps[1].args))
             table.remove(Nf.mission.steps, 1)
         else
+            if Nf.mission.steps[1].name then
+                Nf.msg("Mission step (no args): " .. Nf.mission.steps[1].name)
+            end
             Nf.mission.steps[1].step()
             table.remove(Nf.mission.steps, 1)
         end
@@ -262,11 +364,23 @@ function Nf.advanceMission() -- move the mission up a step, or complete.
             resetStopWatch(missionStopWatch)
             missionExp = 0
         end
+
+        raiseEvent("missionComplete")
+        raiseGlobalEvent("missionComplete")
     end
 end
 
---registerAnonymousEventHandler("advanceMission", Nf.advanceMission)
 registerNamedEventHandler(getProfileName(), "advanceMission", "advanceMission", Nf.advanceMission)
+
+-- try to recover from a failed move on a speedwalk
+function Nf.tryResumeSpeedwalk()
+    Nf.msg("Trying to resume speedwalk from a failed state.")
+    if Nf.inCombat then return end
+    if Nf.walking then return end
+
+    map.resumeSpeedwalk()
+    Nf.walking = true
+end
 
 function Nf.postSpeedwalk()
     -- speedwalk has ended, but need to make sure we aren't in combat
@@ -402,7 +516,7 @@ local function cont_walk(waited)
         for k, v in string.gmatch(map.walkDirs[1], "[^%s]+") do
             table.insert(fragment, k)
         end
-        if string.match(map.getExitName(fragment[3]), "is closed") then
+        if map.getExitName(fragment[3]) and string.match(map.getExitName(fragment[3]), "is closed") then
             send(map.walkDirs[1])
             -- else
             --     send(fragment[3])
@@ -441,6 +555,8 @@ function map.speedwalk(roomID, walkPath, walkDirs)
         sw = 'southwest',
         u = 'up',
         d = 'down',
+        up = 'up',
+        down = 'down',
         ["in"] = 'in',
         out = 'out',
         l = 'look',
@@ -484,7 +600,7 @@ function map.speedwalk(roomID, walkPath, walkDirs)
                 -- if locked, unlock door
                 if door == 3 then
                     table.insert(walkPath, k, id)
-                    table.insert(walkDirs, k, "unlock " .. doorname .. " " .. dir)
+                    table.insert(walkDirs, k, "pick " .. doorname .. " " .. dir)
                     k = k + 1
                 elseif door == 2 then
                     -- if closed, open door
@@ -499,6 +615,7 @@ function map.speedwalk(roomID, walkPath, walkDirs)
     -- perform walk
     Nf.walking = true
     map.walkDirs = walkDirs
+    --printTable(walkDirs)
     cont_walk()
 end
 
@@ -524,7 +641,7 @@ function Nf.clearRoom()
     -- start combat if there are mobs to kill.
     if not Nf.inCombat and (next(map.prompt.mobs) ~= nil) then
         Nf.msg("Sending kill command for " .. map.prompt.mobs[1])
-        send("k mob")
+        Nf.attack("mob")
         -- manually set inCombat here beacuse sometimes we kill mobs so quickly the msdp events don't
         -- come from the server.
         Nf.inCombat = true
@@ -534,7 +651,7 @@ function Nf.clearRoom()
         return
     end
 
-    if (next(map.prompt.mobs) == nil) and Nf.onMission and not Nf.inCombat then -- room is clear, time to advance mission
+    if (next(map.prompt.mobs) == nil) and Nf.onMission() and not Nf.inCombat then -- room is clear, time to advance mission
         Nf.msg("Raising advanceMission from clearRoom")
         raiseEvent("advanceMission")
         return
@@ -542,3 +659,41 @@ function Nf.clearRoom()
 
     Nf.msg("Got to the end of clearRoom with no conditions met and no timer! Please investigate.")
 end
+
+local missionList = { "azer", "montaire", "iog_jungle", "iog_gems", "bgf" }
+
+-- only call via raiseEvent
+function Nf.grind(event)
+    Nf.msg("Nf.grind triggered with event: " .. tostring(event))
+    if Nf.onMission() then return end
+    if not Nf.grinding then return end
+
+    if next(Nf.grindList) == nil then
+        Nf.grindList = table.deepcopy(missionList)
+    end
+
+    local ready = function()
+        if (event == "manaReady") or (event == nil) then
+            return true
+        end
+
+        if (event == "missionComplete") and (Nf.waitForMana == false) then
+            return true
+        end
+
+        return false
+    end
+
+    if ready() then
+        -- wake everyone up
+        raiseGlobalEvent("sysSendAllProfiles", "wake ; stand")
+        local k, mission = next(Nf.grindList)
+        tempTimer(2, function()
+            Nf.startMission(mission)
+            table.remove(Nf.grindList, 1)
+        end)
+    end
+end
+
+registerNamedEventHandler(getProfileName(), "grindEventMana", "manaReady", Nf.grind)
+registerNamedEventHandler(getProfileName(), "grindEventMission", "missionComplete", Nf.grind)

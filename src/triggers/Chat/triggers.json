@@ -1,0 +1,36 @@
+[
+  {
+    "name": "chat",
+    "isActive": "yes",
+    "isFolder": "no",
+    "multiline": "no",
+    "multilineDelta": "0",
+    "matchall": "",
+    "filter": "",
+    "fireLength": "0",
+    "highlight": "",
+    "patterns": [
+      {
+        "pattern": "^(\\w+) gossips,",
+        "type": "regex"
+      },
+      {
+        "pattern": "^(\\w+) telepaths to you,",
+        "type": "regex"
+      },
+      {
+        "pattern": "^\\[Group\\]",
+        "type": "regex"
+      },
+      {
+        "pattern": "^the Auctioneer auctions,",
+        "type": "regex"
+      },
+      {
+        "pattern": "^\\(Skynet\\)",
+        "type": "regex"
+      }
+    ],
+    "script": ""
+  }
+]

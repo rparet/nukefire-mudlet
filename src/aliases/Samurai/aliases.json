@@ -3,7 +3,7 @@
     "isActive": "yes",
     "isFolder": "no",
     "name": "flurry",
-    "regex": "^flu\\s?(?<target>.*)$",
+    "regex": "^flurry\\s?(?<target>.*)$",
     "script": ""
   },
   {

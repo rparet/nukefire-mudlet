@@ -88,5 +88,41 @@
       }
     ],
     "script": ""
+  },
+  {
+    "name": "warBanner",
+    "isActive": "yes",
+    "isFolder": "no",
+    "multiline": "no",
+    "multilineDelta": "0",
+    "matchall": "",
+    "filter": "",
+    "fireLength": "0",
+    "highlight": "",
+    "patterns": [
+      {
+        "pattern": "Your War Banner has gone limp.",
+        "type": "exactMatch"
+      }
+    ],
+    "script": ""
+  },
+  {
+    "name": "barrier",
+    "isActive": "yes",
+    "isFolder": "no",
+    "multiline": "no",
+    "multilineDelta": "0",
+    "matchall": "",
+    "filter": "",
+    "fireLength": "0",
+    "highlight": "",
+    "patterns": [
+      {
+        "pattern": "Your barrier of valor has gone limp.",
+        "type": "exactMatch"
+      }
+    ],
+    "script": ""
   }
 ]

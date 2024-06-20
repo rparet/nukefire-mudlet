@@ -1,4 +1,4 @@
-if msdp.CLASS == "Curist" then
+if msdp.CLASS == "Curist" or msdp.CLASS == "Heretic" then
     send("sling 'aura of escape'")
 else
     raiseGlobalEvent("escape")

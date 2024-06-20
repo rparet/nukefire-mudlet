@@ -47,12 +47,54 @@ local function ninja(level)
   elseif level < 25 then
     skill = "groinrip"
   elseif level < 35 then
-    skill = "dragonkick"
+    skill = "legsweep"
   else
     skill = "tigerpunch"
   end
 
   return skill
+end
+
+local function knight(level)
+  if level < 6 then
+    return nil
+  elseif level < 15 then
+    return "bash"
+  else
+    return "flurry"
+  end
+end
+
+local function heretic(level)
+  if level < 25 then
+    return
+  elseif level < 39 then
+    return "cleave"
+  else
+    return "smite"
+  end
+end
+
+local function mutant(level)
+  local skill = "emit" -- default skill
+
+  if level < 3 then
+    return
+  elseif level < 13 then
+    skill = "emit"
+  elseif level < 15 then
+    skill = "psionicwave"
+  elseif level < 25 then
+    skill = "psiattack"
+  else
+    if level < 50 then
+      skill = "psiblast"
+    else
+      skill = "mindcrush"
+    end
+
+    return skill
+  end
 end
 
 function combatSkill()
@@ -74,8 +116,23 @@ function combatSkill()
     if skill then
       send(skill)
     end
+  elseif msdp.CLASS == "Mutant" then
+    local skill = mutant(level)
+    if skill then
+      send(skill)
+    end
+  elseif msdp.CLASS == "Knight" then
+    local skill = knight(level)
+    if skill then
+      send(skill)
+    end
+  elseif msdp.CLASS == "Heretic" then
+    local skill = heretic(level)
+    if skill then
+      send(skill)
+    end
   end
 
   if Nf.timers.combatSkill then killTimer(Nf.timers.combatSkill) end
-  Nf.timers.combatSkill = tempTimer(2, combatSkill)
+  Nf.timers.combatSkill = tempTimer(4, combatSkill)
 end

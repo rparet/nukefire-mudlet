@@ -15,6 +15,7 @@ Class-specific aliases, scripts, and triggers:
 - Samurai
 - Ninja
 - Knight
+- Heretic
 
 General purpose aliases, scripts, triggers:
 

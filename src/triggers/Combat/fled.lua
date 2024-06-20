@@ -12,7 +12,7 @@ if Nf.inCombat then
     end
     if (speedWalkDir and #speedWalkDir ~= 0) and Nf.hunting then
         Nf.msg("mob fled, resuming speedWalk")
-        map.resumeSpeedwalk(2)
+        map.resumeSpeedwalk(3)
         Nf.walking = true
     elseif Nf.onMission() then
         Nf.msg("Raising advanceMission from fled.")

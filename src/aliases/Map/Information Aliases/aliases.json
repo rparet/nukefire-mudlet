@@ -1,0 +1,65 @@
+[
+       {
+              "isActive": "yes",
+              "isFolder": "no",
+              "name": "Map Quick Start Alias",
+              "regex": "^map basics$",
+              "script": ""
+       },
+       {
+              "isActive": "yes",
+              "isFolder": "no",
+              "name": "Map Help Alias",
+              "regex": "^map help(?: (.*))?$",
+              "script": ""
+       },
+       {
+              "isActive": "yes",
+              "isFolder": "no",
+              "name": "Map Rooms Alias",
+              "regex": "^map rooms(?: (.+))?$",
+              "script": ""
+       },
+       {
+              "isActive": "yes",
+              "isFolder": "no",
+              "name": "Map Areas Alias",
+              "regex": "^map areas$",
+              "script": ""
+       },
+       {
+              "isActive": "yes",
+              "isFolder": "no",
+              "name": "Room Find Alias",
+              "regex": "^(?:rf|room find) (.+)$",
+              "script": ""
+       },
+       {
+              "isActive": "yes",
+              "isFolder": "no",
+              "name": "Room Look Alias",
+              "regex": "^(?:rl|room look)(?: (.+))?$",
+              "script": ""
+       },
+       {
+              "isActive": "yes",
+              "isFolder": "no",
+              "name": "Show Path Alias",
+              "regex": "^showpath(?: (\\d+))?(?: (\\d+))?$",
+              "script": ""
+       },
+       {
+              "isActive": "yes",
+              "isFolder": "no",
+              "name": "List Special Exits Alias",
+              "regex": "^spe list(?: (.+))?$",
+              "script": ""
+       },
+       {
+              "isActive": "yes",
+              "isFolder": "no",
+              "name": "List Map Features Alias",
+              "regex": "^feature list$",
+              "script": ""
+       }
+]

@@ -1,0 +1,72 @@
+[
+       {
+              "isActive": "yes",
+              "isFolder": "no",
+              "name": "Map Show Alias",
+              "regex": "^map show$",
+              "script": ""
+       },
+       {
+              "isActive": "yes",
+              "isFolder": "no",
+              "name": "Find Map Prompt Alias",
+              "regex": "^find prompt$",
+              "script": ""
+       },
+       {
+              "isActive": "yes",
+              "isFolder": "no",
+              "name": "Set Map Prompt Alias",
+              "regex": "^map prompt(?: (.*))?$",
+              "script": ""
+       },
+       {
+              "isActive": "yes",
+              "isFolder": "no",
+              "name": "Set Map Ignore Alias",
+              "regex": "^map ignore(?: (.*))?$",
+              "script": ""
+       },
+       {
+              "isActive": "yes",
+              "isFolder": "no",
+              "name": "Set Move Method Alias",
+              "regex": "^map movemethod(?: (.*))?$",
+              "script": ""
+       },
+       {
+              "isActive": "yes",
+              "isFolder": "no",
+              "name": "Map Debug Alias",
+              "regex": "^map debug$",
+              "script": ""
+       },
+       {
+              "isActive": "yes",
+              "isFolder": "no",
+              "name": "Map Update Alias",
+              "regex": "^map update$",
+              "script": ""
+       },
+       {
+              "isActive": "yes",
+              "isFolder": "no",
+              "name": "Map Config Alias",
+              "regex": "^map config(?: ([\\w\\s\\.]+))?$",
+              "script": ""
+       },
+       {
+              "isActive": "yes",
+              "isFolder": "no",
+              "name": "Map Window Config Alias",
+              "regex": "^map window (x|y|w|h|origin|shown)(?: ([\\w%]+))?",
+              "script": ""
+       },
+       {
+              "isActive": "yes",
+              "isFolder": "no",
+              "name": "Map Translate Config Alias",
+              "regex": "^map translate (\\w+) (\\w+) (\\w+)$",
+              "script": ""
+       }
+]

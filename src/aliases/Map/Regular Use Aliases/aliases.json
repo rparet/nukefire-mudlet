@@ -1,0 +1,51 @@
+[
+       {
+              "isActive": "yes",
+              "isFolder": "no",
+              "name": "Map Me Alias",
+              "regex": "^map me$",
+              "script": ""
+       },
+       {
+              "isActive": "yes",
+              "isFolder": "no",
+              "name": "Map Path Alias",
+              "regex": "^map path ([^;]+)(?:\\s*;\\s*(.+))?",
+              "script": ""
+       },
+       {
+              "isActive": "yes",
+              "isFolder": "no",
+              "name": "Set Recall Alias",
+              "regex": "^map recall$",
+              "script": ""
+       },
+       {
+              "isActive": "yes",
+              "isFolder": "no",
+              "name": "Set Character Alias",
+              "regex": "^map character (.*)$",
+              "script": ""
+       },
+       {
+              "isActive": "yes",
+              "isFolder": "no",
+              "name": "Map Stop Alias",
+              "regex": "^map stop$",
+              "script": ""
+       },
+       {
+              "isActive": "yes",
+              "isFolder": "no",
+              "name": "Toggle Speedwalk Alias",
+              "regex": "^mpp(?:\\s?(on|off))?$",
+              "script": ""
+       },
+       {
+              "isActive": "yes",
+              "isFolder": "no",
+              "name": "Area Lock Alias",
+              "regex": "^arealock(?: (.*))?$",
+              "script": ""
+       }
+]

@@ -19,5 +19,12 @@
     "name": "eventReconnect",
     "eventHandlerList": ["sysDisconnectionEvent"],
     "script": ""
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "eventAttack",
+    "eventHandlerList": ["eventAttack"],
+    "script": ""
   }
 ]

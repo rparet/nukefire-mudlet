@@ -26,5 +26,12 @@
     "name": "blur",
     "regex": "^blur$",
     "script": ""
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "shapeshift",
+    "regex": "^shapeshift$",
+    "script": ""
   }
 ]

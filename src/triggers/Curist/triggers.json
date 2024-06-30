@@ -35,5 +35,23 @@
       }
     ],
     "script": ""
+  },
+  {
+    "name": "healFired",
+    "isActive": "yes",
+    "isFolder": "no",
+    "multiline": "no",
+    "multilineDelta": "0",
+    "matchall": "",
+    "filter": "",
+    "fireLength": "0",
+    "highlight": "",
+    "patterns": [
+      {
+        "pattern": "An intense surge of vitality surrounds",
+        "type": "startOfLine"
+      }
+    ],
+    "script": ""
   }
 ]

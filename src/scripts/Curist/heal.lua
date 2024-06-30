@@ -1,6 +1,7 @@
 -- level appropriate heal. needs MSDP level attribute
 
 function heal(profileName, healthPercent)
+  Nf.flags.heal = true
   -- just get Knight out of the way
   if msdp.CLASS == "Knight" then
     send("sling 'heal' " .. profileName)

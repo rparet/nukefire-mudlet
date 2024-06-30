@@ -31,7 +31,8 @@
       {
         "pattern": "You receive (\\d+) experience points",
         "type": "regex"
-      }
+      },
+      { "pattern": "You can't gain anymore experience.", "type": "startOfLine" }
     ],
     "script": ""
   },

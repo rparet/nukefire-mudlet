@@ -124,5 +124,12 @@
     "name": "attack",
     "regex": "^attack\\s*?(?<target>.*)$",
     "script": ""
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "setAttack",
+    "regex": "^setattack\\s*?(?<target>.*)$",
+    "script": ""
   }
 ]

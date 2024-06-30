@@ -1,4 +1,4 @@
-if msdp.CLASS == "Curist" or msdp.CLASS == "Heretic" then
+if msdp.CLASS == "Heretic" then
     raiseEvent("bless")
 else
     raiseGlobalEvent("bless")

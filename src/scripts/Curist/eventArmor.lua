@@ -9,7 +9,7 @@ function eventArmor(_, profileName)
         send("sling 'armor' " .. profileName)
     elseif msdp.CLASS == "Heretic" then
         if tonumber(msdp.LEVEL) >= 9 then
-            send("sling 'aura of fortificaton'")
+            send("sling 'aura of fortification'")
         else
             send("sling 'fortify' " .. profileName)
         end

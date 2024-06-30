@@ -148,5 +148,20 @@
       { "pattern": "You are dead!  Sorry...", "type": "startOfLine" }
     ],
     "script": ""
+  },
+  {
+    "name": "autoTrack",
+    "isActive": "yes",
+    "isFolder": "no",
+    "multiline": "no",
+    "multilineDelta": "0",
+    "matchall": "",
+    "filter": "",
+    "fireLength": "0",
+    "highlight": "",
+    "patterns": [
+      { "pattern": "^You sense a trail (\\w+) from here!", "type": "regex" }
+    ],
+    "script": ""
   }
 ]

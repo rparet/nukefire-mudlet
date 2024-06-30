@@ -8,7 +8,7 @@ function MoveHandler()
 
     if movePercent <= 50 then
         raiseGlobalEvent("lowMove")
-        if msdp.CLASS == "Curist" then
+        if msdp.CLASS == "Curist" or msdp.CLASS == "Heretic" then
             raiseEvent("invig")
         else
             raiseGlobalEvent("invig")

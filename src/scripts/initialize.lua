@@ -12,6 +12,8 @@ Nf.walking            = Nf.walking or false
 
 Nf.profile            = Nf.profile or {}
 Nf.profile.customWear = Nf.profile.customWear or {}
+-- opening move / attack - saved and settable per profile
+Nf.profile.attack     = Nf.profile.attack or "gt attack not set!"
 
 Nf.rooms              = Nf.rooms or {}
 Nf.mission            = Nf.mission or {}
@@ -60,16 +62,19 @@ end
 
 registerAnonymousEventHandler("sysProtocolEnabled", initMSDP)
 
+if not HMVBox then
+    HMVBox = Geyser.VBox:new({
+        x = "-30%",
+        y = "-10%",
+        width = "25%",
+        height = "7.5%"
+    })
+end
 
 hpBar = hpBar or Geyser.Gauge:new({
     name = "hpbar",
-    --    x = "50%",
-    --    y = "85%",
-    x = "-30%",
-    y = "-5%",
-    width = "25%",
     height = "2.5%",
-})
+}, HMVBox)
 
 hpBar.front:setStyleSheet(
     [[background-color: chartreuse;
@@ -90,14 +95,12 @@ hpBar.back:setStyleSheet(
 
 hpBar:setFgColor("black")
 hpBar:setFontSize(18)
+hpBar:setText("<b>" .. getProfileName() .. "</b>")
 
 manaBar = manaBar or Geyser.Gauge:new({
     name = "manabar",
-    x = "50%",
-    y = "82.5%",
-    width = "25%",
     height = "2.5%",
-})
+}, HMVBox)
 manaBar.front:setStyleSheet(
     [[background-color: blue;
     border-top: 1px black solid;
@@ -119,11 +122,8 @@ manaBar.back:setStyleSheet(
 
 moveBar = moveBar or Geyser.Gauge:new({
     name = "movebar",
-    x = "50%",
-    y = "80%",
-    width = "25%",
     height = "2.5%",
-})
+}, HMVBox)
 moveBar.front:setStyleSheet(
     [[background-color: lightskyblue;
     border-top: 1px black solid;
@@ -140,3 +140,10 @@ moveBar.back:setStyleSheet(
     border-radius: 7;
     padding: 3px;
 ]])
+
+-- Package dependencies
+
+if not table.contains(getPackages(), "EMCOChat") then
+    --tabbed chat
+    installPackage("https://github.com/demonnic/EMCO/releases/latest/download/EMCOChat.mpackage")
+end

@@ -67,12 +67,5 @@
     "name": "eventRemovePoison",
     "eventHandlerList": ["removepoison"],
     "script": ""
-  },
-  {
-    "isActive": "yes",
-    "isFolder": "no",
-    "name": "teamVitals",
-    "eventHandlerList": ["hp", "mana", "move"],
-    "script": ""
   }
 ]

@@ -13,6 +13,9 @@ Class-specific aliases, scripts, and triggers:
 - Curist
 - Slinger
 - Samurai
+- Ninja
+- Knight
+- Heretic
 
 General purpose aliases, scripts, triggers:
 

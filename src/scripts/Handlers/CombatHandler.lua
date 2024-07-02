@@ -8,5 +8,6 @@ function CombatHandler(event)
         end
     elseif event == "exitedCombat" then
         Nf.msg("Exited combat")
+        --Nf.inCombat = false making this false here breaks missions somehow
     end
 end

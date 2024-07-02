@@ -32,7 +32,34 @@
         "pattern": "6,0",
         "type": "color"
       },
-      { "pattern": "^([\\w\\s\\W]+)(?=\\s) - (.+) (.+)", "type": "regex" }
+      {
+        "pattern": "(?:\\[.*?\\] )*(.*?) - \\[(.*?)\\]\\s\\[(?<env>.+)\\]",
+        "type": "regex"
+      }
+    ],
+    "script": ""
+  },
+  {
+    "name": "MoveFail",
+    "isActive": "yes",
+    "isFolder": "no",
+    "multiline": "no",
+    "multilineDelta": "0",
+    "matchall": "",
+    "filter": "",
+    "fireLength": "2",
+    "highlight": "",
+    "patterns": [
+      {
+        "pattern": "Alas, you cannot go that way",
+        "type": "startOfLine"
+      },
+      {
+        "pattern": "No way!  You're fighting for your life!",
+        "type": "startOfLine"
+      },
+      { "pattern": "It is locked and you do not have", "type": "startOfLine" },
+      { "pattern": "You failed to pick the lock.", "type": "startOfLine" }
     ],
     "script": ""
   }

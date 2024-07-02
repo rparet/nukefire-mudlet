@@ -1,5 +1,5 @@
-if msdp.CLASS == "Curist" then
-    groupBless()
+if msdp.CLASS == "Curist" or msdp.CLASS == "Heretic" then
+    raiseEvent("bless")
 else
-    raiseGlobalEvent("groupbless")
+    raiseGlobalEvent("bless")
 end

@@ -2,7 +2,7 @@
 -- driven by msdp.CLASS, so it should work with longwalking, etc.
 
 local function configClassScripts(class)
-    local classes = { "Samurai", "Slinger", "Curist", "Primary" }
+    local classes = { "Samurai", "Slinger", "Curist", "Primary", "Knight", "Heretic" }
     local enableResult
 
     -- When called, turn on your scripts and turn off the rest.
@@ -18,6 +18,11 @@ local function configClassScripts(class)
             Nf.msg("Disabling " .. v .. ": " .. tostring(enableResult))
         end
     end
+    --handle special case for Knights and Heretics to get Curist stuff..
+    if class == "Knight" or class == "Heretic" then
+        Nf.msg("Enabling select Curist scripts for " .. class)
+        enableScript("Curist")
+    end
 end
 
 function ClassHandler()
@@ -27,34 +32,4 @@ function ClassHandler()
     end
 
     configClassScripts(msdp.CLASS)
-
-    -- if msdp.CLASS == "Mutant" then
-    --     disableScript("Curist")
-    --     disableScript("Samurai")
-    --     disableScript("Slinger")
-    --     --TODO - fix this so it can be a different primary screen, not just mutant
-    --     enableScript("Primary")
-    -- end
-
-    -- if msdp.CLASS == "Curist" then
-    --     enableScript("Curist")
-    --     disableScript("Samurai")
-    --     disableScript("Slinger")
-    --     disableScript("Primary")
-    -- end
-
-    -- if msdp.CLASS == "Samurai" then
-    --     enableScript("Samurai")
-    --     disableScript("Curist")
-    --     disableScript("Slinger")
-    --     disableScript("Primary")
-    -- end
-
-    -- if msdp.CLASS == "Slinger" then
-    --     enableScript("Slinger")
-    --     disableScript("Curist")
-    --     disableScript("Mutant")
-    --     disableScript("Samurai")
-    --     disableScript("Primary")
-    -- end
 end

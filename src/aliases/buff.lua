@@ -27,4 +27,31 @@ elseif msdp.CLASS == "Ninja" then
     if tonumber(msdp.LEVEL) >= 20 then
         send("utsusemi")
     end
+elseif msdp.CLASS == "Knight" then
+    if tonumber(msdp.LEVEL) >= 5 then
+        send("sling 'armor'")
+        send("sling 'bless'")
+    end
+
+    if tonumber(msdp.LEVEL) >= 19 then
+        send("sling 'honor'")
+    end
+
+    if tonumber(msdp.LEVEL) >= 25 then
+        send("sling 'barrier'")
+        send("sling 'war banner'")
+    end
+
+    if tonumber(msdp.LEVEL) >= 40 then
+        send("oath")
+    end
+elseif msdp.CLASS == "Heretic" then
+    send("sling 'fortify'")
+    if tonumber(msdp.LEVEL) >= 11 then
+        send("sling 'unholyfist'")
+    end
+    if tonumber(msdp.LEVEL) >= 25 then
+        send("darkpact")
+        send("covenant")
+    end
 end

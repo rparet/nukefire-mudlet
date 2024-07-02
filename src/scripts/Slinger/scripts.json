@@ -18,5 +18,12 @@
     "name": "slingerSling",
     "script": "",
     "eventHandlerList": ["slinger"]
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "eventShapeshift",
+    "script": "",
+    "eventHandlerList": ["shapeshift"]
   }
 ]

@@ -49,6 +49,10 @@
       {
         "pattern": "You feel less protected.",
         "type": "exactMatch"
+      },
+      {
+        "pattern": "You feel less fortified.",
+        "type": "exactMatch"
       }
     ],
     "script": ""
@@ -84,6 +88,78 @@
     "patterns": [
       {
         "pattern": "You are no longer a blur.",
+        "type": "exactMatch"
+      }
+    ],
+    "script": ""
+  },
+  {
+    "name": "warBanner",
+    "isActive": "yes",
+    "isFolder": "no",
+    "multiline": "no",
+    "multilineDelta": "0",
+    "matchall": "",
+    "filter": "",
+    "fireLength": "0",
+    "highlight": "",
+    "patterns": [
+      {
+        "pattern": "Your War Banner has gone limp.",
+        "type": "exactMatch"
+      }
+    ],
+    "script": ""
+  },
+  {
+    "name": "barrier",
+    "isActive": "yes",
+    "isFolder": "no",
+    "multiline": "no",
+    "multilineDelta": "0",
+    "matchall": "",
+    "filter": "",
+    "fireLength": "0",
+    "highlight": "",
+    "patterns": [
+      {
+        "pattern": "Your barrier of valor has gone limp.",
+        "type": "exactMatch"
+      }
+    ],
+    "script": ""
+  },
+  {
+    "name": "darkBlessing",
+    "isActive": "yes",
+    "isFolder": "no",
+    "multiline": "no",
+    "multilineDelta": "0",
+    "matchall": "",
+    "filter": "",
+    "fireLength": "0",
+    "highlight": "",
+    "patterns": [
+      {
+        "pattern": "You feel your dark blessing retreat.",
+        "type": "exactMatch"
+      }
+    ],
+    "script": ""
+  },
+  {
+    "name": "shapeshift",
+    "isActive": "yes",
+    "isFolder": "no",
+    "multiline": "no",
+    "multilineDelta": "0",
+    "matchall": "",
+    "filter": "",
+    "fireLength": "0",
+    "highlight": "",
+    "patterns": [
+      {
+        "pattern": "You are no longer shapeshifted.",
         "type": "exactMatch"
       }
     ],

@@ -1,5 +1,5 @@
-if Nf.Console.hidden then
-    Nf.Console:show()
+if Nf.console.hidden then
+    Nf.console:show()
 else
-    Nf.Console:hide()
+    Nf.console:hide()
 end

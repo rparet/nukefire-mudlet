@@ -146,5 +146,23 @@
       }
     ],
     "script": ""
+  },
+  {
+    "name": "shapeshift",
+    "isActive": "yes",
+    "isFolder": "no",
+    "multiline": "no",
+    "multilineDelta": "0",
+    "matchall": "",
+    "filter": "",
+    "fireLength": "0",
+    "highlight": "",
+    "patterns": [
+      {
+        "pattern": "You are no longer shapeshifted.",
+        "type": "exactMatch"
+      }
+    ],
+    "script": ""
   }
 ]

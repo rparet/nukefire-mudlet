@@ -55,7 +55,7 @@ else
 end
 
 if map.setExit(map.currentRoom, otherroom, matches[3]) then
-  if not matches[4] then map.setExit(otherroom, map.currentRoom, mmp.ranytolong(matches[3])) end
+  if not matches[4] then map.setExit(otherroom, map.currentRoom, map.ranytolong(matches[3])) end
 
   map.echo(string.format("Linked %s (%d) to %s (%d) via a %s%s exit.",
     (getRoomName(map.currentRoom) ~= "" and getRoomName(map.currentRoom) or "''"), map.currentRoom, (getRoomName(otherroom) ~= "" and getRoomName(otherroom) or "''"), otherroom, (matches[4] and "one-way " or ''), matches[3]))

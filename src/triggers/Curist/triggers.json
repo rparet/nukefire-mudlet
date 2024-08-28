@@ -53,5 +53,42 @@
       }
     ],
     "script": ""
+  },
+  {
+    "name": "auraRejuv",
+    "isActive": "yes",
+    "isFolder": "no",
+    "multiline": "no",
+    "multilineDelta": "0",
+    "matchall": "",
+    "filter": "",
+    "fireLength": "0",
+    "highlight": "",
+    "patterns": [
+      {
+        "pattern": "^(.+)'s whirlwind strike strikes (.+) in a relentless assault!",
+        "type": "regex"
+      }
+    ],
+    "script": ""
+  },
+  {
+    "name": "unholyfist",
+    "isActive": "yes",
+    "isFolder": "no",
+    "command": "sling 'unholyfist'",
+    "multiline": "no",
+    "multilineDelta": "0",
+    "matchall": "",
+    "filter": "",
+    "fireLength": "0",
+    "highlight": "",
+    "patterns": [
+      {
+        "pattern": "Your fists no longer writhe with dark power.",
+        "type": "exactMatch"
+      }
+    ],
+    "script": ""
   }
 ]

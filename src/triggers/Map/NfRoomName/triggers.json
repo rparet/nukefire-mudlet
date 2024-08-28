@@ -17,5 +17,31 @@
       }
     ],
     "script": ""
+  },
+  {
+    "name": "NfRoomDescription",
+    "isActive": "yes",
+    "isFolder": "no",
+    "multiline": "yes",
+    "multilineDelta": "0",
+    "matchall": "",
+    "filter": "",
+    "fireLength": "0",
+    "highlight": "",
+    "patterns": [{ "pattern": "7,0", "type": "color" }],
+    "script": ""
+  },
+  {
+    "name": "NfObjsInRoom",
+    "isActive": "yes",
+    "isFolder": "no",
+    "multiline": "yes",
+    "multilineDelta": "0",
+    "matchall": "",
+    "filter": "",
+    "fireLength": "0",
+    "highlight": "",
+    "patterns": [{ "pattern": "2,0", "type": "color" }],
+    "script": ""
   }
 ]

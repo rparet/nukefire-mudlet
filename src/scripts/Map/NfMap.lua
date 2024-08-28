@@ -1082,26 +1082,12 @@ local mt = getmetatable(map) or {}
 
 local exitmap = {
     n = 'north',
-    ne = 'northeast',
-    nw = 'northwest',
     e = 'east',
     w = 'west',
     s = 'south',
-    se = 'southeast',
-    sw = 'southwest',
     u = 'up',
     d = 'down',
-    ["in"] = 'in',
-    out = 'out',
     l = 'look',
-    ed = 'eastdown',
-    eu = 'eastup',
-    nd = 'northdown',
-    nu = 'northup',
-    sd = 'southdown',
-    su = 'southup',
-    wd = 'westdown',
-    wu = 'westup',
 }
 
 local short = {}
@@ -1111,45 +1097,17 @@ end
 
 local stubmap = {
     north = 1,
-    northeast = 2,
-    northwest = 3,
     east = 4,
     west = 5,
     south = 6,
-    southeast = 7,
-    southwest = 8,
     up = 9,
     down = 10,
-    ["in"] = 11,
-    out = 12,
-    northup = 13,
-    southdown = 14,
-    southup = 15,
-    northdown = 16,
-    eastup = 17,
-    westdown = 18,
-    westup = 19,
-    eastdown = 20,
     [1] = "north",
-    [2] = "northeast",
-    [3] = "northwest",
     [4] = "east",
     [5] = "west",
     [6] = "south",
-    [7] = "southeast",
-    [8] = "southwest",
     [9] = "up",
     [10] = "down",
-    [11] = "in",
-    [12] = "out",
-    [13] = "northup",
-    [14] = "southdown",
-    [15] = "southup",
-    [16] = "northdown",
-    [17] = "eastup",
-    [18] = "westdown",
-    [19] = "westup",
-    [20] = "eastdown",
 }
 
 local coordmap = {
@@ -1182,21 +1140,36 @@ local reverse_dirs = {
     east = "west",
     up = "down",
     down = "up",
-    northwest = "southeast",
-    northeast = "southwest",
-    southwest = "northeast",
-    southeast = "northwest",
-    ["in"] = "out",
-    out = "in",
-    northup = "southdown",
-    southdown = "northup",
-    southup = "northdown",
-    northdown = "southup",
-    eastup = "westdown",
-    westdown = "eastup",
-    westup = "eastdown",
-    eastdown = "westup",
 }
+
+local envMap = {
+    Inside = 272,
+    Smooth = 263,
+    Desert = 259,
+    ["Desert road / path"] = 200, -- custom color 'khaki'
+    Mountains = 257,
+    Swamp = 264,
+    Forest = 258,
+    Field = 262,
+    Hills = 201, -- custom color 'saddle_brown'
+    Tundra = 271,
+    Water = 268,
+}
+
+-- color table is saved once set, so this should be 1 time on map init.
+local function setCustomColors()
+    local colorTable = getCustomEnvColorTable() or {}
+
+    if not colorTable[200] then
+        local r, g, b = unpack(color_table.khaki)
+        setCustomEnvColor(200, r, g, b, 255) -- set the color of environmentID 200 to blue
+    end
+
+    if not colorTable[201] then
+        local r, g, b = unpack(color_table.saddle_brown)
+        setCustomEnvColor(201, r, g, b, 255) -- set the color of environmentID 200 to blue
+    end
+end
 
 local wait_echo = {}
 local mapper_tag = "<112,229,0>(<73,149,0>mapper<112,229,0>): <255,255,255>"
@@ -1441,16 +1414,39 @@ local function set_room(roomID)
         map.set("prevRoom", map.currentRoom)
         map.set("currentRoom", roomID)
     end
+    -- somehow got here w/o going through  capture_room_info?
     if getRoomName(map.currentRoom) ~= map.currentName then
         map.set("prevName", map.currentName)
         map.set("prevExits", map.currentExits)
         map.set("currentName", getRoomName(map.currentRoom))
         map.set("currentExits", getRoomExits(map.currentRoom))
         -- check handling of custom exits here
-        for i = 13, #stubmap do
-            map.currentExits[stubmap[i]] = tonumber(getRoomUserData(map.currentRoom, "exit " .. stubmap[i]))
+
+        -- 13-20 of stubmap are exits that NF doesn't use
+        -- for i = 13, #stubmap do
+        --     map.currentExits[stubmap[i]] = tonumber(getRoomUserData(map.currentRoom, "exit " .. stubmap[i]))
+        -- end
+    end
+
+    if map.currentRoom ~= 1 then
+        -- fill in missing environment info.
+        if getRoomEnv(map.currentRoom) == -1 and map.prompt.env ~= "" then
+            if envMap[map.prompt.env] then
+                setRoomEnv(map.currentRoom, envMap[map.prompt.env])
+            end
+        end
+
+        -- fill in missing exits info
+        if not getRoomUserData(map.currentRoom, "exitNames", true) and map.prompt.exitNames then
+            setRoomUserData(map.currentRoom, "exitNames", yajl.to_string(map.prompt.exitNames))
+        end
+
+        if not getRoomUserData(map.currentRoom, "description", true) and map.prompt.description then
+            setRoomUserData(map.currentRoom, "description", map.prompt.description)
+            setRoomIDbyHash(map.currentRoom, md5.sumhexa(map.prompt.description))
         end
     end
+
     map.set("currentArea", getRoomArea(map.currentRoom))
     centerview(map.currentRoom)
     raiseEvent("onMoveMap", map.currentRoom)
@@ -1487,6 +1483,10 @@ local function check_doors(roomID, exits)
     local statuses = {}
     local doors = getDoors(roomID)
     local dir
+
+    if not doors or not next(doors) then
+        return true
+    end
     for k, v in pairs(exits) do
         dir = short[k] or short[v]
         if table.contains({ 'u', 'd' }, dir) then
@@ -1498,12 +1498,12 @@ local function check_doors(roomID, exits)
             statuses[dir] = doors[dir]
         end
     end
-    return statuses
+    return table.is_empty(statuses)
 end
 
 local function find_room(name, area)
     -- looks for rooms with a particular name, and if given, in a specific area
-    local rooms = searchRoom(name)
+    local rooms = searchRoom(name, true, true)
     if type(area) == "string" then
         local areas = getAreaTable() or {}
         for k, v in pairs(areas) do
@@ -1529,12 +1529,12 @@ local function getRoomStubs(roomID)
     local stubs = getExitStubs(roomID)
     if type(stubs) ~= "table" then stubs = {} end
     -- check handling of custom exits here
-    local tmp
-    for i = 13, #stubmap do
-        tmp = tonumber(getRoomUserData(roomID, "stub " .. stubmap[i])) or
-            tonumber(getRoomUserData(roomID, "stub" .. stubmap[i])) -- for old version
-        if tmp then table.insert(stubs, tmp) end
-    end
+    -- local tmp
+    -- for i = 13, #stubmap do
+    --     tmp = tonumber(getRoomUserData(roomID, "stub " .. stubmap[i])) or
+    --         tonumber(getRoomUserData(roomID, "stub" .. stubmap[i])) -- for old version
+    --     if tmp then table.insert(stubs, tmp) end
+    -- end
 
     local exits = {}
     for k, v in pairs(stubs) do
@@ -1591,38 +1591,70 @@ local function connect_rooms(ID1, ID2, dir1, dir2, no_check)
 end
 
 local function check_room(roomID, name, exits, onlyName)
-    -- check to see if room name or/and exits match expectations
-    if not roomID then
+    if not roomID or roomID == -1 then
         error("Check Room Error: No ID", 2)
     end
+
+    -- check to see if room name or/and exits match expectations
+    -- core of figuring out where the heck you are, when you know where you are moving to and when you don't.
+    map.echo("Checking room " ..
+        roomID .. " " .. (name or "") .. " " .. table.concat(exits, " ") .. " " .. "onlyName: " .. tostring(onlyName),
+        true)
     -- check with room hash id
-    if map.prompt.hash then
-        if map.prompt.hash == getRoomHashByID(roomID) then
+    if map.prompt.hash and not onlyName then
+        local hash = getRoomHashByID(roomID)
+
+        -- if not hash then return false end
+        if map.prompt.hash == hash then
+            map.echo("Found room via map.prompt.hash.", true)
             return true
-        else
+        elseif getRoomIDbyHash(map.prompt.hash) ~= -1 then
+            map.echo("Room hash matches a different room.", true)
             return false
         end
     end
 
-    if name ~= getRoomName(roomID) then return false end
+    if name ~= getRoomName(roomID) then
+        map.echo("Room name doesn't match expectations: " .. (name or "") .. " " .. getRoomName(roomID), true)
+        return false
+    end
 
-    -- used in mode "lazy" to match only the room name
-    if onlyName then return true end
+    if onlyName and map.prompt.description then
+        if map.prompt.description ~= getRoomUserData(roomID, "description") then
+            map.echo("Room description doesn't match expectations: " .. (name or "") .. " " .. getRoomName(roomID), true)
+            return false
+        end
+    end
 
     local t_exits = table.union(getRoomExits(roomID), getRoomStubs(roomID))
 
     -- check handling of custom exits here
-    for i = 13, #stubmap do
-        t_exits[stubmap[i]] = tonumber(getRoomUserData(roomID, "exit " .. stubmap[i])) or
-            (tonumber(getRoomUserData(roomID, "stub " .. stubmap[i])) and 0) or
-            (tonumber(getRoomUserData(roomID, "stub" .. stubmap[i])) and 0) -- for old version
-    end
+    -- for i = 13, #stubmap do
+    --     t_exits[stubmap[i]] = tonumber(getRoomUserData(roomID, "exit " .. stubmap[i])) or
+    --         (tonumber(getRoomUserData(roomID, "stub " .. stubmap[i])) and 0) or
+    --         (tonumber(getRoomUserData(roomID, "stub" .. stubmap[i])) and 0) -- for old version
+    -- end
 
     for k, v in ipairs(exits) do
-        if short[v] and not table.contains(t_exits, v) then return false end
+        if short[v] and not table.contains(t_exits, v) then
+            if onlyName then
+                map.echo("Warn: room " .. roomID .. " doesn't have exit " .. v .. ", creating a stub", true)
+                setExitStub(roomID, v, true)
+            else
+                return false
+            end
+        end
         t_exits[v] = nil
     end
+
+    local doorStatus = check_doors(roomID, t_exits)
+    if not table.is_empty(t_exits) or not doorStatus then
+        if onlyName then
+            map.echo("Warn: map exits don't match the room exits, check mapper.", true)
+        end
+    end
     return table.is_empty(t_exits) or check_doors(roomID, t_exits)
+    --return true
 end
 
 local function stretch_map(dir, x, y, z)
@@ -1734,7 +1766,9 @@ local function find_link(name, exits, dir, max_distance)
     -- search for matching room in desired direction
     -- in lazy mode check_room search only by name
     local x, y, z = getRoomCoordinates(map.currentRoom)
-    if map.mapping and x then
+
+    -- only map when not in brief mode
+    if map.mapping and x and map.prompt.description then
         if max_distance < 1 then
             max_distance = nil
         else
@@ -1750,12 +1784,13 @@ local function find_link(name, exits, dir, max_distance)
             minz, maxz = z - max_distance, z + max_distance
         end
         -- find link from room hash first
-        if map.prompt.hash then
-            local room = getRoomIDbyHash(map.prompt.hash)
+        if map.prompt.description then
+            local room = getRoomIDbyHash(md5.sumhexa(map.prompt.description))
             if room > 0 then
                 match = room
             end
-        else
+        end
+        if not match then
             repeat
                 x, y, z = x + dx, y + dy, z + dz
                 rooms = getRoomsByPosition(map.currentArea, x, y, z)
@@ -1784,13 +1819,17 @@ local function move_map()
     -- tries to move the map to the next room
     local move = table.remove(move_queue, 1)
     if move or random_move then
+        -- actually, the room we just left.
         local exits = (map.currentRoom and getRoomExits(map.currentRoom)) or {}
         -- check handling of custom exits here
-        if map.currentRoom then
-            for i = 13, #stubmap do
-                exits[stubmap[i]] = tonumber(getRoomUserData(map.currentRoom, "exit " .. stubmap[i]))
-            end
-        end
+
+        -- these exits are unused in NF
+        -- if map.currentRoom then
+        --     for i = 13, #stubmap do
+        --         exits[stubmap[i]] = tonumber(getRoomUserData(map.currentRoom, "exit " .. stubmap[i]))
+        --     end
+        -- end
+
         local special = (map.currentRoom and getSpecialExitsSwap(map.currentRoom)) or {}
         if move and not exits[move] and not special[move] then
             for k, v in pairs(special) do
@@ -1810,9 +1849,14 @@ local function move_map()
             force_portal = false
         elseif move == "recall" and map.save.recall[map.character] then
             set_room(map.save.recall[map.character])
-        elseif move == map.configs.lang_dirs['look'] and map.currentRoom and not check_room(map.currentRoom, map.currentName, map.currentExits) then
-            -- this check isn't working as intended, find out why
-            map.find_me(map.currentName, map.currentExits)
+        elseif move == map.configs.lang_dirs['look'] then
+            map.echo("Doing a look", true)
+            local status, result = pcall(check_room, map.currentRoom, map.currentName, map.currentExits)
+
+            map.echo("Look result: " .. tostring(result), true)
+            if not result or not status then
+                map.find_me(map.currentName, map.currentExits)
+            end
         else
             local onlyName
             if map.mode == "lazy" then
@@ -1820,9 +1864,10 @@ local function move_map()
             else
                 onlyName = false
             end
-            if exits[move] and (vision_fail or check_room(exits[move], map.currentName, map.currentExits, onlyName)) then
+            if exits[move] and (vision_fail or check_room(exits[move], map.currentName, map.currentExits, true)) then
+                map.echo("Moving map to " .. exits[move], true)
                 set_room(exits[move])
-            elseif special[move] and (vision_fail or check_room(special[move], map.currentName, map.currentExits, onlyName)) then
+            elseif special[move] and (vision_fail or check_room(special[move], map.currentName, map.currentExits, true)) then
                 set_room(special[move])
             elseif not vision_fail then
                 if map.mapping and move then
@@ -2311,36 +2356,41 @@ local function check_link(firstID, secondID, dir)
     local name = getRoomName(firstID)
     local exits1 = table.union(getRoomExits(firstID), getRoomStubs(firstID))
     local exits2 = table.union(getRoomExits(secondID), getRoomStubs(secondID))
-    local exit
+    --local exit
     -- check handling of custom exits here
-    for i = 13, #stubmap do
-        exit = "exit " .. stubmap[i]
-        exits1[stubmap[i]] = tonumber(getRoomUserData(firstID, exit))
-        exits2[stubmap[i]] = tonumber(getRoomUserData(secondID, exit))
-    end
+    -- for i = 13, #stubmap do
+    --     exit = "exit " .. stubmap[i]
+    --     exits1[stubmap[i]] = tonumber(getRoomUserData(firstID, exit))
+    --     exits2[stubmap[i]] = tonumber(getRoomUserData(secondID, exit))
+    -- end
     local checkID = exits2[reverse_dirs[dir]]
     local exits = {}
     for k, v in pairs(exits1) do
         table.insert(exits, k)
     end
-    return checkID and check_room(checkID, name, exits)
+    if checkID and checkID > 0 then
+        return checkID and check_room(checkID, name, exits)
+    else
+        return checkID
+    end
 end
 
 function map.find_me(name, exits, dir, manual)
     -- tries to locate the player using the current room name and exits, and if provided, direction of movement
     -- if direction of movement is given, narrows down possibilities using previous room info
+    -- This is the "ah shit! part of movement."
+    map.echo("Entered map.find_me()", true)
     if move ~= "recall" then move_queue = {} end
     -- find from room hash id - map.find_me(nil, nil, nil, false)
-    if map.prompt.hash then
-        local room = getRoomIDbyHash(map.prompt.hash)
-        if room > 0 then
+    if map.prompt.description then
+        local hash = md5.sumhexa(map.prompt.description)
+        local room = getRoomIDbyHash(hash)
+        if room > 1 then
             set_room(room)
-            map.echo("Room found, ID: " .. room, true)
+            map.echo("Room found by hash, ID: " .. room, true)
             return
-        else
-            map.echo("Room not found in map database!", not manual, true)
-            set_room(1)
-            return
+        else -- things like check_room will use this hash once so as not to keep regenerating it.
+            map.prompt.hash = hash
         end
     end
     local check = dir and map.currentRoom and table.contains(exitmap, dir)
@@ -2349,15 +2399,24 @@ function map.find_me(name, exits, dir, manual)
     if not name and not exits then
         show_err("Room not found, complete room name and exit data not available.")
     end
-    local rooms = find_room(name)
+    -- get all the rooms that match this name exactly.
+    local rooms = find_room(name) or {}
     local match_IDs = {}
-    for k, v in pairs(rooms) do
-        if check_room(k, name, exits) then
-            table.insert(match_IDs, k)
+
+    -- if table.size(rooms) == 1 then
+    --     match_IDs = rooms
+    -- end
+    -- next, let's try only rooms that have the correct number of exits.
+    if table.is_empty(match_IDs) then
+        for k, v in pairs(rooms) do
+            if check_room(k, name, exits) then
+                table.insert(match_IDs, k)
+            end
         end
     end
     rooms = match_IDs
     match_IDs = {}
+    -- if there are still multiple matches and we came from a direction, check the link from the current room to this room.
     if table.size(rooms) > 1 and check then
         for k, v in pairs(rooms) do
             if check_link(map.currentRoom, v, dir) then
@@ -2374,11 +2433,19 @@ function map.find_me(name, exits, dir, manual)
     if table.size(match_IDs) == 0 then
         match_IDs = rooms
     end
+    -- we moved but ended up in the same room.
     if table.index_of(match_IDs, map.currentRoom) then
         match_IDs = { map.currentRoom }
     end
+
     if not table.is_empty(match_IDs) and not find_portal then
-        set_room(match_IDs[1])
+        if #match_IDs == 1 then
+            set_room(match_IDs[1])
+        else
+            map.echo(#match_IDs .. " room candidates found: " .. table.concat(match_IDs, " "), true)
+            set_room(-1)
+            return
+        end
         map.echo("Room found, ID: " .. match_IDs[1], true)
     elseif find_portal then
         if not table.is_empty(match_IDs) then
@@ -2396,7 +2463,7 @@ function map.find_me(name, exits, dir, manual)
         find_portal = false
     elseif table.is_empty(match_IDs) then
         map.echo("Room not found in map database", not manual, true)
-        set_room(1)
+        -- set_room(1)
     end
 end
 
@@ -3045,7 +3112,7 @@ function map.roomFind(query, lines)
                 string.format(
                     "<DarkSlateGrey>%s<DarkSlateGrey>\n", getRoomAreaName(getRoomArea(roomid))
                 ),
-                [[map.echoPath(mmp.currentroom, ]] .. roomid .. [[)]],
+                [[map.echoPath(map.currentRoom, ]] .. roomid .. [[)]],
                 "Display directions from here to " .. roomname,
                 true
             )
@@ -3072,7 +3139,7 @@ function map.roomFind(query, lines)
             fg("DarkSlateGrey")
             echoLink(
                 " > Show path\n",
-                [[map.echoPath(mmp.currentroom, ]] .. roomid .. [[)]],
+                [[map.echoPath(map.currentRoom, ]] .. roomid .. [[)]],
                 "Display directions from here to " .. roomname,
                 true
             )
@@ -3198,6 +3265,8 @@ function map.roomLook(input)
         local env = getRoomEnv(num)
         -- generic_mapper doesn't have support for environments like IRE_mapper
         local envname = (map.envidsr and map.envidsr[env]) or "?"
+        local userdata = getAllRoomUserData(num)
+        local hash = getRoomHashByID(num) or "none"
         -- generate a report
         map.echo(
             string.format(
@@ -3222,6 +3291,7 @@ function map.roomLook(input)
                 (getRoomUserData(num, "indoors") ~= '' and ", indoors" or '')
             )
         )
+        map.echo(string.format("Hash: %s", hash))
         map.echo(string.format("Exits (%d):", table.size(exits)))
         for exit, leadsto in pairs(exits) do
             echo(
@@ -3272,6 +3342,14 @@ function map.roomLook(input)
         local message = "This room has the feature '%s'."
         for _, mapFeature in pairs(map.getRoomMapFeatures(num)) do
             map.echo(string.format(message, mapFeature))
+        end
+
+        if userdata then
+            map.echo("User Data")
+            for k, v in pairs(userdata) do
+                echo(string.format("%s: %s\n", k, v))
+                echo("\n")
+            end
         end
         -- actions we can do. This will be a short menu of sorts for actions
         map.echo("Stuff you can do:")

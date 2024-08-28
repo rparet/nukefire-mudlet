@@ -54,4 +54,20 @@ elseif msdp.CLASS == "Heretic" then
         send("darkpact")
         send("covenant")
     end
+elseif msdp.CLASS == "Kaiju" then
+    send("grow organs")
+    send("grow swarm")
+    send("grow limbs")
+    send("grow plates")
+    send("grow tentacles")
+    send("grow spines")
+    send("grow carapace")
+    send("grow organs")
+    send("grow plates")
+    send("grow organs")
+    send("grow plates")
+    send("grow organs")
+    send("grow organs")
+    send("grow plates")
+    send("grow plates")
 end

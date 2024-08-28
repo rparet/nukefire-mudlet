@@ -12,3 +12,7 @@ end
 if Nf.onMission() then
     Nf.startMission("stop")
 end
+
+if Nf.flags.utsu then
+    setUtsu(0)
+end

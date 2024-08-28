@@ -24,15 +24,16 @@ directions = {
     ["ktree"] = "run 6ws2wnws2wn3w2n6wu",
     ["greendragon"] = "run 46esdss",
     ["nv"] = "run 5ne9nw3n",
-    ["civic"] = "run 2dsw6s22e13ne2u2n6wu",
+    ["civic"] = "run 2dsw6s22e13ne2u2n6w",
     ["paleman"] = "run 8s4e5w4s3e2se4s7d",
     ["alcatraz"] = "run 9nw8n2wn4wu",
     ["montaire"] = "run 22e15s9w5s7w7su4e2s2w3u9e3u2nes4e",
     ["cyboria"] = "run 2dsw6s22e30n2u",
     ["silicia"] = "run 6ws2wnws2wn3ws5wn8w",
-    ["lw"] = "run 2dsw6s22e2ne2uw3se",
+    ["lw"] = "run 2dsw6s22e2ne2uw3s",
     ["claven"] = "run 43e4n2w3ne",
     ["bgf"] = "run 2dsw6s3es2u5sw6se7s7esese4swnwe3s2d2edwdwsd2enen3e2ue2u",
+    ["sky"] = "run 2dsw6s22e30n2u18e5e10s6eses",
     -- from bgf
     ["cern"] = "run 2dw3d2w2nen4enen2e2nen6e2sw3sw2s8ws6e9s",
     -- from ocp
@@ -44,17 +45,20 @@ directions = {
     ["cactus"] = "run 3wnw2nwn3s4w3n6wnw2nwnwnww",
     ["jp"] = "run 7w7n",
     ["pirates"] = "run 10w9n5w",
-    -- from lw info center
-    ["blackdragon"] = "run wse7sn8wn3sws2wn2swds",
-    ["browndragon"] = "run wse4s8w3n2wnu3n2e2n",
-    ["canyonrim"] = "run wse5sws7wn3sw6s",
-    ["tdome"] = "run wse2s5w2s2w2s2w19s",
+    -- from 1 w, lw info center
+    ["blackdragon"] = "run se7sn8wn3sws2wn2swds",
+    ["browndragon"] = "run se4s8w3n2wnu3n2e2n",
+    ["canyonrim"] = "run se5sws7wn3sw6s",
+    ["tdome"] = "run se2s5w2s2w2s2w19s",
     -- from canyonrim
     ["reddragon"] = "run 2d2edwdwsd2ene3nen4enen2e2ne3nw2nenen3es",
-    -- from civic center, casablanca
-    ["nyc"] = "run d24ene15n",
-    ["racity"] = "run dw9s7ws2w3se",
+    -- from 1d, civic center, casablanca
+    ["nyc"] = "run 24ene15n",
+    ["racity"] = "run w9s7ws2w3se",
     ["rastatue"] = "run 5e2sene3nwsw ; open cistern; run d10w2s2w4s",
-    ["scorch"] = "run dw9n12e13sw2s",
-    ["wheel"] = "run d3wsws14w9n9es3en"
+    ["scorch"] = "run w9n12e13sw2s",
+    ["wheel"] = "run 3wsws14w9n9es3en",
+    -- from cern
+    ["midian"] = "run 7nw4s4w3ses9w2u2nu4n9ws",
+    ["panzer"] = "run 7nw4s4w3ses9w2u2nu4nun"
 }

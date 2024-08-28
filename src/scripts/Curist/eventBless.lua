@@ -7,6 +7,20 @@ function eventBless(_, profileName)
             bless = "dark blessing"
         end
     end
+
+    local lastCast = Nf.lastCast[bless]
+
+    if not lastCast then
+        Nf.lastCast[bless] = getEpoch()
+    else
+        local elapsed = getEpoch() - lastCast
+        if elapsed < 60 then
+            Nf.msg("eventBless - it's been less than a minute since last call, skipping")
+            return
+        else
+            Nf.lastCast[bless] = getEpoch()
+        end
+    end
     if profileName then
         display("Caught event bless from " .. profileName)
         send("sling '" .. bless .. "' " .. profileName)

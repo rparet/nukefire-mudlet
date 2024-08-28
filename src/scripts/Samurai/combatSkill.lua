@@ -52,6 +52,15 @@ local function ninja(level)
     skill = "tigerpunch"
   end
 
+  if skill == "storm" then
+    Nf.flags.action = true
+    Nf.triggers.action = tempRegexTrigger("^With a sudden burst of energy, you unleash a Wild Storm Flurry!",
+      function()
+        echo("\nResolved storm flurry trigger!\n")
+        Nf.flags.action = false
+      end, 1)
+  end
+
   return skill
 end
 
@@ -99,6 +108,13 @@ end
 
 function combatSkill()
   if not Nf.inCombat then
+    return
+  end
+
+  if Nf.flags.action then
+    Nf.msg("got to CombatSkill() but I'm already performing an action, so returning.")
+    if Nf.timers.combatSkill then killTimer(Nf.timers.combatSkill) end
+    Nf.timers.combatSkill = tempTimer(4, combatSkill)
     return
   end
 

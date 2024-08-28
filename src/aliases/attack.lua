@@ -1,1 +1,1 @@
-Nf.attack(string.trim(matches[2]))
+Nf.attack(matches.target, matches.type)

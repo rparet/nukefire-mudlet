@@ -16,5 +16,35 @@
       }
     ],
     "script": ""
+  },
+  {
+    "name": "slingFail",
+    "isActive": "yes",
+    "isFolder": "no",
+    "multiline": "no",
+    "multilineDelta": "0",
+    "matchall": "",
+    "filter": "",
+    "fireLength": "0",
+    "highlight": "",
+    "patterns": [
+      {
+        "pattern": "This room just has such a peaceful, easy feeling...",
+        "type": "exactMatch"
+      },
+      {
+        "pattern": "Cannot find the target of your spell!",
+        "type": "exactMatch"
+      },
+      {
+        "pattern": "You cannot do that yet!",
+        "type": "exactMatch"
+      },
+      {
+        "pattern": "All you can do right now is think about the stars!",
+        "type": "exactMatch"
+      }
+    ],
+    "script": ""
   }
 ]

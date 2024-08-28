@@ -16,5 +16,17 @@
     "isFolder": "no",
     "name": "getCorpse",
     "script": ""
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "md5",
+    "script": ""
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "gradientmaker",
+    "script": ""
   }
 ]

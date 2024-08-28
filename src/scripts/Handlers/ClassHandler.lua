@@ -2,7 +2,7 @@
 -- driven by msdp.CLASS, so it should work with longwalking, etc.
 
 local function configClassScripts(class)
-    local classes = { "Samurai", "Slinger", "Curist", "Primary", "Knight", "Heretic" }
+    local classes = { "Samurai", "Slinger", "Curist", "Primary", "Knight", "Heretic", "Ninja" }
     local enableResult
 
     -- When called, turn on your scripts and turn off the rest.
@@ -10,7 +10,7 @@ local function configClassScripts(class)
         if v == class then
             enableResult = enableScript(class)
             Nf.msg("Enabling " .. class .. ": " .. tostring(enableResult))
-        elseif v == "Primary" and class == "Mutant" then
+        elseif v == "Primary" and (class == "Mutant" or class == "Kaiju") then
             enableResult = enableScript("Primary")
             Nf.msg("Enabling Primary: " .. tostring(enableResult))
         else

@@ -11,16 +11,24 @@ function teamVitals(event, value, profileName)
         })
     end
 
+    if event == "destroy" then -- TODO: box add and show if the profile comes back.
+        Nf.profiles[profileName].box:hide()
+        TeamBox:remove(Nf.profiles[profileName].box)
+        TeamBox:organize()
+        return
+    end
+
     local events = { ["hp"] = "chartreuse", ["mana"] = "blue", ["move"] = "lightskyblue" }
     if not Nf.profiles[profileName] then
         Nf.profiles[profileName] = {}
+        Nf.profiles[profileName].box = Geyser.VBox:new({ height = "7.5%" }, TeamBox)
 
         for k, v in pairs(events) do
             local barName = k .. "Bar"
             Nf.profiles[profileName][barName] = Geyser.Gauge:new({
                 name = profileName .. barName,
                 height = "2.5%",
-            }, TeamBox)
+            }, Nf.profiles[profileName].box)
             Nf.profiles[profileName][barName].front:setStyleSheet(
                 [[background-color: ]] .. v .. [[;
                 border-top: 1px black solid;
@@ -46,5 +54,5 @@ function teamVitals(event, value, profileName)
     local bar = event .. "Bar"
 
     Nf.profiles[profileName][event] = value
-    Nf.profiles[profileName][bar]:setValue(value, 100, "<b>" .. profileName .. "</b>")
+    Nf.profiles[profileName][bar]:setValue(value, 100)
 end

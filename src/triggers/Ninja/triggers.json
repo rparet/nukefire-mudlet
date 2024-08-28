@@ -1,0 +1,21 @@
+[
+  {
+    "name": "utsu",
+    "isActive": "yes",
+    "isFolder": "no",
+    "multiline": "yes",
+    "multilineDelta": "0",
+    "matchall": "",
+    "filter": "",
+    "fireLength": "0",
+    "highlight": "",
+    "patterns": [
+      { "type": "prompt" },
+      {
+        "pattern": "[\\+]+",
+        "type": "regex"
+      }
+    ],
+    "script": ""
+  }
+]

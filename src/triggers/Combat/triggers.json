@@ -105,5 +105,132 @@
       }
     ],
     "script": ""
+  },
+  {
+    "name": "actionFail",
+    "isActive": "yes",
+    "isFolder": "no",
+    "multiline": "no",
+    "multilineDelta": "0",
+    "matchall": "",
+    "filter": "",
+    "fireLength": "0",
+    "highlight": "",
+    "patterns": [
+      {
+        "pattern": "You try, but you can't, youre STUCK...",
+        "type": "startOfLine"
+      },
+      {
+        "pattern": "You try, but you're paralyzed with pain!!",
+        "type": "startOfLine"
+      },
+      {
+        "pattern": "Storm Flurry Whom?",
+        "type": "exactMatch"
+      },
+      {
+        "pattern": "This room just has such a peaceful, easy feeling...",
+        "type": "exactMatch"
+      },
+      {
+        "pattern": "You cannot do that yet!",
+        "type": "exactMatch"
+      },
+      {
+        "pattern": "All you can do right now is think about the stars!",
+        "type": "exactMatch"
+      }
+    ],
+    "script": ""
+  },
+  {
+    "name": "gag",
+    "isActive": "yes",
+    "isFolder": "no",
+    "multiline": "no",
+    "multilineDelta": "0",
+    "matchall": "",
+    "filter": "",
+    "fireLength": "0",
+    "highlight": "",
+    "patterns": [
+      {
+        "pattern": "An archaic diskos's serrated teeth saw into",
+        "type": "startOfLine"
+      },
+      {
+        "pattern": "^\\[[^0-9\\|]+\\]",
+        "type": "regex"
+      },
+      {
+        "pattern": "reels with pain as (.+) strikes at (.*) throat.",
+        "type": "regex"
+      },
+      {
+        "pattern": "powerful high kick slams in to (.+), knocking (.*) back!",
+        "type": "regex"
+      },
+      {
+        "pattern": "(.+) gasps in pain as (.+) lands a devestating spinkick in (.+) ribs.",
+        "type": "regex"
+      },
+      {
+        "pattern": "There is a shower of hot blood as (.+) uppercut connects with (.+) face!",
+        "type": "regex"
+      }
+    ],
+    "script": ""
+  },
+  {
+    "name": "quiet",
+    "isActive": "no",
+    "isFolder": "no",
+    "multiline": "no",
+    "multilineDelta": "0",
+    "matchall": "",
+    "filter": "",
+    "fireLength": "0",
+    "highlight": "",
+    "patterns": [
+      {
+        "pattern": "^(.+)'s(.+) ROCKS THE HELL OUT OF (.+)!!!!!!",
+        "type": "regex"
+      },
+      {
+        "pattern": "^(.+) MUTILATES (.+) with (.+) powerful (.+)!!!!!!",
+        "type": "regex"
+      },
+      {
+        "pattern": "^(.+) EVISCERATES (?!you)(.+) with (.+) incredibly powerful (.+)!!!",
+        "type": "regex"
+      },
+      {
+        "pattern": "^(.+) (.+) WRECKS AND RUINS (.+)!!!!!!",
+        "type": "regex"
+      },
+      {
+        "pattern": "(.+) DEMOLISHES (?!YOU)(.+)!!!!!!!!",
+        "type": "regex"
+      },
+      {
+        "pattern": "(.+) MASSACRES (.+) with (.+) unrelenting (.+)!!!!!!",
+        "type": "regex"
+      },
+      {
+        "pattern": "(.+) DESTROYS (?!you)(.+) with (.+) ultimate (.+)!!!",
+        "type": "regex"
+      },
+      {
+        "pattern": "(.+) OBLITERATES (?!you)(.+) with (.+) deadly (.+)!!",
+        "type": "regex"
+      },
+      { "pattern": "^(.+) chainsaws", "type": "regex" },
+      {
+        "pattern": "^(.+) DECIMATES (?!you)(.+) with (.+) demoralizing (.+)!!!!",
+        "type": "regex"
+      }
+    ],
+    "script": ""
   }
 ]

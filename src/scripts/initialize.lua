@@ -14,12 +14,16 @@ Nf.profile            = Nf.profile or {}
 Nf.profile.customWear = Nf.profile.customWear or {}
 -- opening move / attack - saved and settable per profile
 Nf.profile.attack     = Nf.profile.attack or "gt attack not set!"
+Nf.target             = Nf.target or { name = "foo", type = "man" }
+Nf.buttons            = Nf.buttons or {}
 
 Nf.rooms              = Nf.rooms or {}
 Nf.mission            = Nf.mission or {}
 Nf.mission.steps      = Nf.mission.steps or {}
 Nf.timers             = Nf.timers or {}
 Nf.flags              = Nf.flags or {}
+Nf.triggers           = Nf.triggers or {} -- temp triggers
+Nf.lastCast           = Nf.lastCast or {}
 
 Nf.inventory          = Nf.inventory or {}
 
@@ -57,10 +61,32 @@ function initMSDP(_, protocol)
             "MOVEMENT_MAX", "HITROLL", "DAMROLL", "AC", "STR", "INT", "WIS", "DEX", "CON", "STR_PERM", "INT_PERM",
             "WIS_PERM", "DEX_PERM", "CON_PERM", "OPPONENT_HEALTH", "OPPONENT_HEALTH_MAX", "OPPONENT_LEVEL",
             "OPPONENT_NAME")
+        sendMSDP("XTERM_256_COLORS", "1")
     end
 end
 
 registerAnonymousEventHandler("sysProtocolEnabled", initMSDP)
+
+if not Nf.ButtonBox then
+    Nf.ButtonBox = Geyser.HBox:new({ x = "-30%", y = "-45%", width = "25%", height = "7.5%" })
+end
+
+
+local buttons = {
+    ["attack"] = { clickCommand = "attack mob", msg = "<center>Attack</center>" },
+    ["nova"] = { clickCommand = "nova", msg = "<center>Nova</center>" },
+    ["torment"] = { clickCommand = ">Armitage torment mob", msg = "<center>Torment</center>" },
+    ["doom"] = { clickCommand = ">Armitage sling 'doom' mob", msg = "<center>Doom</center>" },
+    ["crippling"] = { clickCommand = ">Frontline crippling mob", msg = "<center>Crippling</center>" },
+    ["shield"] = { clickCommand = ">Armitage sling 'shield of flames'", msg = "<center>Shield</center>" },
+    ["radstorm"] = { clickCommand = "radstorm", msg = "<center>Radstorm</center>" },
+    ["vomit"] = { clickCommand = "vomit", msg = "<center>Vomit</center>" }
+}
+
+for k, v in spairs(buttons) do
+    local config = table.union(v, { style = [[ margin: 1px; background-color: blue; border: 1px solid white; ]] })
+    Nf.buttons[k] = Nf.buttons[k] or Geyser.Button:new(config, Nf.ButtonBox)
+end
 
 if not HMVBox then
     HMVBox = Geyser.VBox:new({

@@ -11,5 +11,10 @@ function Nf.getCorpse()
     send("retrieve")
     disableTrigger("sortItems")
     send("get all from corpse")
+    send("get all from fupa")
+    if msdp.CLASS == "Ninja" then
+        send("conceal " .. getProfileName())
+        send("conceal " .. getProfileName())
+    end
     Nf.reWear()
 end

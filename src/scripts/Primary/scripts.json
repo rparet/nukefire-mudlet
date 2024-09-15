@@ -46,5 +46,12 @@
     "name": "eventUtsu",
     "eventHandlerList": ["utsu"],
     "script": ""
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "eventMissing",
+    "eventHandlerList": ["missing"],
+    "script": ""
   }
 ]

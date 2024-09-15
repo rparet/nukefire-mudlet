@@ -48,7 +48,23 @@
     "highlight": "",
     "patterns": [
       {
+        "pattern": "A warm and comforting light surrounds",
+        "type": "startOfLine"
+      },
+      {
         "pattern": "An intense surge of vitality surrounds",
+        "type": "startOfLine"
+      },
+      {
+        "pattern": "A surge of demonic energy surrounds",
+        "type": "startOfLine"
+      },
+      {
+        "pattern": "A surge of demonic energy envelops",
+        "type": "startOfLine"
+      },
+      {
+        "pattern": "You feel a wonderous energy fill your body!",
         "type": "startOfLine"
       }
     ],

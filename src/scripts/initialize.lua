@@ -80,7 +80,8 @@ local buttons = {
     ["crippling"] = { clickCommand = ">Frontline crippling mob", msg = "<center>Crippling</center>" },
     ["shield"] = { clickCommand = ">Armitage sling 'shield of flames'", msg = "<center>Shield</center>" },
     ["radstorm"] = { clickCommand = "radstorm", msg = "<center>Radstorm</center>" },
-    ["vomit"] = { clickCommand = "vomit", msg = "<center>Vomit</center>" }
+    ["vomit"] = { clickCommand = "vomit", msg = "<center>Vomit</center>" },
+    ["weaponthrow"] = { clickCommand = ">Frontline wt", msg = "<center>Throw</center>" }
 }
 
 for k, v in spairs(buttons) do
@@ -173,3 +174,7 @@ if not table.contains(getPackages(), "EMCOChat") then
     --tabbed chat
     installPackage("https://github.com/demonnic/EMCO/releases/latest/download/EMCOChat.mpackage")
 end
+
+Nf.commandList = {
+    ["wt"] = { class = "Ninja", cmd = "weaponThrow()" }
+}

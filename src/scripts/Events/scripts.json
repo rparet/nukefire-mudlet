@@ -26,5 +26,12 @@
     "name": "eventAttack",
     "eventHandlerList": ["eventAttack"],
     "script": ""
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "eventWithdraw",
+    "eventHandlerList": ["withdraw"],
+    "script": ""
   }
 ]

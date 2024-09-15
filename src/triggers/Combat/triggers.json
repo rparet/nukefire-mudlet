@@ -229,6 +229,10 @@
       {
         "pattern": "^(.+) DECIMATES (?!you)(.+) with (.+) demoralizing (.+)!!!!",
         "type": "regex"
+      },
+      {
+        "pattern": "^(.+)'s gypsy dance invigorates you with renewed energy!",
+        "type": "regex"
       }
     ],
     "script": ""

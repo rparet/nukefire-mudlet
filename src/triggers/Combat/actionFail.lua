@@ -1,14 +1,14 @@
 Nf.msg("Caught failed action attempt. Clearing state and temp triggers.")
 if Nf.flags.action then
-    Nf.flags.action = false
+    Nf.setFlag("action", false)
 end
 
 if Nf.flags.heal then
-    Nf.flags.heal = false
+    Nf.setFlag("heal", false)
 end
 
 if Nf.flags.casting then
-    Nf.flags.casting = false
+    Nf.setFlag("casting", false)
 end
 
 if Nf.triggers.action then

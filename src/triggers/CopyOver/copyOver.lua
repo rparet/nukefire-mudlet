@@ -7,6 +7,7 @@ end
 
 if Nf.inCombat then
     Nf.inCombat = false
+    Nf.setFlag("fighting", false)
 end
 
 if Nf.onMission() then

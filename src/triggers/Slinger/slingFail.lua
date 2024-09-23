@@ -1,7 +1,7 @@
 Nf.msg("Caught failed sling attempt. Clearing state and temp triggers.")
 
 if Nf.flags.casting then
-    Nf.flags.casting = false
+    Nf.setFlag("casting", false)
 end
 
 if Nf.triggers.casting then
@@ -9,7 +9,7 @@ if Nf.triggers.casting then
 end
 
 if Nf.flags.action then
-    Nf.flags.action = false
+    Nf.setFlag("action", false)
 end
 
 if Nf.triggers.action then
@@ -17,5 +17,5 @@ if Nf.triggers.action then
 end
 
 if Nf.flags.heal then
-    Nf.flags.heal = false
+    Nf.setFlag("heal", false)
 end

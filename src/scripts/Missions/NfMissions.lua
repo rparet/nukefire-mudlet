@@ -408,6 +408,7 @@ function Nf.clearRoom()
         -- manually set inCombat here beacuse sometimes we kill mobs so quickly the msdp events don't
         -- come from the server.
         Nf.inCombat = true
+        Nf.setFlag("fighting", true)
         -- set a timer to check in on the room just in case the triggers don't fire.
         -- if Nf.timers.clearRoom then killTimer(Nf.timers.clearRoom) end
         -- Nf.timers.clearRoom = tempTimer(1, function() Nf.clearRoom() end)

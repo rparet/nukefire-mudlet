@@ -36,12 +36,19 @@
         "pattern": "Cannot find the target of your spell!",
         "type": "exactMatch"
       },
+      { "pattern": "Upon who should the spell be cast?", "type": "exactMatch" },
       {
         "pattern": "You cannot do that yet!",
         "type": "exactMatch"
       },
       {
         "pattern": "All you can do right now is think about the stars!",
+        "type": "exactMatch"
+      },
+      { "pattern": "Your magic fizzles out and dies.", "type": "exactMatch" },
+      { "pattern": "In your dreams, or what?", "type": "exactMatch" },
+      {
+        "pattern": "You haven't the energy to cast that spell!",
         "type": "exactMatch"
       }
     ],

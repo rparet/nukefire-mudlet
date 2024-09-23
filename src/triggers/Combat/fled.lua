@@ -1,6 +1,7 @@
 -- handle the cast where we're manually set in combat and a flee happens before msdp.OPPONENT_LEVEL event.
 if Nf.inCombat then
     Nf.inCombat = false
+    Nf.setFlag("fighting", false)
     if next(map.prompt.mobs) ~= nil then
         table.remove(map.prompt.mobs, 1)
     end

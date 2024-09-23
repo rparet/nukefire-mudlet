@@ -1,7 +1,7 @@
 -- level appropriate heal. needs MSDP level attribute
 
 function heal(profileName, healthPercent)
-  Nf.flags.heal = true
+  Nf.setFlag("heal", true)
 
   -- Compare the healthPercent we are passed in vs. current profile health percent, if available.
   if Nf.profiles[profileName] and Nf.profiles[profileName]["hp"] then

@@ -28,5 +28,11 @@
     "isFolder": "no",
     "name": "gradientmaker",
     "script": ""
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "setFlag",
+    "script": ""
   }
 ]

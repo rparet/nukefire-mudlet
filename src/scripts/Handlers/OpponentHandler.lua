@@ -31,4 +31,9 @@ function OpponentHandler(event)
             -- end
         end
     end
+    if event == "msdp.OPPONENT_NAME" then
+        if msdp.OPPONENT_NAME ~= "" then
+            Nf.msg("Opponent name: " .. msdp.OPPONENT_NAME)
+        end
+    end
 end

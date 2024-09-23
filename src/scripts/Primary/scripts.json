@@ -53,5 +53,12 @@
     "name": "eventMissing",
     "eventHandlerList": ["missing"],
     "script": ""
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "eventSetFlag",
+    "eventHandlerList": ["setflag"],
+    "script": ""
   }
 ]

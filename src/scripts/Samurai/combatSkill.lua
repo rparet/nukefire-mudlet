@@ -48,16 +48,24 @@ local function ninja(level)
     skill = "groinrip"
   elseif level < 35 then
     skill = "legsweep"
-  else
+  elseif level < 40 then
     skill = "tigerpunch"
+  elseif level < 41 then
+    skill "neckbreak"
+  elseif level < 46 then
+    skill "darkstrike"
+  else
+    skill = "storm"
   end
 
+
   if skill == "storm" then
-    Nf.flags.action = true
+    Nf.setFlag("action", true)
+
     Nf.triggers.action = tempRegexTrigger("^With a sudden burst of energy, you unleash a Wild Storm Flurry!",
       function()
         echo("\nResolved storm flurry trigger!\n")
-        Nf.flags.action = false
+        Nf.setFlag("action", false)
       end, 1)
   end
 

@@ -3,8 +3,6 @@ Mudlet scripts for Nukefire: Beyond Thunderdome
 tdome.nukefire.org:4000
 
 These scripts are a work-in-progress, but have been designed to be as "drop-in" as possible for anyone to use.
-
-For example:
 Most inter-profile communication is via Events - meaning you will automatically find the right profile for the action without hardcoding profile names.
 
 Class-specific aliases, scripts, and triggers:
@@ -16,6 +14,7 @@ Class-specific aliases, scripts, and triggers:
 - Ninja
 - Knight
 - Heretic
+- Kaiju
 
 General purpose aliases, scripts, triggers:
 
@@ -25,6 +24,8 @@ General purpose aliases, scripts, triggers:
 - Items / Inventory / Eq / Money
 - Directions / navigation
 
+Replacement for Mudlet's generic_mapper so that mapping works in Nukefire.
+
 # Installation
 
 To just get up and running with the scripts, it's best to download the pre-compiled Mudlet package.
@@ -32,7 +33,7 @@ To just get up and running with the scripts, it's best to download the pre-compi
 Note that Mudlet doesn't enable MSDP support on profiles by default, which is required for these scripts to work.
 So make sure to enable MSDP in the Settings->General section for each profile, and then reconnect to the game.
 
-[Download Nukefire mudlet package](https://github.com/...)
+[Download Nukefire mudlet package](https://github.com/rparet/nukefire-mudlet/releases/latest)
 
 # Developing / Making changes
 

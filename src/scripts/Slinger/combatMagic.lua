@@ -51,32 +51,32 @@ function combatMagic()
     Nf.lastCast[spell] = getEpoch()
 
     if spell == "calliope" then
-        Nf.flags.casting = true
+        Nf.setFlag("casting", true)
         Nf.triggers.casting = tempRegexTrigger("^Your calliope",
             function()
                 local elapsed = getEpoch() - Nf.lastCast["calliope"]
                 echo("\nResolved calliope trigger. Trigger took " .. elapsed .. "s\n")
-                Nf.flags.casting = false
+                Nf.setFlag("casting", false)
             end, 1)
     end
 
     if spell == "disintegrate" then
-        Nf.flags.casting = true
+        Nf.setFlag("casting", true)
         Nf.triggers.casting = tempRegexTrigger("^You disintegrate",
             function()
                 local elapsed = getEpoch() - Nf.lastCast["disintegrate"]
                 echo("\nResolved disintegrate trigger. Trigger took " .. elapsed .. "s\n")
-                Nf.flags.casting = false
+                Nf.setFlag("casting", false)
             end, 1)
     end
 
     if spell == "disruption" then
-        Nf.flags.casting = true
+        Nf.setFlag("casting", true)
         Nf.triggers.casting = tempRegexTrigger("^You sling a ray of disruption|^Your ray of disruption",
             function()
                 local elapsed = getEpoch() - Nf.lastCast["disruption"]
-                echo("\nResolved disruption trigger. Trigger took" .. elapsed .. "s\n")
-                Nf.flags.casting = false
+                echo("\nResolved disruption trigger. Trigger took " .. elapsed .. "s\n")
+                Nf.setFlag("casting", false)
             end, 1)
     end
 

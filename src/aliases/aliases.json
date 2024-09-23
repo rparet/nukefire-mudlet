@@ -128,13 +128,6 @@
   {
     "isActive": "yes",
     "isFolder": "no",
-    "name": "setAttack",
-    "regex": "^setattack\\s*?(?<target>.*)$",
-    "script": ""
-  },
-  {
-    "isActive": "yes",
-    "isFolder": "no",
     "name": "weaponThrow",
     "regex": "^wt$",
     "script": "weaponThrow()"
@@ -144,6 +137,13 @@
     "isFolder": "no",
     "name": "missing",
     "regex": "^missing$",
+    "script": ""
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "nf",
+    "regex": "^nf (primary|attack|bank)(?: (.+))?$",
     "script": ""
   }
 ]

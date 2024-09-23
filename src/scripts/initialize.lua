@@ -14,6 +14,7 @@ Nf.profile            = Nf.profile or {}
 Nf.profile.customWear = Nf.profile.customWear or {}
 -- opening move / attack - saved and settable per profile
 Nf.profile.attack     = Nf.profile.attack or "gt attack not set!"
+Nf.profile.primary    = Nf.profile.primary or false
 Nf.target             = Nf.target or { name = "foo", type = "man" }
 Nf.buttons            = Nf.buttons or {}
 
@@ -52,7 +53,7 @@ function Nf.load()
 end
 
 registerNamedEventHandler(getProfileName(), "loadEvent", "sysLoadEvent", Nf.load)
-registerNamedEventHandler(getProfileName(), "loadClassHandler", "sysInstall", ClassHandler)
+
 
 function initMSDP(_, protocol)
     if protocol == "MSDP" then
@@ -67,26 +68,28 @@ end
 
 registerAnonymousEventHandler("sysProtocolEnabled", initMSDP)
 
-if not Nf.ButtonBox then
-    Nf.ButtonBox = Geyser.HBox:new({ x = "-30%", y = "-45%", width = "25%", height = "7.5%" })
-end
+function Nf.showButtons()
+    if not Nf.ButtonBox then
+        Nf.ButtonBox = Geyser.HBox:new({ x = "-30%", y = "-45%", width = "25%", height = "7.5%" })
+    end
 
 
-local buttons = {
-    ["attack"] = { clickCommand = "attack mob", msg = "<center>Attack</center>" },
-    ["nova"] = { clickCommand = "nova", msg = "<center>Nova</center>" },
-    ["torment"] = { clickCommand = ">Armitage torment mob", msg = "<center>Torment</center>" },
-    ["doom"] = { clickCommand = ">Armitage sling 'doom' mob", msg = "<center>Doom</center>" },
-    ["crippling"] = { clickCommand = ">Frontline crippling mob", msg = "<center>Crippling</center>" },
-    ["shield"] = { clickCommand = ">Armitage sling 'shield of flames'", msg = "<center>Shield</center>" },
-    ["radstorm"] = { clickCommand = "radstorm", msg = "<center>Radstorm</center>" },
-    ["vomit"] = { clickCommand = "vomit", msg = "<center>Vomit</center>" },
-    ["weaponthrow"] = { clickCommand = ">Frontline wt", msg = "<center>Throw</center>" }
-}
+    local buttons = {
+        ["attack"] = { clickCommand = "attack mob", msg = "<center>Attack</center>" },
+        ["nova"] = { clickCommand = "nova", msg = "<center>Nova</center>" },
+        ["torment"] = { clickCommand = ">Armitage torment mob", msg = "<center>Torment</center>" },
+        ["doom"] = { clickCommand = ">Armitage sling 'doom' mob", msg = "<center>Doom</center>" },
+        ["crippling"] = { clickCommand = ">Frontline crippling mob", msg = "<center>Crippling</center>" },
+        ["shield"] = { clickCommand = ">Armitage sling 'shield of flames'", msg = "<center>Shield</center>" },
+        ["radstorm"] = { clickCommand = "radstorm", msg = "<center>Radstorm</center>" },
+        ["vomit"] = { clickCommand = "vomit", msg = "<center>Vomit</center>" },
+        ["weaponthrow"] = { clickCommand = ">Frontline wt", msg = "<center>Throw</center>" }
+    }
 
-for k, v in spairs(buttons) do
-    local config = table.union(v, { style = [[ margin: 1px; background-color: blue; border: 1px solid white; ]] })
-    Nf.buttons[k] = Nf.buttons[k] or Geyser.Button:new(config, Nf.ButtonBox)
+    for k, v in spairs(buttons) do
+        local config = table.union(v, { style = [[ margin: 1px; background-color: blue; border: 1px solid white; ]] })
+        Nf.buttons[k] = Nf.buttons[k] or Geyser.Button:new(config, Nf.ButtonBox)
+    end
 end
 
 if not HMVBox then
@@ -172,9 +175,33 @@ moveBar.back:setStyleSheet(
 
 if not table.contains(getPackages(), "EMCOChat") then
     --tabbed chat
+    function installedEMCOChat(_, name)
+        if name ~= "EMCOChat" then return end
+        -- config emcochat with Nukefire preferences.
+        demonnic.helpers.resetToDefaults()
+        demonnic.chat:removeTab("Local")
+        demonnic.chat:removeTab("City")
+        demonnic.chat:removeTab("OOC")
+        demonnic.chat:addTab("Gossip")
+        demonnic.chat:addTab("SkyNet")
+        demonnic.chat:addTab("Auction")
+        demonnic.container:move("70%", "0px")
+        demonic.helpers.save()
+        demonnic.helpers.load()
+    end
+
+    registerAnonymousEventHandler("sysInstallPackage", installedEMCOChat)
     installPackage("https://github.com/demonnic/EMCO/releases/latest/download/EMCOChat.mpackage")
 end
 
 Nf.commandList = {
     ["wt"] = { class = "Ninja", cmd = "weaponThrow()" }
 }
+
+function Nf.postInstall(_, name)
+    Nf.msg("Thanks for installing nukefire-mudlet!")
+    Nf.msg("If you haven't already, make sure that MSDP is enabled in Mudlet's settings.")
+    Nf.msg("Also be sure to run the commands: nf primary true and nf bank true on your main profile.")
+end
+
+registerAnonymousEventHandler("sysInstallPackage", Nf.postInstall)

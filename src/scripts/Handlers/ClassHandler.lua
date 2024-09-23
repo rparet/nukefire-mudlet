@@ -2,7 +2,7 @@
 -- driven by msdp.CLASS, so it should work with longwalking, etc.
 
 local function configClassScripts(class)
-    local classes = { "Samurai", "Slinger", "Curist", "Primary", "Knight", "Heretic", "Ninja" }
+    local classes = { "Samurai", "Slinger", "Curist", "Knight", "Heretic", "Ninja" }
     local enableResult
 
     -- When called, turn on your scripts and turn off the rest.
@@ -10,9 +10,6 @@ local function configClassScripts(class)
         if v == class then
             enableResult = enableScript(class)
             Nf.msg("Enabling " .. class .. ": " .. tostring(enableResult))
-        elseif v == "Primary" and (class == "Mutant" or class == "Kaiju") then
-            enableResult = enableScript("Primary")
-            Nf.msg("Enabling Primary: " .. tostring(enableResult))
         else
             enableResult = disableScript(v)
             Nf.msg("Disabling " .. v .. ": " .. tostring(enableResult))
@@ -26,10 +23,23 @@ local function configClassScripts(class)
 end
 
 function ClassHandler()
-    Nf.msg("Setting class-specific scripts.")
+    local enableResult
+    Nf.msg("Setting profile-specific scripts")
+    if Nf.profile.primary then
+        Nf.showButtons()
+        enableResult = enableScript("Primary")
+        Nf.msg("Enabling Primary: " .. tostring(enableResult))
+    else
+        enableResult = disableScript("Primary")
+        Nf.msg("Disabling Primary: " .. tostring(enableResult))
+    end
+
+    Nf.msg("Setting class-specific scripts")
     if not msdp.CLASS then
         return
     end
 
     configClassScripts(msdp.CLASS)
 end
+
+registerNamedEventHandler(getProfileName(), "loadClassHandler", "sysInstall", ClassHandler)

@@ -4,5 +4,17 @@
     "isFolder": "no",
     "name": "attack",
     "script": ""
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "combatLoop",
+    "script": ""
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "delayAttack",
+    "script": ""
   }
 ]

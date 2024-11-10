@@ -6,6 +6,8 @@ function CombatHandler(event)
             combatSkill()
         elseif msdp.CLASS == "Slinger" then
             combatMagic()
+        elseif msdp.CLASS == "Voidstriker" then
+            Nf.combatLoop()
         end
     elseif event == "exitedCombat" then
         Nf.msg("Exited combat")
@@ -13,5 +15,12 @@ function CombatHandler(event)
         Nf.setFlag("casting", false)
         Nf.setFlag("action", false)
         --Nf.inCombat = false making this false here breaks missions somehow
+        if Nf.triggers.action then
+            killTrigger(Nf.triggers.action)
+        end
+
+        if Nf.triggers.casting then
+            killTrigger(Nf.triggers.casting)
+        end
     end
 end

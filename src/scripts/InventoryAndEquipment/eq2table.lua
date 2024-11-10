@@ -33,6 +33,7 @@ eqPositionTable = {
     ["<dual wielded>"] = "DUAL_WIELD",
     ["<used as light>"] = "LIGHT",
     ["<pierced lower lip>"] = "PIERCING",
+    ["<pierced piercing>"] = "PIERCING",
     ["<pierced lip>"] = "PIERCING",
     ["<pierced nose>"] = "PIERCING",
     ["<pierced septum>"] = "PIERCING",

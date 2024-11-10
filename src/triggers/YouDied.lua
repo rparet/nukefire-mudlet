@@ -12,6 +12,9 @@ if Nf.flags.utsu then
 end
 
 Nf.setFlag("action", false)
+if Nf.flags.invig then
+    Nf.setFlag("invig", false)
+end
 
 send("1")
 Nf.getCorpse()

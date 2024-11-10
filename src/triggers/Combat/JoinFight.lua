@@ -3,4 +3,6 @@ if msdp.CLASS == "Samurai" or msdp.CLASS == "Assassin" or msdp.CLASS == "Ninja" 
     combatSkill()
 elseif msdp.CLASS == "Slinger" then
     combatMagic()
+elseif msdp.CLASS == "Voidstriker" then
+    Nf.combatLoop()
 end

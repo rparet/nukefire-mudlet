@@ -1,8 +1,15 @@
 function eventAttack(_, target, targetType)
-    if type(Nf.profile.attack) == "string" then
-        send(Nf.profile.attack .. " " .. target)
-    elseif type(Nf.profile.attack) == "function" then
-        Nf.profile.attack(target)
+    local attack = Nf.profile.attack
+    if type(attack) == "string" then
+        send(attack .. " " .. target)
+    elseif type(attack) == "table" then
+        if attack.command and attack.delay then
+            delayAttack(target, attack.command, attack.delay)
+        else
+            for k, cmd in pairs(attack) do
+                send(cmd .. " " .. target)
+            end
+        end
     end
 
     Nf.target.name = target

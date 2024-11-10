@@ -11,6 +11,14 @@ if Nf.flags.casting then
     Nf.setFlag("casting", false)
 end
 
+if Nf.flags.fighting then
+    Nf.setFlag("fighting", false)
+end
+
+if Nf.flags.heal then
+    Nf.setFlag("invig", false)
+end
+
 if Nf.triggers.action then
     killTrigger(Nf.triggers.action)
 end

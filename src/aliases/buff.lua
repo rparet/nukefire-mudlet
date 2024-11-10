@@ -70,4 +70,6 @@ elseif msdp.CLASS == "Kaiju" then
     send("grow organs")
     send("grow plates")
     send("grow plates")
+elseif msdp.CLASS == "Voidstriker" then
+    Nf.doSkills("buff")
 end

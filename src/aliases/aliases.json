@@ -145,5 +145,12 @@
     "name": "nf",
     "regex": "^nf (primary|attack|bank)(?: (.+))?$",
     "script": ""
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "disteq",
+    "regex": "^disteq$",
+    "script": ""
   }
 ]

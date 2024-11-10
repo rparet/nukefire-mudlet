@@ -12,7 +12,7 @@ function Nf.getCorpse()
     disableTrigger("sortItems")
     send("get all from all.corpse")
     send("get all from all.fupa")
-    if msdp.CLASS == "Ninja" then
+    if msdp.CLASS == "Ninja" or msdp.CLASS == "Voidstriker" then
         send("conceal " .. getProfileName())
         send("conceal " .. getProfileName())
     end

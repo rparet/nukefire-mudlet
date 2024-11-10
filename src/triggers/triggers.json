@@ -145,7 +145,11 @@
     "fireLength": "0",
     "highlight": "",
     "patterns": [
-      { "pattern": "You are dead!  Sorry...", "type": "startOfLine" }
+      { "pattern": "You are dead!  Sorry...", "type": "startOfLine" },
+      {
+        "pattern": "Later, Punk... You DIE before your TIME, Hahahah!!!",
+        "type": "startOfLine"
+      }
     ],
     "script": ""
   },

@@ -19,3 +19,7 @@ end
 if Nf.flags.heal then
     Nf.setFlag("heal", false)
 end
+
+if Nf.flags.invig then
+    Nf.setFlag("invig", false)
+end

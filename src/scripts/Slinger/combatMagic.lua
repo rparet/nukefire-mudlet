@@ -20,31 +20,44 @@ function combatMagic()
     if opponentLevel < 20 then
         return
     end
-    if level <= 2 then
-        spell = "magic missile"
-    elseif level <= 4 then
-        spell = "chill touch"
-    elseif level <= 6 then
-        spell = "burning hands"
-    elseif level <= 8 then
-        spell = "shocking grasp"
-    elseif level <= 10 then
-        spell = "lightning bolt"
-    elseif level <= 14 then
-        spell = "color spray"
-    elseif level <= 17 then
-        spell = "fireball"
-    elseif level <= 21 then
-        spell = "calliope"
-    elseif level <= 39 then
-        spell = "disruption"
-    elseif level >= 40 then
-        spell = "disintegrate"
-        -- handle phoenix nova separately
+
+    local slinger_spell_table = {
+        { level = 40, spell = "disintegrate" },
+        { level = 22, spell = "disruption" },
+        { level = 18, spell = "calliope" },
+        { level = 15, spell = "fireball" },
+        { level = 13, spell = "energy drain" },
+        { level = 11, spell = "color spray" },
+        { level = 9,  spell = "lightning bolt" },
+        { level = 7,  spell = "shocking grasp" },
+        { level = 5,  spell = "burning hands" },
+        { level = 3,  spell = "chill touch" },
+        { level = 1,  spell = "magic missile" }
+    }
+    table.sort(slinger_spell_table, function(a, b) return a.level > b.level end)
+
+    local voidstriker_spell_table = {
+        { level = 40, spell = "annihilate" },
+        { level = 35, spell = "ravaged terrain" },
+        { level = 15, spell = "grave grasp" },
+        { level = 2,  spell = "bonespur" }
+    }
+    local function get_highest_spell(caster_level, spell_table)
+        for _, entry in ipairs(spell_table) do
+            if caster_level >= entry.level then
+                return entry.spell
+            end
+        end
+        return "" -- Return nil if no spell is available
     end
 
-    if level >= 40 and Nf.target.type == "machine" then
-        spell = "disruption"
+    if msdp.CLASS == "Slinger" then
+        spell = get_highest_spell(level, slinger_spell_table)
+        if level >= 40 and Nf.target.type == "machine" then
+            spell = "disruption"
+        end
+    elseif msdp.CLASS == "Voidstriker" then
+        spell = get_highest_spell(level, voidstriker_spell_table)
     end
 
     send("sling '" .. spell .. "'")

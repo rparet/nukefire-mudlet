@@ -7,6 +7,7 @@ Most inter-profile communication is via Events - meaning you will automatically 
 
 Class-specific aliases, scripts, and triggers:
 
+- Assassin
 - Mutant
 - Curist
 - Slinger
@@ -15,6 +16,7 @@ Class-specific aliases, scripts, and triggers:
 - Knight
 - Heretic
 - Kaiju
+- Voidstriker
 
 General purpose aliases, scripts, triggers:
 

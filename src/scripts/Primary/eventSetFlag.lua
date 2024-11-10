@@ -1,5 +1,5 @@
 function eventSetFlag(_, flag, value, profileName)
-    display("Caught eventSetFlag: " .. flag .. " " .. tostring(value) .. " " .. profileName)
+    --display("Caught eventSetFlag: " .. flag .. " " .. tostring(value) .. " " .. profileName)
 
     if not Nf.profiles[profileName].flags then
         Nf.profiles[profileName].flags = {}

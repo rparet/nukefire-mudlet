@@ -22,3 +22,14 @@ function Nf.sellInventory(type)
         end
     end
 end
+
+-- Add names of inscribed eq to inventory
+function Nf.setInventoryInscribe(inscribe)
+    if not Nf.inventory.inscribe then
+        Nf.inventory.inscribe = {}
+    end
+
+    if not Nf.inventory.inscribe[inscribe] then
+        Nf.inventory.inscribe[inscribe] = 1
+    end
+end

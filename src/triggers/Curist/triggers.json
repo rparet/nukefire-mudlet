@@ -37,6 +37,24 @@
     "script": ""
   },
   {
+    "name": "tellSummon",
+    "isActive": "yes",
+    "isFolder": "no",
+    "multiline": "no",
+    "multilineDelta": "0",
+    "matchall": "",
+    "filter": "",
+    "fireLength": "0",
+    "highlight": "",
+    "patterns": [
+      {
+        "pattern": "(\\w+) telepaths to you, 'sum'",
+        "type": "regex"
+      }
+    ],
+    "script": ""
+  },
+  {
     "name": "healFired",
     "isActive": "yes",
     "isFolder": "no",
@@ -103,6 +121,24 @@
       {
         "pattern": "Your fists no longer writhe with dark power.",
         "type": "exactMatch"
+      }
+    ],
+    "script": ""
+  },
+  {
+    "name": "invigFired",
+    "isActive": "yes",
+    "isFolder": "no",
+    "multiline": "no",
+    "multilineDelta": "0",
+    "matchall": "",
+    "filter": "",
+    "fireLength": "0",
+    "highlight": "",
+    "patterns": [
+      {
+        "pattern": "^A dark surge of energy engulfs (\\w+) as (\\w+) is empowered with sinful vigor!$",
+        "type": "regex"
       }
     ],
     "script": ""

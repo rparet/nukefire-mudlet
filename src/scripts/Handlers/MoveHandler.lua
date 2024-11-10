@@ -8,10 +8,14 @@ function MoveHandler()
 
     if movePercent <= 50 then
         raiseGlobalEvent("lowMove")
+        Nf.flags.lowMove = true
         if msdp.CLASS == "Curist" or msdp.CLASS == "Heretic" then
             raiseEvent("invig")
         else
             raiseGlobalEvent("invig")
         end
+    end
+    if movePercent >= 90 and Nf.flags.lowMove then
+        Nf.flags.lowMove = false
     end
 end

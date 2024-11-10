@@ -186,7 +186,7 @@ if not table.contains(getPackages(), "EMCOChat") then
         demonnic.chat:addTab("SkyNet")
         demonnic.chat:addTab("Auction")
         demonnic.container:move("70%", "0px")
-        demonic.helpers.save()
+        demonnic.helpers.save()
         demonnic.helpers.load()
     end
 
@@ -199,6 +199,7 @@ Nf.commandList = {
 }
 
 function Nf.postInstall(_, name)
+    if name ~= "nukefire" then return end
     Nf.msg("Thanks for installing nukefire-mudlet!")
     Nf.msg("If you haven't already, make sure that MSDP is enabled in Mudlet's settings.")
     Nf.msg("Also be sure to run the commands: nf primary true and nf bank true on your main profile.")

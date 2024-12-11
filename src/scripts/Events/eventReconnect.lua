@@ -6,4 +6,8 @@ function eventReconnect()
     else
         Nf.logOut = false
     end
+
+    if Nf.inCombat then
+        Nf.inCombat = false
+    end
 end

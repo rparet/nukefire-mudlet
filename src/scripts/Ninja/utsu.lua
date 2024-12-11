@@ -1,4 +1,7 @@
 function setUtsu(utsu)
+    if msdp.CLASS ~= "Ninja" then
+        return
+    end
     if Nf.flags.utsuBlocked then
         if Nf.timers.reUtsu and isActive(Nf.timers.reUtsu, "timer") then
             return

@@ -143,7 +143,7 @@
     "isActive": "yes",
     "isFolder": "no",
     "name": "nf",
-    "regex": "^nf (primary|attack|bank)(?: (.+))?$",
+    "regex": "^nf (primary|attack|bank|autos)(?: (.+))?$",
     "script": ""
   },
   {
@@ -151,6 +151,13 @@
     "isFolder": "no",
     "name": "disteq",
     "regex": "^disteq$",
+    "script": ""
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "rewear",
+    "regex": "^rewear$",
     "script": ""
   }
 ]

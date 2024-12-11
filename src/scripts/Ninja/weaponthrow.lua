@@ -1,5 +1,5 @@
 function weaponThrow()
-    send("weaponthrow mob")
+    send("shurikenthrow mob")
     send("get " .. getProfileName())
     send("conceal " .. getProfileName())
 end

@@ -74,5 +74,11 @@
     "name": "eventTeamVitals",
     "eventHandlerList": ["hp", "move"],
     "script": ""
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "sof",
+    "script": ""
   }
 ]

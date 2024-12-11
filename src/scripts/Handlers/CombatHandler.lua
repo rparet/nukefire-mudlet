@@ -2,6 +2,7 @@ function CombatHandler(event)
     if event == "enteredCombat" then
         Nf.msg("Entered combat")
         Nf.setFlag("fighting", true)
+        if not Nf.profile.autos then return end
         if msdp.CLASS == "Samurai" or msdp.CLASS == "Assassin" or msdp.CLASS == "Ninja" then
             combatSkill()
         elseif msdp.CLASS == "Slinger" then

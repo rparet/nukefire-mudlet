@@ -45,11 +45,13 @@ directions = {
     ["cactus"] = "run 3wnw2nwn3s4w3n6wnw2nwnwnww",
     ["jp"] = "run 7w7n",
     ["pirates"] = "run 10w9n5w",
+    ["dreadvillage"] = "run 8e8s1w4s1w3s1w1s",
     -- from 1 w, lw info center
     ["blackdragon"] = "run se7sn8wn3sws2wn2swds",
     ["browndragon"] = "run se4s8w3n2wnu3n2e2n",
     ["canyonrim"] = "run se5sws7wn3sw6s",
     ["tdome"] = "run se2s5w2s2w2s2w19s",
+    ["wztown"] = "run 12s4w1n13w1n22w2n",
     -- from canyonrim
     ["reddragon"] = "run 2d2edwdwsd2ene3nen4enen2e2ne3nw2nenen3es",
     -- from 1d, civic center, casablanca

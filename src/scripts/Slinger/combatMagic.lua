@@ -16,11 +16,6 @@ function combatMagic()
         return
     end
 
-    -- don't bother casting. save your mana for bigger mobs
-    if opponentLevel < 20 then
-        return
-    end
-
     local slinger_spell_table = {
         { level = 40, spell = "disintegrate" },
         { level = 22, spell = "disruption" },

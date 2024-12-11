@@ -1,6 +1,6 @@
 -- master nf config command
 
-local valid_options = { "primary", "bank", "attack" }
+local valid_options = { "primary", "bank", "attack", "autos" }
 local valid_options_string = table.concat(valid_options, ", ")
 local option = matches[2]
 local value = matches[3]
@@ -28,5 +28,16 @@ elseif option == "attack" then
         Nf.profile.attack = value
         Nf.msg("Attack set to: " .. value)
         Nf.save()
+    end
+elseif option == "autos" then
+    if not value then
+        Nf.msg("Current auto attack value: " .. Nf.profile.autos)
+        return
+    else
+        local val = (value and string.lower(value)) == "true" and true or false
+        Nf.profile.autos = val
+        Nf.msg("Auto attack set to: " .. tostring(val))
+        Nf.save()
+        return
     end
 end

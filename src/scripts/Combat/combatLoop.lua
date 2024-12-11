@@ -98,7 +98,7 @@ function Nf.doSkills(skillOption, type)
         { level = 40, name = "mark",         use = "opener",  type = "skill" },
         { level = 45, name = "eldritch cat", use = "aoe",     type = "spell" },
         { level = 47, name = "wraithfire",   use = "aoe",     type = "skill" },
-        { level = 50, name = "voidpunch",    use = "combat",  type = "skill" },
+        { level = 50, name = "voidpunch",    use = "aoe",     type = "skill" },
         { level = 50, name = "voidwarp",     use = "special", type = "skill" }
     }
     table.sort(voidstriker_skills_table, function(a, b) return a.level > b.level end)

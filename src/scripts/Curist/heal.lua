@@ -3,6 +3,11 @@
 function heal(profileName, healthPercent)
   Nf.setFlag("heal", true)
 
+  if profileName == "all" then
+    send("sling 'aura of rejuv'")
+    return
+  end
+
   -- Compare the healthPercent we are passed in vs. current profile health percent, if available.
   if Nf.profiles[profileName] and Nf.profiles[profileName]["hp"] then
     local currentHp = Nf.profiles[profileName]["hp"]
@@ -12,7 +17,7 @@ function heal(profileName, healthPercent)
     end
   end
   -- just get Knight out of the way
-  if msdp.CLASS == "Knight" then
+  if msdp.CLASS == "Knight" and tonumber(msdp.LEVEL) >= 25 then
     send("sling 'heal' " .. profileName)
     return
   end
@@ -40,9 +45,7 @@ function heal(profileName, healthPercent)
     elseif level < 25 then
       spell = "heal"
     else
-      if level >= 40 and healthPercent <= 70 then
-        spell = "demonglow"
-      else
+      if level >= 25 then
         spell = "rejuvinate"
       end
     end

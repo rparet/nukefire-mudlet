@@ -7,7 +7,6 @@ function Nf.reWear()
 end
 
 function Nf.getCorpse()
-    send("run eswds")
     send("retrieve")
     disableTrigger("sortItems")
     send("get all from all.corpse")

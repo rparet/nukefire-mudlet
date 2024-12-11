@@ -167,5 +167,23 @@
       { "pattern": "^You sense a trail (\\w+) from here!", "type": "regex" }
     ],
     "script": ""
+  },
+  {
+    "name": "tellActions",
+    "isActive": "yes",
+    "isFolder": "no",
+    "multiline": "no",
+    "multilineDelta": "0",
+    "matchall": "",
+    "filter": "",
+    "fireLength": "0",
+    "highlight": "",
+    "patterns": [
+      {
+        "pattern": "(?<target>\\w+) telepaths to you, '(?<command>\\w+) ?(?<alttarget>\\w+)*'",
+        "type": "regex"
+      }
+    ],
+    "script": ""
   }
 ]

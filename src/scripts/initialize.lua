@@ -14,7 +14,10 @@ Nf.profile            = Nf.profile or {}
 Nf.profile.customWear = Nf.profile.customWear or {}
 -- opening move / attack - saved and settable per profile
 Nf.profile.attack     = Nf.profile.attack or "gt attack not set!"
+-- primary profile
 Nf.profile.primary    = Nf.profile.primary or false
+-- do auto attacks, etc. or not.
+Nf.profile.autos      = Nf.profile.autos or true
 Nf.target             = Nf.target or { name = "foo", type = "man" }
 Nf.buttons            = Nf.buttons or {}
 
@@ -61,7 +64,7 @@ function initMSDP(_, protocol)
             "HEALTH_MAX", "LEVEL", "RACE", "CLASS", "MANA", "MANA_MAX", "WIMPY", "PRACTICE", "MONEY", "MOVEMENT",
             "MOVEMENT_MAX", "HITROLL", "DAMROLL", "AC", "STR", "INT", "WIS", "DEX", "CON", "STR_PERM", "INT_PERM",
             "WIS_PERM", "DEX_PERM", "CON_PERM", "OPPONENT_HEALTH", "OPPONENT_HEALTH_MAX", "OPPONENT_LEVEL",
-            "OPPONENT_NAME")
+            "OPPONENT_NAME", "AREA_NAME", "ROOM_EXITS", "ROOM_NAME", "ROOM_VNUM")
         sendMSDP("XTERM_256_COLORS", "1")
     end
 end

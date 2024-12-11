@@ -31,19 +31,19 @@ function teamVitals(event, value, profileName)
             }, Nf.profiles[profileName].box)
             Nf.profiles[profileName][barName].front:setStyleSheet(
                 [[background-color: ]] .. v .. [[;
-                border-top: 1px black solid;
-                border-left: 1px black solid;
-                border-bottom: 1px black solid;
-                border-radius: 7;
-                padding: 3px;
+                border-top: 0.1em black solid;
+                border-left: 0.1em black solid;
+                border-bottom: 0.1em black solid;
+                border-radius: 0.7em;
+                padding: 0.3em;
             ]])
             Nf.profiles[profileName][barName].back:setStyleSheet(
                 [[background-color: black;
-            border-width: 1px;
+            border-width: 0.1em;
             border-color: black;
             border-style: solid;
-            border-radius: 7;
-            padding: 3px;
+            border-radius: 0.7em;
+            padding: 0.3em;
         ]])
             Nf.profiles[profileName][barName]:setFgColor("black")
             Nf.profiles[profileName][barName]:setFontSize(18)

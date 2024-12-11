@@ -1,3 +1,3 @@
 if msdp.CLASS == "Curist" or msdp.CLASS == "Heretic" then
-    send("sling 'aura of rejuv'")
+    heal("all", 0)
 end

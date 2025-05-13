@@ -47,6 +47,20 @@
     "fireLength": "0",
     "highlight": "",
     "patterns": [
+      { "pattern": "A soothing glow surrounds", "type": "startOfLine" },
+      { "pattern": "A gentle radiance surrounds", "type": "startOfLine" },
+      {
+        "pattern": "A warm and comforting light envelops",
+        "type": "startOfLine"
+      },
+      {
+        "pattern": "A warm and comforting light surrounds",
+        "type": "startOfLine"
+      },
+      {
+        "pattern": "A warm and comforting light envelops",
+        "type": "startOfLine"
+      },
       {
         "pattern": "A warm and comforting light surrounds",
         "type": "startOfLine"

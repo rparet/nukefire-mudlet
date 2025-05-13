@@ -12,7 +12,7 @@
     "patterns": [
       { "type": "prompt" },
       {
-        "pattern": "[\\+]+",
+        "pattern": "(\\d+)\\+",
         "type": "regex"
       }
     ],

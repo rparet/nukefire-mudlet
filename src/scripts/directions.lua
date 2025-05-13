@@ -34,6 +34,7 @@ directions = {
     ["claven"] = "run 43e4n2w3ne",
     ["bgf"] = "run 2dsw6s3es2u5sw6se7s7esese4swnwe3s2d2edwdwsd2enen3e2ue2u",
     ["sky"] = "run 2dsw6s22e30n2u18e5e10s6eses",
+    ["spiders"] = "run ssssssssssssswswswsswssswwws",
     -- from bgf
     ["cern"] = "run 2dw3d2w2nen4enen2e2nen6e2sw3sw2s8ws6e9s",
     -- from ocp

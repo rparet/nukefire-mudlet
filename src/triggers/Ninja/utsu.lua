@@ -1,2 +1,2 @@
-local utsu = multimatches[2][1]
-setUtsu(#utsu)
+local utsu = multimatches[2][2]
+setUtsu(tonumber(utsu))

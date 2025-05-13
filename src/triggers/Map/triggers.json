@@ -58,8 +58,31 @@
         "pattern": "No way!  You're fighting for your life!",
         "type": "startOfLine"
       },
+      {
+        "pattern": "You see nothing but infinite darkness...",
+        "type": "startOfLine"
+      },
       { "pattern": "It is locked and you do not have", "type": "startOfLine" },
-      { "pattern": "You failed to pick the lock.", "type": "startOfLine" }
+      { "pattern": "You failed to pick the lock.", "type": "startOfLine" },
+      { "pattern": "(\\w+) seems to be closed.", "type": "regex" }
+    ],
+    "script": ""
+  },
+  {
+    "name": "MoveZone",
+    "isActive": "yes",
+    "isFolder": "no",
+    "multiline": "no",
+    "multilineDelta": "0",
+    "matchall": "",
+    "filter": "",
+    "fireLength": "0",
+    "highlight": "",
+    "patterns": [
+      {
+        "pattern": "You step into the new zone, feeling a shift in the atmosphere.",
+        "type": "startOfLine"
+      }
     ],
     "script": ""
   }

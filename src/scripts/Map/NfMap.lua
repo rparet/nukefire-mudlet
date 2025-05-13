@@ -1410,6 +1410,12 @@ end
 local function set_room(roomID)
     -- moves the map to the new room
 
+    map.echo("reached set room: " .. roomID, true)
+
+    if roomID == -1 then
+        map.set("currentRoom", roomID)
+        return
+    end
     if map.currentRoom ~= roomID then
         map.set("prevRoom", map.currentRoom)
         map.set("currentRoom", roomID)
@@ -1441,9 +1447,13 @@ local function set_room(roomID)
             setRoomUserData(map.currentRoom, "exitNames", yajl.to_string(map.prompt.exitNames))
         end
 
+        if getRoomUserData(map.currentRoom, "vnum") ~= msdp.ROOM_VNUM then
+            setRoomUserData(map.currentRoom, "vnum", msdp.ROOM_VNUM)
+        end
+
         if not getRoomUserData(map.currentRoom, "description", true) and map.prompt.description then
             setRoomUserData(map.currentRoom, "description", map.prompt.description)
-            setRoomIDbyHash(map.currentRoom, md5.sumhexa(map.prompt.description))
+            --setRoomIDbyHash(map.currentRoom, md5.sumhexa(map.prompt.description .. " " .. map.prompt.vnum))
         end
     end
 
@@ -1544,6 +1554,7 @@ local function getRoomStubs(roomID)
 end
 
 local function connect_rooms(ID1, ID2, dir1, dir2, no_check)
+    map.echo("Reached connect_rooms.", true)
     -- makes a connection between rooms
     -- can make backwards connection without a check
     local match = false
@@ -1600,6 +1611,15 @@ local function check_room(roomID, name, exits, onlyName)
     map.echo("Checking room " ..
         roomID .. " " .. (name or "") .. " " .. table.concat(exits, " ") .. " " .. "onlyName: " .. tostring(onlyName),
         true)
+
+    if msdp.ROOM_VNUM then
+        map.echo("Room ID is " .. roomID .. " room VNUM is " .. msdp.ROOM_VNUM, true)
+
+        -- we want to move to this room on the map and it matches the vnum of the room. no need to go further.
+        if msdp.ROOM_VNUM == roomID then
+            return true
+        end
+    end
     -- check with room hash id
     if map.prompt.hash and not onlyName then
         local hash = getRoomHashByID(roomID)
@@ -1609,19 +1629,23 @@ local function check_room(roomID, name, exits, onlyName)
             map.echo("Found room via map.prompt.hash.", true)
             return true
         elseif getRoomIDbyHash(map.prompt.hash) ~= -1 then
-            map.echo("Room hash matches a different room.", true)
+            map.echo("Room hash matches a different room. Hash is " .. map.prompt.hash, true)
             return false
         end
     end
 
     if name ~= getRoomName(roomID) then
-        map.echo("Room name doesn't match expectations: " .. (name or "") .. " " .. getRoomName(roomID), true)
+        map.echo(
+            "Room name doesn't match expectations. Room is: " .. (name or "") .. " Expected: " .. getRoomName(roomID),
+            true)
         return false
     end
 
     if onlyName and map.prompt.description then
         if map.prompt.description ~= getRoomUserData(roomID, "description") then
-            map.echo("Room description doesn't match expectations: " .. (name or "") .. " " .. getRoomName(roomID), true)
+            map.echo(
+                "Room description doesn't match expectations. Room is:  " ..
+                (map.prompt.description or "") .. " Excpected: " .. getRoomUserData(roomID, "description"), true)
             return false
         end
     end
@@ -1688,10 +1712,19 @@ local function create_room(name, exits, dir, coords)
     -- makes a new room with captured name and exits
     -- links with other rooms as appropriate
     -- links to adjacent rooms in direction of exits if in simple mode
+    map.echo("Reached create room.", true)
     if map.mapping then
         name = map.sanitizeRoomName(name)
         map.echo("New Room: " .. name, false, false, (dir or find_portal or force_portal) and true or false)
-        local newID = createRoomID()
+        local newID
+        -- use vnum if we haven't used it elsewhere already. needed for maps that have already used some numbers.
+        if msdp.ROOM_VNUM and not roomExists(msdp.ROOM_VNUM) then
+            newID = tonumber(msdp.ROOM_VNUM)
+        else
+            newID = createRoomID()
+        end
+
+        map.echo("Adding room: " .. newID, true)
         addRoom(newID)
         setRoomArea(newID, map.currentArea)
         setRoomName(newID, name)
@@ -1768,7 +1801,8 @@ local function find_link(name, exits, dir, max_distance)
     local x, y, z = getRoomCoordinates(map.currentRoom)
 
     -- only map when not in brief mode
-    if map.mapping and x and map.prompt.description then
+    if map.mapping and x then
+        map.echo("Reached find_link and mapping", true)
         if max_distance < 1 then
             max_distance = nil
         else
@@ -1783,11 +1817,22 @@ local function find_link(name, exits, dir, max_distance)
             miny, maxy = y - max_distance, y + max_distance
             minz, maxz = z - max_distance, z + max_distance
         end
-        -- find link from room hash first
-        if map.prompt.description then
+
+        -- first, find by vnum
+        if map.prompt.vnum then
+            -- a room number, or nil
+            match = searchRoomUserData("vnum", map.prompt.vnum)[1]
+        end
+        -- find link from room hash
+        if map.prompt.description and not match then
             local room = getRoomIDbyHash(md5.sumhexa(map.prompt.description))
-            if room > 0 then
+            if room > 0 and room == map.prompt.vnum then
                 match = room
+            elseif room > 0 and room ~= map.prompt.vnum then
+                -- got a match for this room description but it's the wrong vnum. Dupe room descriptions, so create a new room.
+                x, y, z = getRoomCoordinates(map.currentRoom)
+                create_room(name, exits, dir, { x + dx, y + dy, z + dz })
+                return
             end
         end
         if not match then
@@ -1817,6 +1862,19 @@ end
 
 local function move_map()
     -- tries to move the map to the next room
+    --display(move_queue)
+    if #move_queue > 1 then
+        display("Speedwalked to get here, multiple moves in queue.")
+        while #move_queue > 0 do
+            local move = table.remove(move_queue, 1)
+            local exits = getRoomExits(map.currentRoom)
+            if exits and exits[move] then
+                set_room(exits[move])
+            end
+        end
+        move_queue = {}
+    end
+
     local move = table.remove(move_queue, 1)
     if move or random_move then
         -- actually, the room we just left.
@@ -1864,10 +1922,10 @@ local function move_map()
             else
                 onlyName = false
             end
-            if exits[move] and (vision_fail or check_room(exits[move], map.currentName, map.currentExits, true)) then
+            if exits[move] and (vision_fail or check_room(exits[move], map.currentName, map.currentExits, onlyName)) then
                 map.echo("Moving map to " .. exits[move], true)
                 set_room(exits[move])
-            elseif special[move] and (vision_fail or check_room(special[move], map.currentName, map.currentExits, true)) then
+            elseif special[move] and (vision_fail or check_room(special[move], map.currentName, map.currentExits, onlyName)) then
                 set_room(special[move])
             elseif not vision_fail then
                 if map.mapping and move then
@@ -2382,6 +2440,25 @@ function map.find_me(name, exits, dir, manual)
     map.echo("Entered map.find_me()", true)
     if move ~= "recall" then move_queue = {} end
     -- find from room hash id - map.find_me(nil, nil, nil, false)
+
+    if map.prompt.vnum then
+        local results = searchRoomUserData("vnum", map.prompt.vnum)
+
+        if #results > 1 then
+            map.echo("Too many rooms have this vnum, clean up room user data!", true)
+            set_room(-1)
+            return
+        elseif #results == 0 then
+            map.echo("map.prompt.vnum set, but we have no room with this vnum, so aborting.", true)
+            set_room(-1)
+            return
+        end
+
+        if results then
+            set_room(results[1])
+            return
+        end
+    end
     if map.prompt.description then
         local hash = md5.sumhexa(map.prompt.description)
         local room = getRoomIDbyHash(hash)
@@ -2781,9 +2858,13 @@ local function handle_exits(exits)
     if room then
         map.echo("Room Name Captured: " .. room, true)
         room = string.trim(room)
+        map.set("currentName", room)
+        map.set("currentExits", exits)
         capture_room_info(room, exits)
+        -- map has been moved (or not) so blank these guys out.
         map.prompt.room = nil
         map.prompt.exits = nil
+        map.prompt.vnum = nil
     end
 end
 
@@ -2865,7 +2946,7 @@ function map.showMap(shown)
             x = "-" .. x
         end
     end
-    local mapper = Geyser.Mapper:new({ name = "my_mapper", x = x, y = y, w = w, h = h })
+    local mapper = Geyser.Mapper:new({ name = "nukefire_mapper", x = x, y = y, w = w, h = h })
     mapper:resize(w, h)
     mapper:move(x, y)
     if shown then

@@ -9,8 +9,10 @@ local function samurai(level)
     skill = "bash"
   elseif level <= 21 then
     skill = "grapple"
-  else
+  elseif level <= 22 then
     skill = "flurry"
+  elseif level <= 25 then
+    skill = "spiritattack"
   end
 
   return skill
@@ -63,7 +65,7 @@ local function ninja(level)
     Nf.setFlag("action", true)
 
     Nf.triggers.action = tempRegexTrigger(
-    "^With a sudden burst of energy, you unleash a Wild Storm Flurry!|You cannot perform a storm flurry on a group member!",
+      "^With a sudden burst of energy, you unleash a Wild Storm Flurry!|You cannot perform a storm flurry on a group member!",
       function()
         echo("\nResolved storm flurry trigger!\n")
         Nf.setFlag("action", false)

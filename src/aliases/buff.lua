@@ -14,6 +14,8 @@ if msdp.CLASS == "Mutant" then
     send("grow shell")
 elseif msdp.CLASS == "Samurai" then
     send("sling 'battle rites'")
+    send("ancestralism")
+    send("sling 'mystic fighter")
 elseif msdp.CLASS == "Curist" then
     send("sling 'holyfist'")
 elseif msdp.CLASS == "Slinger" then
@@ -46,7 +48,6 @@ elseif msdp.CLASS == "Knight" then
         send("oath")
     end
 elseif msdp.CLASS == "Heretic" then
-    send("sling 'fortify'")
     if tonumber(msdp.LEVEL) >= 11 then
         send("sling 'unholyfist'")
     end
@@ -54,6 +55,7 @@ elseif msdp.CLASS == "Heretic" then
         send("darkpact")
         send("covenant")
     end
+    send("sling 'fortify'")
 elseif msdp.CLASS == "Kaiju" then
     send("grow organs")
     send("grow swarm")

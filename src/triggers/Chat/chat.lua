@@ -7,5 +7,5 @@ elseif string.find(matches[1], "Group") then
 elseif string.find(matches[1], "Skynet") then
     demonnic.chat:append("Skynet")
 elseif string.find(matches[1], "auctions") then
-    demonnic.chat:append("Auctions")
+    demonnic.chat:append("Auction")
 end

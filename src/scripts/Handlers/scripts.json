@@ -52,5 +52,12 @@
     "name": "GroupHandler",
     "eventHandlerList": ["unGroup", "groupUp"],
     "script": ""
+  },
+  {
+    "isActive": "yes",
+    "isFolder": "no",
+    "name": "NewRoomHandler",
+    "eventHandlerList": ["msdp.ROOM_VNUM"],
+    "script": ""
   }
 ]

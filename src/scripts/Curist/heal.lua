@@ -28,7 +28,7 @@ function heal(profileName, healthPercent)
   if msdp.CLASS == "Curist" then
     if level <= 8 then
       spell = "cure light"
-    elseif level <= 11 then
+    elseif level <= 13 then
       spell = "cure critic"
     elseif level <= 24 then
       spell = "heal"
